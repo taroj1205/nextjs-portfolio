@@ -36,7 +36,7 @@ export const ThemeSwitcher = () => {
 				<button
 					type="button"
 					title="Switch theme"
-					className={`bg-white dark:bg-gray-800 flex items-center justify-center w-fit p-1 mr-1 md:mr-0 rounded-md active:scale-95 duration-200 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50`}
+					className={`bg-[#f5f5f5] dark:bg-gray-800 flex items-center justify-center w-fit p-1 mr-1 md:mr-0 rounded-md active:scale-95 duration-200 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50`}
 					onClick={() => setIsOpen(!isOpen)}>
 					{mounted ? (
 						resolvedTheme === "dark" ? (
