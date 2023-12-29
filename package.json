@@ -11,10 +11,12 @@
   "dependencies": {
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "@mui/icons-material": "^5.15.2",
     "@mui/joy": "^5.0.0-beta.20",
     "@radix-ui/react-icons": "^1.3.0",
     "@yamada-ui/carousel": "^1.0.2",
+    "@yamada-ui/fontawesome": "^1.0.2",
     "@yamada-ui/react": "^1.0.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",

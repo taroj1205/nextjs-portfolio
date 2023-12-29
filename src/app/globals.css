@@ -65,15 +65,17 @@
     --ring: 212.7 26.8% 83.9%;
   }
 }
- 
-@layer base {
-  * {
-    @apply border-border;
+
+	html {
+		font-family: system-ui, sans-serif;
+		--tw-bg-opacity: 1;
+	}
+  :is(:where(.dark) html) {
+		background-color: rgb(17 24 39 / var(--tw-bg-opacity));
   }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+	:is(:where(.dark) main) {
+		background-color: hsla(0, 0%, 0%, 0.4);
+	}
 
 .ui-carousel__control {
 	background: var(--ui-colors-blackAlpha-400) !important;
