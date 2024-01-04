@@ -11,6 +11,12 @@ import {
 import Link from "next/link";
 import { BriefIntro } from "@/components/BriefIntro";
 import { Languages } from "@/components/Languages";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "taroj1205 - Portfolio",
+	description: "taroj1205's website created with Next.js",
+};
 
 export default function Home() {
 	return (

@@ -1,4 +1,10 @@
 import { UoALinks } from "@/components/UoALinks";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "UoA Links",
+	description: "Useful links for UoA",
+};
 
 export default function Home() {
 	return (
