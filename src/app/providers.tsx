@@ -9,7 +9,7 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
 	console.log(currentColorMode);
   
   return (
-		<CssVarsProvider colorSchemeStorageKey="cookie" defaultMode={currentColorMode}>
+		<CssVarsProvider defaultMode="light">
 			<UIProvider colorModeManager={colorModeManager}>
 				<ColorModeScript
 					type="cookie"

@@ -35,7 +35,7 @@
     --radius: 0.5rem;
   }
  
-  .dark {
+  [data-mode="dark"] {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
  
@@ -70,10 +70,10 @@
 		font-family: system-ui, sans-serif;
 		--tw-bg-opacity: 1;
 	}
-  :is(:where(.dark) html) {
+  :is(:where([data-mode="dark"]) html) {
 		background-color: rgb(17 24 39 / var(--tw-bg-opacity));
   }
-	:is(:where(.dark) main) {
+	:is(:where([data-mode="dark"]) body) {
 		background-color: hsla(0, 0%, 0%, 0.4);
 	}
 
@@ -100,42 +100,42 @@
 }
 
 
-:is(:where(.dark) .ui-carousel__indicators__indicator[data-selected]) {
+:is(:where([data-mode="dark"]) .ui-carousel__indicators__indicator[data-selected]) {
   background: var(--ui-colors-blackAlpha-900) !important;
   color: var(--ui-colors-white) !important;
 }
-:is(:where(.dark) .ui-carousel__indicators__indicator) {
+:is(:where([data-mode="dark"]) .ui-carousel__indicators__indicator) {
   background: var(--ui-colors-blackAlpha-500) !important;
   color: var(--ui-colors-white) !important;
 }
-:is(:where(.dark) .ui-carousel__indicators__indicator):hover {
+:is(:where([data-mode="dark"]) .ui-carousel__indicators__indicator):hover {
   background: var(--ui-colors-blackAlpha-700) !important;
   color: var(--ui-colors-white) !important;
 }
 
-:is(:where(.dark) .MuiCard-root) {
+:is(:where([data-mode="dark"]) .MuiCard-root) {
   background-color: #0b0d0e !important;
   border-color: #2d3134 !important;
 }
-:is(:where(.dark) .MuiCardOverflow-root) {
+:is(:where([data-mode="dark"]) .MuiCardOverflow-root) {
   background-color: #171a1c !important;
 }
-:is(:where(.dark) .MuiDivider-root) {
+:is(:where([data-mode="dark"]) .MuiDivider-root) {
   background-color: #2d3134 !important;
 }
-:is(:where(.dark) .MuiIconButton-root) {
+:is(:where([data-mode="dark"]) .MuiIconButton-root) {
   background-color: #171a1c !important;
 }
-:is(:where(.dark) .MuiIconButton-root:hover) {
+:is(:where([data-mode="dark"]) .MuiIconButton-root:hover) {
   background-color: #32383e !important;
 }
-:is(:where(.dark) .MuiTypography-root) {
+:is(:where([data-mode="dark"]) .MuiTypography-root) {
   color: #9FA6AD !important;
 }
-:is(:where(.dark).MuiLink-root) {
+:is(:where([data-mode="dark"]).MuiLink-root) {
   color: #4393E4 !important;
 }
-:is(:where(.dark) .MuiSvgIcon-root) {
+:is(:where([data-mode="dark"]) .MuiSvgIcon-root) {
   color: white !important;
 }
 

@@ -9,10 +9,9 @@ import {
 	useColorMode,
 	MenuOptionItemProps,
 	Icon,
-	useColorModeValue,
 	ui,
+	useColorModeValue,
 } from "@yamada-ui/react";
-import { useEffect } from "react";
 import { FiMoon, FiSun, FiMonitor } from "react-icons/fi";
 
 export const ThemeSwitcher = () => {
@@ -22,10 +21,7 @@ export const ThemeSwitcher = () => {
 		justifyContent: "space-between",
 	};
 
-	useEffect(() => {
-		// set html attribute data-data-joy-color-scheme to colorMode
-		document.documentElement.setAttribute("data-joy-color-scheme", colorMode);
-	}, [colorMode])
+	const bg = useColorModeValue("white", "blackAlpha.800");
 
 	return (
 		<div className="fixed top-2 right-2 z-50">
@@ -33,6 +29,7 @@ export const ThemeSwitcher = () => {
 				<MenuButton
 					variant={"solid"}
 					as={Button}
+					bg={bg}
 					width={"3.5rem"}
 					height={"3.5rem"}>
 					<div className="flex items-center justify-center">

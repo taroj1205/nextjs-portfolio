@@ -20,7 +20,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body className={`${inter.className}`}>
 				<Providers>
-					<main className="p-6 min-h-[100svh]">
+					<main className="p-6 min-h-[100svh] h-fit">
 						<ThemeSwitcher />
 						{children}
 					</main>
