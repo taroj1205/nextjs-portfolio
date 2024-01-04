@@ -8,6 +8,14 @@ const nextConfig = {
 			},
 		],
 	},
+	webpack: (config, { isServer }) => {
+		config.module.rules.push({
+			test: /\.node$/,
+			loader: "node-loader",
+		});
+
+		return config;
+	},
 };
 
-module.exports = nextConfig
+module.exports = nextConfig;

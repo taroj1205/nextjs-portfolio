@@ -1,3 +1,4 @@
+'use client'
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
@@ -8,6 +9,7 @@ import IconButton from "@mui/joy/IconButton";
 import Link from "@mui/joy/Link";
 import { GitHub } from "@mui/icons-material";
 import Image from "next/image";
+import { useColorMode } from "@yamada-ui/react";
 
 const projects = [
 	{
@@ -117,10 +119,14 @@ interface Project {
 }
 
 export const ProjectsCard: React.FC = () => {
+	const { colorMode } = useColorMode();
 	return (
 		<div className="flex flex-wrap flex-row gap-4">
 			{projects.map((project: Project, index: number) => (
-				<Card key={index} variant="outlined" sx={{ width: 320 }}>
+				<Card
+					key={index}
+					variant="outlined"
+					sx={{ width: 320 }}>
 					<CardOverflow>
 						<AspectRatio ratio="2">
 							{project.video ? (

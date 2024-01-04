@@ -18,10 +18,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} bg-[#f5f5f5] dark:bg-[#0b0d0e]`}>
+			<body className={`${inter.className}`}>
 				<Providers>
-					<ThemeSwitcher />
-					<main className="p-6 min-h-[100svh]">{children}</main>
+					<main className="p-6 min-h-[100svh]">
+						<ThemeSwitcher />
+						{children}
+					</main>
 				</Providers>
 			</body>
 		</html>
