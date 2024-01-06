@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import AspectRatio from "@mui/joy/AspectRatio";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
@@ -45,8 +45,7 @@ const projects = [
 	{
 		title: "Typing Game (Unity)",
 		description: "A 2D typing game built with Unity.",
-		thumbnail:
-			"https://user-images.githubusercontent.com/61367823/218281409-3a401dec-83d4-4689-bbfb-766ee6d9a07b.mp4",
+		thumbnail: "/videos/unity-typing-game.webm",
 		video: true,
 		lang: "C#",
 		framework: "Unity",
@@ -63,6 +62,16 @@ const projects = [
 		link: "https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
 		githubLink:
 			"https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
+	},
+	{
+		title: "UoA Links",
+		description: "Useful links for UoA",
+		thumbnail: "/videos/UoALinks.webm",
+		video: true,
+		lang: "JavaScript/TypeScript",
+		framework: "Next.js",
+		link: "/portal",
+		githubLink: "https://github.com/taroj1205/nextjs-portfolio/",
 	},
 	{
 		title: "Typing Game (JavaScript)",
@@ -88,7 +97,7 @@ const projects = [
 		title: "Chat app",
 		description:
 			"This is a feature-rich chat app made with Next.js and Supabase.",
-		thumbnail: "/videos/chat.mp4",
+		thumbnail: "/videos/chat.webm",
 		video: true,
 		lang: "JavaScript/TypeScript",
 		framework: "Next.js",
@@ -123,10 +132,7 @@ export const ProjectsCard: React.FC = () => {
 	return (
 		<div className="flex flex-wrap flex-row gap-4">
 			{projects.map((project: Project, index: number) => (
-				<Card
-					key={index}
-					variant="outlined"
-					sx={{ width: 320 }}>
+				<Card key={index} variant="outlined" sx={{ width: 320 }}>
 					<CardOverflow>
 						<AspectRatio ratio="2">
 							{project.video ? (

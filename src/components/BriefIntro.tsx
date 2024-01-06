@@ -19,7 +19,7 @@ export const BriefIntro = () => {
 			<ul className="list-disc list-inside text-lg">
 				<li>
 					I&apos;m{" "}
-					<DrawerComponent title="Shintaro Jokagi" imageRef={images.me} />.
+					<DrawerComponent title="Shintaro Jokagi" description="Had ACL injury twice." imageRef={images.me} />.
 				</li>
 				<li>Born in Japan (Tokyo) on 2005.</li>
 				<li>18 years old.</li>
@@ -52,53 +52,52 @@ export const BriefIntro = () => {
 	);
 };
 
-const images: { [key: string]: { href: string; video: boolean } } = {
-	me: { href: "/carousel/profile.webp", video: false },
+const images: { [key: string]: { video?: string; image?: string } } = {
+	me: { image: "/carousel/profile.webp" },
 	kendama: {
-		href: "9Y-NWFB--f8?si=nPJ67wLlpHJr_G4B",
-		video: true,
+		video: "9Y-NWFB--f8?si=nPJ67wLlpHJr_G4B",
 	},
 };
 
 type DrawerComponentProps = {
-  title: string;
-  description?: string;
-	imageRef: { href: string; video: boolean };
+	title: string;
+	description?: string;
+	imageRef: { image?: string; video?: string };
 };
 
 const DrawerComponent: React.FC<DrawerComponentProps> = ({
-  title,
-  description,
+	title,
+	description,
 	imageRef,
 }) => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
 		<>
-			<button onClick={onOpen} className="underline">
+			<button onClick={onOpen} className="underline hover:no-underline">
 				{title}
 			</button>
 			<Drawer placement="bottom" isOpen={isOpen} size="sm" onClose={onClose}>
 				<div className="max-w-3xl mx-auto">
 					<DrawerHeader>{title}</DrawerHeader>
 
-          <DrawerBody>
-            {description && <Text>{description}</Text>}
+					<DrawerBody>
+						{description && <Text>{description}</Text>}
 						{imageRef.video ? (
 							<iframe
 								width="315"
 								height="560"
-								src={`https://www.youtube.com/embed/${imageRef.href}`}
+								src={`https://www.youtube.com/embed/${imageRef.video}`}
 								title="YouTube video player"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 								allowFullScreen></iframe>
-						) : (
+						) : imageRef.image ? (
 							<Image
 								className="max-h-[300px]"
-								src={imageRef.href}
+								src={imageRef.image}
 								alt={title}
 							/>
-						)}
+						) : null}
 					</DrawerBody>
 
 					<DrawerFooter>
