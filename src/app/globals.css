@@ -142,3 +142,18 @@
 .ui-carousel__sliders, .ui-carousel__sliders__inner {
   @apply !h-fit;
 }
+
+[data-mode=light] .moon {
+  display: none;
+}
+[data-mode=dark] .sun {
+  display: none;
+}
+
+[data-mode=dark] .switch-button {
+  background-color: #141414;
+}
+
+[data-mode=light] .switch-button {
+  background-color: #fbfbfb;
+}

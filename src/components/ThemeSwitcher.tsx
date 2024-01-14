@@ -33,11 +33,14 @@ export const ThemeSwitcher = () => {
 					width={"3.5rem"}
 					height={"3.5rem"}>
 					<div className="flex items-center justify-center">
-						{colorMode === "light" ? (
-							<FiSun size={30} className="text-yellow-500" />
-						) : (
-							<FiMoon size={30} className="text-indigo-500" />
-						)}
+						<FiMoon
+							size={30}
+							className="text-indigo-500 w-6 h-6 hidden data-[mode=dark]:block"
+						/>
+						<FiSun
+							size={30}
+							className="text-yellow-500 w-6 h-6 data-[mode=dark]:hidden"
+						/>
 					</div>
 				</MenuButton>
 
