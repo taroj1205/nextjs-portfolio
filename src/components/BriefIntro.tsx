@@ -115,15 +115,15 @@ const DrawerComponent: FC<DrawerComponentProps> = ({
 				maxH={"95%"}
 				onClose={onClose}>
 				<div className="max-w-4xl w-full mx-auto">
-					<DrawerHeader>{title}</DrawerHeader>
+					<DrawerHeader><Heading mx="auto">{title}</Heading></DrawerHeader>
 
 					<DrawerBody>
-						{description && <Text>{description}</Text>}
+						{description && <Text fontSize={"lg"} mx={"auto"}>{description}</Text>}
 						{imageRef.video ? (
 							<iframe
 								width="315"
 								height="560"
-								className="max-h-[70vh]"
+								className="max-h-[70vh] mx-auto"
 								src={`https://www.youtube.com/embed/${imageRef.video}`}
 								title="YouTube video player"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
