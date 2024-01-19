@@ -29,7 +29,7 @@ const images = [
 
 
 export const CarouselComponent = () => {
-	const size = useBreakpointValue({ base: "50%", md: "full" });
+	const size = useBreakpointValue({ base: "full", lg: "50%" });
 	return (
 		<Carousel
 			speed={50}
