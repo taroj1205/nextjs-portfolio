@@ -11,6 +11,7 @@ import {
 	Icon,
 	ui,
 	useColorModeValue,
+	useDisclosure,
 } from "@yamada-ui/react";
 import { FiMoon, FiSun, FiMonitor } from "react-icons/fi";
 
@@ -21,27 +22,20 @@ export const ThemeSwitcher = () => {
 		justifyContent: "space-between",
 	};
 
-	const bg = useColorModeValue("white", "blackAlpha.800");
+	const {isOpen, onOpen, onClose} = useDisclosure()
+
 
 	return (
-		<div className="fixed top-2 right-2 z-50">
-			<Menu closeOnSelect closeOnEsc>
+		<div className="relative inline-block">
+			<Menu isOpen={isOpen} onClose={onClose} onOpen={onOpen} closeOnSelect closeOnEsc>
 				<MenuButton
-					variant={"solid"}
-					as={Button}
-					bg={bg}
-					width={"3.5rem"}
-					height={"3.5rem"}>
-					<div className="flex items-center justify-center">
-						<FiMoon
-							size={30}
-							className="text-indigo-500 w-6 h-6 hidden data-[mode=dark]:block"
-						/>
-						<FiSun
-							size={30}
-							className="text-yellow-500 w-6 h-6 data-[mode=dark]:hidden"
-						/>
-					</div>
+					as="button"
+					type="button"
+					title="Switch theme"
+					data-open={isOpen}
+					className={`switch-button p-2 flex items-center justify-center w-fit mr-1 md:mr-0 rounded-md active:scale-95 duration-200 data-[open=true]:border-blue-300 data-[open=true]:ring data-[open=true]:ring-blue-200 data-[open=true]:ring-opacity-50`}>
+					<FiMoon className="text-indigo-500 w-6 h-6 moon" />
+					<FiSun className="text-yellow-500 w-6 h-6 sun" />
 				</MenuButton>
 
 				<MenuList>

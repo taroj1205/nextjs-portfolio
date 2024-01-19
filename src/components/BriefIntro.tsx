@@ -10,62 +10,93 @@ import {
 	useDisclosure,
 	Image,
 	Text,
+	DiscList,
+	ListItem,
+	Heading,
+	Box,
 } from "@yamada-ui/react";
+import { useLocale, useTranslations } from "next-intl";
+import { SchoolHistory } from "./SchoolHistory";
+import { ReactNode, FC } from "react";
 
-export const BriefIntro = () => {
-	return (
-		<div className="mt-8 space-y-4">
-			<h2 className="text-3xl font-bold">Brief Introduction</h2>
-			<ul className="list-disc list-inside text-lg">
-				<li>
-					I&apos;m{" "}
-					<DrawerComponent title="Shintaro Jokagi" description="Had ACL injury twice." imageRef={images.me} />.
-				</li>
-				<li>Born in Japan (Tokyo) on 2005.</li>
-				<li>18 years old.</li>
-				<li>Graduated Westlake Boys High School in 2023 (New Zealand).</li>
-				<li>University of Auckland starting January 2023.</li>
-				<li>Been to 11 schools by the end of 2023.</li>
-			</ul>
-			<h3 className="text-2xl font-bold">Lived in</h3>
-			<ul className="list-disc list-inside text-lg">
-				<li>Japan (Approx 10 years), Tokyo/Ehime</li>
-				<li>The Philippines (A year and 3 months), Cebu</li>
-				<li>New Zealand (A year in 2017 and 5 years since 2018), Auckland</li>
-			</ul>
-			<h3 className="text-2xl font-bold">Hobbies</h3>
-			<ul className="list-disc list-inside text-lg">
-				<li>Football (Soccer)</li>
-				<li>
-					<DrawerComponent
-						title="Kendama (けん玉)"
-						description="Japanese Traditional Toy like Yo-yo"
-						imageRef={images.kendama}
-					/>{" "}
-					(Japanese Traditional Toy like Yo-yo)
-				</li>
-				<li>Programming</li>
-				<li>Shorinji Kempo</li>
-				<li>Table Tennis</li>
-			</ul>
-		</div>
-	);
-};
-
-const images: { [key: string]: { video?: string; image?: string } } = {
+const images: {
+	[key: string]: { video?: string; image?: string; component?: ReactNode };
+} = {
 	me: { image: "/carousel/profile.webp" },
 	kendama: {
 		video: "9Y-NWFB--f8?si=nPJ67wLlpHJr_G4B",
 	},
+	school: {
+		component: <SchoolHistory />,
+	},
+};
+
+export const BriefIntro = () => {
+	const t = useTranslations("brief intro");
+	const locale = useLocale();
+	return (
+		<Box className="mt-8 space-y-4">
+			<Heading as={"h2"}>{t("title")}</Heading>
+			<DiscList fontSize={"lg"}>
+				<ListItem>{t("born")}</ListItem>
+				<ListItem>{t("age")}</ListItem>
+				<ListItem>{t("high school")}</ListItem>
+				<ListItem>{t("university")}</ListItem>
+				<DiscList>
+					<ListItem>{t("bachelor")}</ListItem>
+				</DiscList>
+				<ListItem>
+					<DrawerComponent
+						title={
+							locale === "en"
+								? "Been to 11 schools by the end of 2023."
+								: "2023年までに11校行きました。"
+						}
+						description={
+							locale === "en"
+								? "Japan, New Zealand and The Philippines"
+								: "日本、ニュージーランドとフィリピン"
+						}
+						imageRef={images.school}
+					/>
+				</ListItem>
+			</DiscList>
+			<Heading as={"h3"} fontSize={"3xl"}>
+				{t("lived in.heading")}
+			</Heading>
+			<DiscList fontSize={"lg"}>
+				<ListItem>{t("lived in.japan")}</ListItem>
+				<ListItem>{t("lived in.philippines")}</ListItem>
+				<ListItem>{t("lived in.newzealand")}</ListItem>
+			</DiscList>
+			<Heading as={"h3"} fontSize={"3xl"}>
+				{t("hobbies.heading")}
+			</Heading>
+			<DiscList fontSize={"lg"}>
+				<ListItem>{t("hobbies.soccer")}</ListItem>
+				<ListItem>
+					<DrawerComponent
+						title={locale === "en" ? "Kendama (けん玉)" : "けん玉"}
+						description={locale === "en" ? "Japanese Traditional Toy like Yo-yo" : ""}
+						imageRef={images.kendama}
+					/>{" "}
+					{locale === "en" && "(Japanese Traditional Toy like Yo-yo)"}
+				</ListItem>
+				<ListItem>{t("hobbies.programming")}</ListItem>
+				<ListItem>{t("hobbies.shorinji kempo")}</ListItem>
+				<ListItem>{t("hobbies.table tennis")}</ListItem>
+			</DiscList>
+		</Box>
+	);
 };
 
 type DrawerComponentProps = {
 	title: string;
 	description?: string;
-	imageRef: { image?: string; video?: string };
+	imageRef: { component?: ReactNode; image?: string; video?: string };
 };
 
-const DrawerComponent: React.FC<DrawerComponentProps> = ({
+const DrawerComponent: FC<DrawerComponentProps> = ({
 	title,
 	description,
 	imageRef,
@@ -77,8 +108,13 @@ const DrawerComponent: React.FC<DrawerComponentProps> = ({
 			<button onClick={onOpen} className="underline hover:no-underline">
 				{title}
 			</button>
-			<Drawer placement="bottom" isOpen={isOpen} size="sm" onClose={onClose}>
-				<div className="max-w-3xl mx-auto">
+			<Drawer
+				placement="bottom"
+				isOpen={isOpen}
+				size="sm"
+				maxH={"95%"}
+				onClose={onClose}>
+				<div className="max-w-4xl w-full mx-auto">
 					<DrawerHeader>{title}</DrawerHeader>
 
 					<DrawerBody>
@@ -87,6 +123,7 @@ const DrawerComponent: React.FC<DrawerComponentProps> = ({
 							<iframe
 								width="315"
 								height="560"
+								className="max-h-[70vh]"
 								src={`https://www.youtube.com/embed/${imageRef.video}`}
 								title="YouTube video player"
 								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -97,13 +134,15 @@ const DrawerComponent: React.FC<DrawerComponentProps> = ({
 								src={imageRef.image}
 								alt={title}
 							/>
+						) : imageRef.component ? (
+							imageRef.component
 						) : null}
 					</DrawerBody>
 
 					<DrawerFooter>
 						<Button
 							className="mx-auto"
-							variant="solid"
+							variant="outline"
 							colorScheme="gray"
 							onClick={onClose}>
 							Close

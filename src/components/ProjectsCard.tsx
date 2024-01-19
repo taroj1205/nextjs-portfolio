@@ -1,120 +1,18 @@
-"use client";
-import AspectRatio from "@mui/joy/AspectRatio";
-import Card from "@mui/joy/Card";
-import CardContent from "@mui/joy/CardContent";
-import CardOverflow from "@mui/joy/CardOverflow";
-import Divider from "@mui/joy/Divider";
-import Typography from "@mui/joy/Typography";
-import IconButton from "@mui/joy/IconButton";
-import Link from "@mui/joy/Link";
-import { GitHub } from "@mui/icons-material";
+import {
+	Card,
+	CardBody,
+	CardFooter,
+	CardHeader,
+	Text,
+	Divider,
+	IconButton,
+	Spacer,
+	Link as YamadaLink,
+	Wrap,
+} from "@yamada-ui/react";
 import Image from "next/image";
-import { useColorMode } from "@yamada-ui/react";
-
-const projects = [
-	{
-		title: "Portfolio",
-		description: "This is my portfolio site.",
-		thumbnail: "/images/portfolio.webp",
-		video: false,
-		lang: "JavaScript/Typescript",
-		framework: "Next.js",
-		link: "https://taroj1205.poyo.jp",
-		githubLink: "https://github.com/taroj1205/portfolio",
-	},
-	{
-		title: "Typing Game",
-		description: "Learn English with this typing game.",
-		thumbnail: "/images/typing-game.webp",
-		video: false,
-		lang: "JavaScript/TypeScript",
-		framework: "Next.js",
-		link: "https://typing-game-nextjs.vercel.app/",
-		githubLink: "https://github.com/taroj1205/nextjs-typing-game",
-	},
-	{
-		title: "Connect 4",
-		description: "This is a Connect 4 game made with Next.js.",
-		thumbnail: "/images/connect-4.webp",
-		video: false,
-		lang: "JavaScript/Typescript",
-		framework: "Next.js",
-		link: "https://connect4-taroj.vercel.app/",
-		githubLink: "https://github.com/taroj1205/nextjs-connect4",
-	},
-	{
-		title: "Typing Game (Unity)",
-		description: "A 2D typing game built with Unity.",
-		thumbnail: "/videos/unity-typing-game.webm",
-		video: true,
-		lang: "C#",
-		framework: "Unity",
-		link: "https://github.com/taroj1205/Typing-Game",
-		githubLink: "https://github.com/taroj1205/Typing-Game",
-	},
-	{
-		title: "Typing Game (Flask)",
-		description: "Learn English with this typing game.",
-		thumbnail: "/images/app_py.webp",
-		video: false,
-		lang: "JavaScript",
-		framework: "Flask/SQLite3 (Server)",
-		link: "https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
-		githubLink:
-			"https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
-	},
-	{
-		title: "UoA Links",
-		description: "Useful links for UoA",
-		thumbnail: "/videos/UoALinks.webm",
-		video: true,
-		lang: "JavaScript/TypeScript",
-		framework: "Next.js",
-		link: "/portal",
-		githubLink: "https://github.com/taroj1205/nextjs-portfolio/",
-	},
-	{
-		title: "Typing Game (JavaScript)",
-		description: "Learn English with this typing game.",
-		thumbnail: "/images/index_js.webp",
-		video: false,
-		lang: "JavaScript",
-		framework: "Node.js (Server)",
-		link: "https://github.com/taroj1205/Typing-Game-Node/",
-		githubLink: "https://github.com/taroj1205/Typing-Game-Node/",
-	},
-	{
-		title: "Typing Game (Python)",
-		description: "Learn English with this typing game.",
-		thumbnail: "/images/typing-game.webp",
-		video: false,
-		lang: "Python",
-		framework: "Pygame",
-		link: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
-		githubLink: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
-	},
-	{
-		title: "Chat app",
-		description:
-			"This is a feature-rich chat app made with Next.js and Supabase.",
-		thumbnail: "/videos/chat.webm",
-		video: true,
-		lang: "JavaScript/TypeScript",
-		framework: "Next.js",
-		link: "https://chat-taroj.vercel.app/",
-		githubLink: "https://github.com/taroj1205/chat",
-	},
-	{
-		title: "Old Portfolio",
-		description: "This is my old portfolio site using Next.js Pages directory.",
-		thumbnail: "/images/taroj-poyo-jp.webp",
-		video: false,
-		lang: "JavaScript/TypeScript",
-		framework: "Next.js",
-		link: "https://taroj.poyo.jp/",
-		githubLink: "https://github.com/taroj1205/taroj.poyo.jp",
-	},
-];
+import { FaGithub } from "react-icons/fa";
+import { useLocale } from "next-intl";
 
 interface Project {
 	title: string;
@@ -128,66 +26,184 @@ interface Project {
 }
 
 export const ProjectsCard: React.FC = () => {
-	const { colorMode } = useColorMode();
+	const locale = useLocale();
+	const projects = [
+		{
+			title: locale === "en" ? "Portfolio" : "ポートフォリオ",
+			description:
+				locale === "en"
+					? "This is my portfolio site."
+					: "これは僕のサイトです。",
+			thumbnail: "/images/portfolio.webp",
+			video: false,
+			lang: "JavaScript/Typescript",
+			framework: "Next.js",
+			link: "https://taroj1205.poyo.jp",
+			githubLink: "https://github.com/taroj1205/portfolio",
+		},
+		{
+			title: locale === "en" ? "Typing Game" : "タイピングゲーム",
+			description:
+				locale === "en"
+					? "Learn English with this typing game."
+					: "英語を習得するためのタイピングゲームです。",
+			thumbnail: "/images/typing-game.webp",
+			video: false,
+			lang: "JavaScript/TypeScript",
+			framework: "Next.js",
+			link: "https://typing-game-nextjs.vercel.app/",
+			githubLink: "https://github.com/taroj1205/nextjs-typing-game",
+		},
+		{
+			title: "Connect 4",
+			description:
+				locale === "en"
+					? "This is a Connect 4 game made with Next.js."
+					: "これはNext.jsで作られたConnect 4ゲームです。",
+			thumbnail: "/images/connect-4.webp",
+			video: false,
+			lang: "JavaScript/Typescript",
+			framework: "Next.js",
+			link: "https://connect4-taroj.vercel.app/",
+			githubLink: "https://github.com/taroj1205/nextjs-connect4",
+		},
+		{
+			title:
+				locale === "en" ? "Typing Game (Unity)" : "タイピングゲーム (Unity)",
+			description:
+				locale === "en"
+					? "A 2D typing game built with Unity."
+					: "Unityで作られた2Dタイピングゲームです。",
+			thumbnail: "/videos/unity-typing-game.webm",
+			video: true,
+			lang: "C#",
+			framework: "Unity",
+			link: "https://github.com/taroj1205/Typing-Game",
+			githubLink: "https://github.com/taroj1205/Typing-Game",
+		},
+		{
+			title:
+				locale === "en" ? "Typing Game (Flask)" : "タイピングゲーム (Flask)",
+			description:
+				locale === "en"
+					? "Learn English with this typing game."
+					: "英語を習得するためのタイピングゲームです。",
+			thumbnail: "/images/app_py.webp",
+			video: false,
+			lang: "JavaScript",
+			framework: "Flask/SQLite3 (Server)",
+			link: "https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
+			githubLink:
+				"https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
+		},
+		{
+			title: locale === "en" ? "UoA Links" : "UoAのリンクなど",
+			description: locale === "en" ? "Useful links for UoA" : "UoAの便利なリンクです",
+			thumbnail: "/videos/UoALinks.webm",
+			video: true,
+			lang: "JavaScript/TypeScript",
+			framework: "Next.js",
+			link: "/portal",
+			githubLink: "https://github.com/taroj1205/nextjs-portfolio/",
+		},
+		{
+			title: locale === "en" ? "Typing Game (Node.js)" : "タイピングゲーム (Node.js)",
+			description: locale === "en" ? "Learn English with this typing game." : "英語を習得するためのタイピングゲームです。",
+			thumbnail: "/images/index_js.webp",
+			video: false,
+			lang: "JavaScript",
+			framework: "Node.js (Server)",
+			link: "https://github.com/taroj1205/Typing-Game-Node/",
+			githubLink: "https://github.com/taroj1205/Typing-Game-Node/",
+		},
+		{
+			title: locale === "en" ? "Typing Game (Pygame)" : "タイピングゲーム (Pygame)",
+			description: locale === "en" ? "Learn English with this typing game." : "英語を習得するためのタイピングゲームです。",
+			thumbnail: "/images/typing-game.webp",
+			video: false,
+			lang: "Python",
+			framework: "Pygame",
+			link: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
+			githubLink: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
+		},
+		{
+			title: locale === "en" ? "Chat App" : "チャットアプリ",
+			description:
+				locale === "en" ? "This is a feature-rich chat app made with Next.js and Supabase." : "Next.jsとSupabaseで作られた機能豊富なチャットアプリです。",
+			thumbnail: "/videos/chat.webm",
+			video: true,
+			lang: "JavaScript/TypeScript",
+			framework: "Next.js",
+			link: "https://chat-taroj.vercel.app/",
+			githubLink: "https://github.com/taroj1205/chat",
+		},
+		{
+			title: locale === "en" ? "Old Portfolio" : "昔のポートフォリオ",
+			description:
+				locale === "en" ? "This is my old portfolio site." : "これは僕の古いサイトです。",
+			thumbnail: "/images/taroj-poyo-jp.webp",
+			video: false,
+			lang: "JavaScript/TypeScript",
+			framework: "Next.js",
+			link: "https://taroj.poyo.jp/",
+			githubLink: "https://github.com/taroj1205/taroj.poyo.jp",
+		},
+	];
+
 	return (
-		<div className="flex flex-wrap flex-row gap-4">
+		<Wrap gap={4}>
 			{projects.map((project: Project, index: number) => (
-				<Card key={index} variant="outlined" sx={{ width: 320 }}>
-					<CardOverflow>
-						<AspectRatio ratio="2">
-							{project.video ? (
-								<video
-									src={project.thumbnail}
-									autoPlay
-									loop
-									muted
-									playsInline
-								/>
-							) : (
-								<Image
-									src={project.thumbnail}
-									alt={project.description}
-									width={159}
-									height={318}
-								/>
-							)}
-						</AspectRatio>
-					</CardOverflow>
-					<CardContent>
-						<Typography level="title-md">
-							<Link
-								href={project.link}
-								target="_blank"
-								rel="noopener"
-								overlay
-								underline="none">
-								{project.title}
-							</Link>
-						</Typography>
-						<Typography level="body-sm">{project.description}</Typography>
-					</CardContent>
-					<CardOverflow variant="soft">
-						<Divider inset="context" />
-						<CardContent orientation="horizontal">
-							<Typography level="body-xs">{project.lang}</Typography>
-							<Divider orientation="vertical" />
-							<Typography level="body-xs">{project.framework}</Typography>
-							<Link
-								href={project.githubLink}
-								sx={{ position: "absolute", right: 2, bottom: 3 }}
-								target="_blank"
-								rel="noopener noreferrer">
-								<IconButton
-									aria-label="go to GitHub"
-									variant="soft"
-									color="neutral">
-									<GitHub fontSize="inherit" />
-								</IconButton>
-							</Link>
-						</CardContent>
-					</CardOverflow>
+				<Card
+					key={index}
+					bg={["#f0f4f8", "#171a1c"]}
+					variant="outline"
+					w={"320px"}
+					h={"276px"}>
+					<CardHeader maxH={318} roundedTop={"md"} overflow={"hidden"} p={0}>
+						{project.video ? (
+							<video
+								src={project.thumbnail}
+								autoPlay
+								loop
+								muted
+								playsInline
+								className="max-h-[318px]"
+							/>
+						) : (
+							<Image
+								src={project.thumbnail}
+								alt={project.description}
+								width={350}
+								className="w-full"
+								height={318}
+							/>
+						)}
+					</CardHeader>
+					<CardBody bg={["#fbfcfe", "#0b0d0e"]}>
+						<YamadaLink fontSize="md">{project.title}</YamadaLink>
+						<Text fontSize={"sm"}>{project.description}</Text>
+					</CardBody>
+					<Divider orientation="horizontal" />
+					<CardFooter pl={"md"} pr={"xs"} py={"xs"}>
+						<Text fontSize="xs">{project.lang}</Text>
+						<Divider orientation="vertical" h={"50%"} />
+						<Text fontSize="xs">{project.framework}</Text>
+						<Spacer />
+						<IconButton
+							as={YamadaLink}
+							variant={"ghost"}
+							m={0}
+							size={"md"}
+							h={"36px"}
+							w={"36px"}
+							href={project.githubLink}
+							target="_blank"
+							rel="noopener noreferrer">
+							<FaGithub />
+						</IconButton>
+					</CardFooter>
 				</Card>
 			))}
-		</div>
+		</Wrap>
 	);
 };
