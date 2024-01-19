@@ -11,14 +11,14 @@ import { Box, ColorModeScript, VStack } from "@yamada-ui/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "taroj1205",
+	title: "taroj1205 - Portfolio",
 	description: "taroj1205's website created with Next.js",
 	openGraph: {
-		title: "taroj1205",
+		title: "taroj1205 - Portfolio",
 		description: "taroj1205's website created with Next.js",
 		images: [
 			{
-				url: "/images/header.webp",
+				url: "https://taroj1205.netlify.app/images/header.webp",
 				width: 1200,
 				height: 630,
 				alt: "taroj1205's image",
@@ -26,11 +26,11 @@ export const metadata: Metadata = {
 		],
 	},
 	twitter: {
-		title: "taroj1205",
+		title: "taroj1205 - Portfolio",
 		description: "taroj1205's website created with Next.js",
 		images: [
 			{
-				url: "/images/header.webp",
+				url: "https://taroj1205.netlify.app/images/header.webp",
 				width: 1200,
 				height: 630,
 				alt: "taroj1205's image",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 		],
 	},
 	icons: {
-		shortcut: "/favicon.ico",
+		shortcut: "https://taroj1205.netlify.app/favicon.ico",
 	},
 };
 
