@@ -48,7 +48,7 @@ export default function Home() {
 					</span>
 				)}
 			</Heading>
-			<div className="flex flex-wrap justify-center space-x-4 mb-4">
+			<div className="flex flex-wrap justify-center space-x-4 my-4">
 				<Link
 					href="https://taroj1205.poyo.jp"
 					target="_blank"

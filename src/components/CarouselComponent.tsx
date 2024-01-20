@@ -29,14 +29,14 @@ const images = [
 
 
 export const CarouselComponent = () => {
-	const size = useBreakpointValue({ base: "full", lg: "50%" });
+	// const size = useBreakpointValue({ base: "full", lg: "50%" });
 	return (
 		<Carousel
 			speed={50}
 			delay={2000}
 			autoplay
 			stopMouseEnterAutoplay={true}
-			slideSize={size}
+			slideSize={"full"}
 			className="max-w-4xl h-fit">
 			{images.map((image, index) => (
 				<CarouselSlide className="h-fit" key={index} as={Center}>
