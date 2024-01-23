@@ -208,7 +208,7 @@ export const ProjectsCard: React.FC = () => {
 						)}
 					</CardHeader>
 					<CardBody bg={["#fbfcfe", "#0b0d0e"]}>
-						<YamadaLink href={project.link} fontSize="md">{project.title}</YamadaLink>
+						<YamadaLink href={project.link} isExternal fontSize="md">{project.title}</YamadaLink>
 						<Text fontSize={"sm"}>{project.description}</Text>
 					</CardBody>
 					<Divider orientation="horizontal" />
