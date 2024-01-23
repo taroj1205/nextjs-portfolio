@@ -42,6 +42,19 @@ export const ProjectsCard: React.FC = () => {
 			githubLink: "https://github.com/taroj1205/portfolio",
 		},
 		{
+			title: locale === "en" ? "Save Twitter Links" : "Twitterのリンクを保存",
+			description:
+				locale === "en"
+					? "This is a chrome extension for saving twitter links you've viewed."
+					: "Twitterのリンクを保存するためのChrome拡張機能です。",
+			thumbnail: "/images/save-twitter-links.webp",
+			video: false,
+			lang: "JavaScript/Typescript",
+			framework: "Chrome",
+			link: "https://github.com/taroj1205/chrome-twitter-link/releases/latest",
+			githubLink: "https://github.com/taroj1205/chrome-twitter-link",
+		},
+		{
 			title: locale === "en" ? "Typing Game" : "タイピングゲーム",
 			description:
 				locale === "en"
@@ -98,7 +111,8 @@ export const ProjectsCard: React.FC = () => {
 		},
 		{
 			title: locale === "en" ? "UoA Links" : "UoAのリンクなど",
-			description: locale === "en" ? "Useful links for UoA" : "UoAの便利なリンクです",
+			description:
+				locale === "en" ? "Useful links for UoA" : "UoAの便利なリンクです",
 			thumbnail: "/videos/UoALinks.webm",
 			video: true,
 			lang: "JavaScript/TypeScript",
@@ -107,8 +121,14 @@ export const ProjectsCard: React.FC = () => {
 			githubLink: "https://github.com/taroj1205/nextjs-portfolio/",
 		},
 		{
-			title: locale === "en" ? "Typing Game (Node.js)" : "タイピングゲーム (Node.js)",
-			description: locale === "en" ? "Learn English with this typing game." : "英語を習得するためのタイピングゲームです。",
+			title:
+				locale === "en"
+					? "Typing Game (Node.js)"
+					: "タイピングゲーム (Node.js)",
+			description:
+				locale === "en"
+					? "Learn English with this typing game."
+					: "英語を習得するためのタイピングゲームです。",
 			thumbnail: "/images/index_js.webp",
 			video: false,
 			lang: "JavaScript",
@@ -117,8 +137,12 @@ export const ProjectsCard: React.FC = () => {
 			githubLink: "https://github.com/taroj1205/Typing-Game-Node/",
 		},
 		{
-			title: locale === "en" ? "Typing Game (Pygame)" : "タイピングゲーム (Pygame)",
-			description: locale === "en" ? "Learn English with this typing game." : "英語を習得するためのタイピングゲームです。",
+			title:
+				locale === "en" ? "Typing Game (Pygame)" : "タイピングゲーム (Pygame)",
+			description:
+				locale === "en"
+					? "Learn English with this typing game."
+					: "英語を習得するためのタイピングゲームです。",
 			thumbnail: "/images/typing-game.webp",
 			video: false,
 			lang: "Python",
@@ -129,7 +153,9 @@ export const ProjectsCard: React.FC = () => {
 		{
 			title: locale === "en" ? "Chat App" : "チャットアプリ",
 			description:
-				locale === "en" ? "This is a feature-rich chat app made with Next.js and Supabase." : "Next.jsとSupabaseで作られた機能豊富なチャットアプリです。",
+				locale === "en"
+					? "This is a feature-rich chat app made with Next.js and Supabase."
+					: "Next.jsとSupabaseで作られた機能豊富なチャットアプリです。",
 			thumbnail: "/videos/chat.webm",
 			video: true,
 			lang: "JavaScript/TypeScript",
@@ -140,7 +166,9 @@ export const ProjectsCard: React.FC = () => {
 		{
 			title: locale === "en" ? "Old Portfolio" : "昔のポートフォリオ",
 			description:
-				locale === "en" ? "This is my old portfolio site." : "これは僕の古いサイトです。",
+				locale === "en"
+					? "This is my old portfolio site."
+					: "これは僕の古いサイトです。",
 			thumbnail: "/images/taroj-poyo-jp.webp",
 			video: false,
 			lang: "JavaScript/TypeScript",
@@ -180,7 +208,7 @@ export const ProjectsCard: React.FC = () => {
 						)}
 					</CardHeader>
 					<CardBody bg={["#fbfcfe", "#0b0d0e"]}>
-						<YamadaLink fontSize="md">{project.title}</YamadaLink>
+						<YamadaLink href={project.link} fontSize="md">{project.title}</YamadaLink>
 						<Text fontSize={"sm"}>{project.description}</Text>
 					</CardBody>
 					<Divider orientation="horizontal" />
