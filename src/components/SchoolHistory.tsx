@@ -1,6 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 import { Text, Tooltip } from "@yamada-ui/react";
+import {Tooltip as ReactTooltip} from "react-tooltip";
 
 export const SchoolHistory = () => {
 	const t = useTranslations();
@@ -34,35 +35,42 @@ export const SchoolHistory = () => {
 								<td
 									className={`py-2 px-4 cursor-pointer ${
 										index === 10 ? "rounded-bl-lg" : ""
-									}`}>
-									<Tooltip
-										label={`${t(`education.schools.${index}.start`)} - ${t(
+									}`}
+									data-tooltip-id={`tooltip-${index}-duration`}>
+									<Text>{t(`education.schools.${index}.duration`)}</Text>
+									<ReactTooltip
+										id={`tooltip-${index}-duration`}
+										place="top-start">
+										<span>{`${t(`education.schools.${index}.start`)} - ${t(
 											`education.schools.${index}.end`
-										)}`}
-										placement="top-start">
-										<Text>{t(`education.schools.${index}.duration`)}</Text>
-									</Tooltip>
+										)}`}</span>
+									</ReactTooltip>
 								</td>
 								<td
 									className={`py-2 px-4 flex items-center ${
 										index === 7 ? "" : "cursor-pointer"
-									}`}>
-									<Tooltip
-										label={t(`education.schools.${index}.grade`)}
-										placement="top-start"
-										hidden={index === 7}>
-										<Text>{t(`education.schools.${index}.name`)}</Text>
-									</Tooltip>
+									}`}
+									data-tooltip-id={`tooltip-${index}-name`}>
+									<Text>{t(`education.schools.${index}.name`)}</Text>
+									<ReactTooltip id={`tooltip-${index}-name`} place="top-start">
+										<span>{t(`education.schools.${index}.grade`)}</span>
+									</ReactTooltip>
 								</td>
 								<td
 									className={`py-2 px-4 cursor-pointer ${
 										index === 10 ? "rounded-br-lg" : ""
-									}`}>
-									<Tooltip
-										label={t(`education.schools.${index}.location.region`)}
-										placement="top-start">
-										<Text>{t(`education.schools.${index}.location.country`)}</Text>
-									</Tooltip>
+									}`}
+									data-tooltip-id={`tooltip-${index}-location`}>
+									<Text>
+										{t(`education.schools.${index}.location.country`)}
+									</Text>
+									<ReactTooltip
+										id={`tooltip-${index}-location`}
+										place="top-start">
+										<span>
+											{t(`education.schools.${index}.location.region`)}
+										</span>
+									</ReactTooltip>
 								</td>
 							</tr>
 						))}
