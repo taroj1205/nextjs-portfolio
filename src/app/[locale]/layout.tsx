@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Box, ColorModeScript, VStack } from "@yamada-ui/react";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -73,6 +74,12 @@ export default async function RootLayout({
 						</div>
 					</Providers>
 				</NextIntlClientProvider>
+				<Script
+					id="umami-script"
+					strategy="afterInteractive"
+					async
+					src="https://eu.umami.is/script.js"
+					data-website-id="ecbdac24-4918-4ad1-a8d3-72943ccfc44f" />
 			</body>
 		</html>
 	);

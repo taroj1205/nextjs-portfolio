@@ -251,13 +251,23 @@ const Dropdown = ({ name }: { name: string }) => {
 			{
 				href: "https://taroj1205.hatenablog.com",
 				text: t("posts.hatenablog.name"),
-				icon: <>{icons.hatena_dark}{icons.hatena}</>,
+				icon: (
+					<>
+						{icons.hatena_dark}
+						{icons.hatena}
+					</>
+				),
 				description: "",
 			},
 			{
 				href: "https://note.com/taroj1205",
 				text: "note",
-				icon: <>{icons.note_dark}{icons.note}</>,
+				icon: (
+					<>
+						{icons.note_dark}
+						{icons.note}
+					</>
+				),
 				description: "",
 			},
 		],
@@ -299,13 +309,7 @@ const Dropdown = ({ name }: { name: string }) => {
 				description: t("search.description"),
 			},
 			{
-				href: "/apps/generator/image",
-				text: t("generator.name"),
-				icon: icons.generator,
-				description: t("generator.description"),
-			},
-			{
-				href: "https://analytics.eu.umami.is/share/V1djMkaLDvEhYDvY/taroj.vercel.app",
+				href: "https://analytics.eu.umami.is/share/nU5pqI425dwMvrAA/taroj1205.netlify.app",
 				text: t("analytics.name"),
 				icon: icons.analytics,
 				description: t("analytics.description"),
