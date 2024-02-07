@@ -24,7 +24,10 @@ const images: {
 } = {
 	me: { image: "/carousel/profile.webp" },
 	kendama: {
-		video: "9Y-NWFB--f8?si=nPJ67wLlpHJr_G4B",
+		video: "9Y-NWFB--f8",
+	},
+	juggling: {
+		video: "TaWXgxbzoOI",
 	},
 	school: {
 		component: <SchoolHistory />,
@@ -81,6 +84,15 @@ export const BriefIntro = () => {
 						imageRef={images.kendama}
 					/>{" "}
 					{locale === "en" && "(Japanese Traditional Toy like Yo-yo)"}
+				</ListItem>
+				<ListItem>
+					<DrawerComponent
+						title={locale === "en" ? "Juggling" : "ジャグリング"}
+						description={
+							locale === "en" ? "This is me practising juggling." : "ジャグリングを練習中です。"
+						}
+						imageRef={images.juggling}
+					/>
 				</ListItem>
 				<ListItem>{t("hobbies.programming")}</ListItem>
 				<ListItem>{t("hobbies.shorinji kempo")}</ListItem>

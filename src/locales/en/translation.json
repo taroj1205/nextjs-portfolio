@@ -259,5 +259,14 @@
     "framework": "Framework",
     "library": "Libraries",
     "third party": "Third-Party Services"
+  },
+  "heading": {
+    "programming": "Programming",
+    "open source": "Open Source"
+  },
+  "open source": {
+    "yamada": {
+      "title": "Yamada UI (Core Member)"
+    }
   }
 }

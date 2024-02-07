@@ -55,6 +55,19 @@ export const ProjectsCard: React.FC = () => {
 			githubLink: "https://github.com/taroj1205/chrome-twitter-link",
 		},
 		{
+			title: locale === "en" ? "Hide Twitter Bots (Chrome Extension)" : "Twitterのボットを隠す拡張機能。",
+			description:
+				locale === "en"
+					? "This is a chrome extension for hiding twitter bots."
+					: "Twitterのボットを隠すためのChrome拡張機能です。",
+			thumbnail: "/images/hide-twitter-bots.webp",
+			video: false,
+			lang: "JavaScript/Typescript",
+			framework: "Chrome",
+			link: "https://github.com/taroj1205/chrome-twitter-bots/releases/latest",
+			githubLink: "https://github.com/taroj1205/chrome-twitter-bots",
+		},
+		{
 			title: locale === "en" ? "Typing Game" : "タイピングゲーム",
 			description:
 				locale === "en"
@@ -120,36 +133,36 @@ export const ProjectsCard: React.FC = () => {
 			link: "/portal",
 			githubLink: "https://github.com/taroj1205/nextjs-portfolio/",
 		},
-		{
-			title:
-				locale === "en"
-					? "Typing Game (Node.js)"
-					: "タイピングゲーム (Node.js)",
-			description:
-				locale === "en"
-					? "Learn English with this typing game."
-					: "英語を習得するためのタイピングゲームです。",
-			thumbnail: "/images/index_js.webp",
-			video: false,
-			lang: "JavaScript",
-			framework: "Node.js (Server)",
-			link: "https://github.com/taroj1205/Typing-Game-Node/",
-			githubLink: "https://github.com/taroj1205/Typing-Game-Node/",
-		},
-		{
-			title:
-				locale === "en" ? "Typing Game (Pygame)" : "タイピングゲーム (Pygame)",
-			description:
-				locale === "en"
-					? "Learn English with this typing game."
-					: "英語を習得するためのタイピングゲームです。",
-			thumbnail: "/images/typing-game.webp",
-			video: false,
-			lang: "Python",
-			framework: "Pygame",
-			link: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
-			githubLink: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
-		},
+		// {
+		// 	title:
+		// 		locale === "en"
+		// 			? "Typing Game (Node.js)"
+		// 			: "タイピングゲーム (Node.js)",
+		// 	description:
+		// 		locale === "en"
+		// 			? "Learn English with this typing game."
+		// 			: "英語を習得するためのタイピングゲームです。",
+		// 	thumbnail: "/images/index_js.webp",
+		// 	video: false,
+		// 	lang: "JavaScript",
+		// 	framework: "Node.js (Server)",
+		// 	link: "https://github.com/taroj1205/Typing-Game-Node/",
+		// 	githubLink: "https://github.com/taroj1205/Typing-Game-Node/",
+		// },
+		// {
+		// 	title:
+		// 		locale === "en" ? "Typing Game (Pygame)" : "タイピングゲーム (Pygame)",
+		// 	description:
+		// 		locale === "en"
+		// 			? "Learn English with this typing game."
+		// 			: "英語を習得するためのタイピングゲームです。",
+		// 	thumbnail: "/images/typing-game.webp",
+		// 	video: false,
+		// 	lang: "Python",
+		// 	framework: "Pygame",
+		// 	link: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
+		// 	githubLink: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
+		// },
 		{
 			title: locale === "en" ? "Chat App" : "チャットアプリ",
 			description:
@@ -163,19 +176,19 @@ export const ProjectsCard: React.FC = () => {
 			link: "https://chat-taroj.vercel.app/",
 			githubLink: "https://github.com/taroj1205/chat",
 		},
-		{
-			title: locale === "en" ? "Old Portfolio" : "昔のポートフォリオ",
-			description:
-				locale === "en"
-					? "This is my old portfolio site."
-					: "これは僕の古いサイトです。",
-			thumbnail: "/images/taroj-poyo-jp.webp",
-			video: false,
-			lang: "JavaScript/TypeScript",
-			framework: "Next.js",
-			link: "https://taroj.poyo.jp/",
-			githubLink: "https://github.com/taroj1205/taroj.poyo.jp",
-		},
+		// {
+		// 	title: locale === "en" ? "Old Portfolio" : "昔のポートフォリオ",
+		// 	description:
+		// 		locale === "en"
+		// 			? "This is my old portfolio site."
+		// 			: "これは僕の古いサイトです。",
+		// 	thumbnail: "/images/taroj-poyo-jp.webp",
+		// 	video: false,
+		// 	lang: "JavaScript/TypeScript",
+		// 	framework: "Next.js",
+		// 	link: "https://taroj.poyo.jp/",
+		// 	githubLink: "https://github.com/taroj1205/taroj.poyo.jp",
+		// },
 	];
 
 	return (

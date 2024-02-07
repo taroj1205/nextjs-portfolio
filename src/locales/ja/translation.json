@@ -259,5 +259,14 @@
     "framework": "フレームワーク",
     "library": "ライブラリ",
     "third party": "サードパーティサービス"
+  },
+  "heading": {
+    "programming": "プログラミング",
+    "open source": "オープンソース"
+  },
+  "open source": {
+    "yamada": {
+      "title": "Yamada UIのコアメンバー"
+    }
   }
 }

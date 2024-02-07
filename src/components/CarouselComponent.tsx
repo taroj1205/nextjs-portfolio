@@ -36,7 +36,7 @@ export const CarouselComponent = () => {
 			delay={2000}
 			autoplay
 			stopMouseEnterAutoplay={true}
-			slideSize={size}
+			slideSize={"100%"}
 			h={"fit-content"}
 			className="max-w-4xl h-fit">
 			{images.map((image, index) => (

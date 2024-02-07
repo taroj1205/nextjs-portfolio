@@ -8,12 +8,12 @@ import {
 	FaFacebook,
 	FaLinkedin,
 } from "react-icons/fa";
-import Link from "next/link";
 import { BriefIntro } from "@/components/BriefIntro";
 import { Languages } from "@/components/Languages";
 import { Metadata } from "next";
 import { useLocale, useTranslations } from "next-intl";
-import { Box, Heading } from "@yamada-ui/react";
+import { Box, DiscList, Heading, ListItem, Link as YamadaLink } from "@yamada-ui/react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
 	title: "taroj1205 - Portfolio",
@@ -98,14 +98,33 @@ export default function Home() {
 			<div className="w-full my-8 p-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent bg-opacity-10"></div>
 			<BriefIntro />
 			<div className="w-full my-8 p-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent bg-opacity-10"></div>
-			<Languages />
+			<Box className="mt-8 space-y-4">
+				<Heading as={"h2"}>{t("heading.programming")}</Heading>
+				<Heading as={"h3"} size={"lg"}>
+					{t("heading.open source")}
+				</Heading>
+				<DiscList fontSize={"lg"}>
+					<ListItem>
+						{t("open source.yamada.title")}
+						<DiscList>
+							<ListItem>
+								<YamadaLink href="https://yamada-ui.com/community/team" isExternal>
+									https://yamada-ui.com/community/team
+								</YamadaLink>
+							</ListItem>
+						</DiscList>
+					</ListItem>
+				</DiscList>
+				<Languages />
+			</Box>
 			<div className="w-full my-8 p-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent bg-opacity-10"></div>
 
-			<div className="float-right mb-6">
-				<h2 className="text-3xl font-bold mb-4">{t("projects.title")}</h2>
-
+			<Box className="mt-8 space-y-4">
+				<Heading as={"h2"}>
+					{t("projects.title")}
+				</Heading>
 				<ProjectsCard />
-			</div>
+			</Box>
 		</Box>
 	);
 }
