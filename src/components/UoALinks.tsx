@@ -147,6 +147,17 @@ export const UoALinks: React.FC = () => {
 						</CardBody>
 					</Card>
 				))}
+				<Card maxW="90vw" w={"260px"} h={"350px"} variant="none">
+					<CardBody className="flex items-center justify-center">
+						<IconButton
+							onClick={onOpen}
+							size={"lg"}
+							zIndex={100}
+							className="opacity-0 hover:opacity-100 cursor-pointer transition-opacity duration-300"
+							icon={<FontAwesomeIcon icon={faPlus} />}
+						/>
+					</CardBody>
+				</Card>
 				<Modal isOpen={isOpen} onClose={onClose}>
 					<ModalHeader>Request to add a new link</ModalHeader>
 
@@ -243,13 +254,6 @@ export const UoALinks: React.FC = () => {
 					openModal={onOpen}
 				/>
 			</Wrap>
-			<div className="fixed bottom-2 right-2">
-				<IconButton
-					onClick={onOpen}
-					size={"lg"}
-					icon={<FontAwesomeIcon icon={faPlus} />}
-				/>
-			</div>
 		</>
 	);
 };

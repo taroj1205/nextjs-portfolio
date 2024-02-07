@@ -66,7 +66,7 @@ export default async function RootLayout({
 							nonce="testing"
 							initialColorMode={"system"}
 						/>
-						<div className="flex flex-col">
+						<div className="flex flex-col min-h-svh">
 							<Navbar />
 							<main className="p-6">{children}</main>
 							<Footer />
