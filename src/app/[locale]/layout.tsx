@@ -59,7 +59,7 @@ export default async function RootLayout({
 	}
 	return (
 		<html lang={locale} data-mode="dark" style={{ colorScheme: "dark" }}>
-			<body className={`${inter.className} scroll-smooth ui-dark`}>
+			<body className={`${inter.className} scroll-smooth ui-dark subpixel-antialiased`}>
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<Providers>
 						<ColorModeScript
