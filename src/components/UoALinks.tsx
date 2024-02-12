@@ -3,22 +3,17 @@ import {
 	Card,
 	CardHeader,
 	CardBody,
-	CardFooter,
 	Image,
 	Heading,
 	Text,
 	Button,
 	HStack,
 	VStack,
-	Icon,
 	IconButton,
 	useDisclosure,
 	Modal,
-	ModalOverlay,
-	ModalCloseButton,
 	ModalHeader,
 	ModalBody,
-	ModalFooter,
 	InputGroup,
 	InputLeftAddon,
 	FileInput,
@@ -28,12 +23,11 @@ import {
 	useLoading,
 	Dialog,
 	Wrap,
-	InputRightElement,
 	Tag,
 } from "@yamada-ui/react";
 import Link from "next/link";
 import { Icon as FontAwesomeIcon } from "@yamada-ui/fontawesome";
-import { faClose, faFile, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faFile, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { Dispatch, SetStateAction, useState } from "react";
 import { SubmitForm } from "@/util/SubmitForm";
@@ -83,8 +77,6 @@ export const UoALinks: React.FC = () => {
 		image: File[];
 	};
 
-	const { page } = useLoading();
-
 	const {
 		register,
 		handleSubmit,
@@ -92,6 +84,8 @@ export const UoALinks: React.FC = () => {
 		formState: { errors },
 		control,
 	} = useForm<Data>();
+	
+	const { page } = useLoading();
 
 	const onSubmit: SubmitHandler<Data> = async (data) => {
 		console.log("submit:", data);
@@ -229,7 +223,7 @@ export const UoALinks: React.FC = () => {
 													})}
 													placeholder="Upload image"
 													{...field}
-													component={({ value: { name } }) => <Tag>{name}</Tag>}
+													component={({ value: { name} }) => <Tag key={name}>{name}</Tag>}
 													accept="image/png,image/jpeg"
 												/>
 											</InputGroup>

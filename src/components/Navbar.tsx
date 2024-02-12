@@ -303,7 +303,7 @@ const Dropdown = ({ name }: { name: string }) => {
 			// 	description: t("ncea.description"),
 			// },
 			{
-				href: "/apps/search",
+				href: "https://taroj1205.poyo.jp/apps/search",
 				text: t("search.name"),
 				icon: icons.search,
 				description: t("search.description"),
@@ -376,7 +376,7 @@ const Dropdown = ({ name }: { name: string }) => {
 				data-active={pathname.startsWith(items[0].href.toString())}
 				data-menu-open={isOpen}
 				variant={"unstyled"}>
-				<div className="flex !font-normal items-center flex-row flex-nowrap space-x-2">
+				<div className="flex !font-normal items-center flex-row flex-nowrap gap-2">
 					{name === "blog" ? (
 						<>
 							<FaBlog />

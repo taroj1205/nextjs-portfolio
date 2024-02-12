@@ -27,15 +27,20 @@ export const ThemeSwitcher = () => {
 
 	return (
 		<div className="relative inline-block">
-			<Menu isOpen={isOpen} onClose={onClose} onOpen={onOpen} closeOnSelect closeOnEsc>
+			<Menu
+				isOpen={isOpen}
+				onClose={onClose}
+				onOpen={onOpen}
+				closeOnSelect
+				closeOnEsc>
 				<MenuButton
 					as="button"
 					type="button"
 					title="Switch theme"
 					data-open={isOpen}
-					className={`switch-button p-2 flex items-center justify-center w-fit mr-1 md:mr-0 rounded-md active:scale-95 duration-200 data-[open=true]:border-blue-300 data-[open=true]:ring data-[open=true]:ring-blue-200 data-[open=true]:ring-opacity-50`}>
-					<FiMoon className="text-indigo-500 w-6 h-6 moon" />
-					<FiSun className="text-yellow-500 w-6 h-6 sun" />
+					className={`switch-button group p-2 flex items-center justify-center w-fit mr-1 md:mr-0 rounded-md duration-200 data-[open=true]:border-blue-300 data-[open=true]:ring data-[open=true]:ring-blue-200 data-[open=true]:ring-opacity-50`}>
+					<FiMoon className="text-indigo-500 w-6 h-6 moon group-active:scale-95" />
+					<FiSun className="text-yellow-500 w-6 h-6 sun group-active:scale-95" />
 				</MenuButton>
 
 				<MenuList>
