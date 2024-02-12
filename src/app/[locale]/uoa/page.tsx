@@ -8,6 +8,7 @@ import {
 	Text,
 } from "@yamada-ui/react";
 import { Metadata } from "next";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -60,9 +61,11 @@ interface Link {
 }
 
 export default function Home() {
+	const t = useTranslations();
 	return (
 		<div className="max-w-5xl mx-auto flex flex-col space-y-2">
-			<h1 className="text-3xl">Useful links for UoA</h1>
+			<Heading as="h2" size="2xl">{t("header.uoa.name")}</Heading>
+			<Text>{t("header.uoa.description")}</Text>
 			<Wrap gap="md">
 				{links.map((link: Link, index: number) => (
 					<Card

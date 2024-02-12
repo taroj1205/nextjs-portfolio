@@ -71,6 +71,10 @@
     "typing": {
       "name": "Typing Game",
       "description": "Learn English with typing game!"
+    },
+    "uoa": {
+      "name": "UoA Links",
+      "description": "Useful links for UoA"
     }
   },
   "language switcher": {

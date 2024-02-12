@@ -11,6 +11,7 @@ import {
 	FaLinkedin,
 	FaListAlt,
 	FaTwitter,
+	FaUniversity,
 	FaYoutube,
 } from "react-icons/fa";
 import { RiAiGenerate, RiHome2Line, RiUserLine } from "react-icons/ri";
@@ -28,6 +29,7 @@ import { ImPointUp } from "react-icons/im";
 import {
 	Box,
 	Button,
+	HStack,
 	Menu,
 	MenuButton,
 	MenuItem,
@@ -99,6 +101,7 @@ export const icons = {
 	instagram: <FaInstagram className="text-pink-600" size={30} />,
 	connect4: <FaGamepad className="text-blue-600" size={30} />,
 	typing: <FaKeyboard className="text-green-600" size={30} />,
+	university: <FaUniversity className="text-blue-600" size={30} />,
 	hatena: (
 		<Image
 			alt={"hatenablog icon"}
@@ -216,7 +219,7 @@ export const Navbar = () => {
 					</div>
 					{/* Desktop menu */}
 					<div
-						className={`hidden h-full md:flex space-x-4 items-center justify-center`}>
+						className={`hidden h-full md:flex gap-4 items-center justify-center`}>
 						<Dropdown name="social" />
 						<Dropdown name="blog" />
 						<Dropdown name="apps" />
@@ -244,7 +247,6 @@ type DropdownProps = {
 const Dropdown = ({ name }: { name: string }) => {
 	const pathname = usePathname();
 	const t = useTranslations("header");
-	const {colorMode} = useColorMode();
 
 	const nested: NestedType = {
 		blog: [
@@ -307,6 +309,12 @@ const Dropdown = ({ name }: { name: string }) => {
 				text: t("search.name"),
 				icon: icons.search,
 				description: t("search.description"),
+			},
+			{
+				href: "/uoa",
+				text: t("uoa.name"),
+				icon: icons.university,
+				description: t("uoa.description"),
 			},
 			{
 				href: "https://analytics.eu.umami.is/share/nU5pqI425dwMvrAA/taroj1205.netlify.app",
@@ -374,41 +382,42 @@ const Dropdown = ({ name }: { name: string }) => {
 				as={Button}
 				onClick={onOpen}
 				data-active={pathname.startsWith(items[0].href.toString())}
+				w="fit"
 				data-menu-open={isOpen}
 				variant={"unstyled"}>
-				<div className="flex !font-normal items-center flex-row flex-nowrap gap-2">
+				<HStack gap={1.5} flexWrap="nowrap">
 					{name === "blog" ? (
 						<>
 							<FaBlog />
-							<span>{t("blog")}</span>
+							<span className="!font-normal">{t("blog")}</span>
 						</>
 					) : name === "apps" ? (
 						<>
 							<FaCubes />
-							<span>{t("apps")}</span>
+							<span className="!font-normal">{t("apps")}</span>
 						</>
 					) : (
 						<>
 							<SlSocialDropbox />
-							<span>{t("social")}</span>
+							<span className="!font-normal">{t("social")}</span>
 						</>
 					)}
 					<div className="navbar-dropdown" data-menu-open={isOpen} />
-				</div>
+				</HStack>
 			</MenuButton>
 			<MenuList className="absolute w-fit z-10 left-0 min-w-[10rem] rounded-md ring-1 ring-black ring-opacity-5">
-					{items.map((item, index) => (
-						<MenuItem
-							key={index}
-              as={Link}
-							target={name === "apps" || name === "social" ? "_blank" : "_self"}
-							rel="noopener"
-							className="group flex flex-row w-full items-center text-sm transition-colors duration-300 ease-in-out"
-							href={item.href}>
-							{item.icon}
-							<div className="whitespace-nowrap">{item.text}</div>
-						</MenuItem>
-					))}
+				{items.map((item, index) => (
+					<MenuItem
+						key={index}
+						as={Link}
+						target="_blank"
+						rel="noopener"
+						className="group flex flex-row w-full items-center text-sm transition-colors duration-300 ease-in-out"
+						href={item.href}>
+						{item.icon}
+						<div className="whitespace-nowrap">{item.text}</div>
+					</MenuItem>
+				))}
 			</MenuList>
 		</Menu>
 	);

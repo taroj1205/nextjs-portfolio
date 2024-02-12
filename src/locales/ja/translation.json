@@ -71,6 +71,10 @@
     "typing": {
       "description": "タイピングゲームで英語を学びましょう",
       "name": "タイピングゲーム"
+    },
+    "uoa": {
+      "description": "オークランド大学で役に立つリンク",
+      "name": "UoAのリンク等"
     }
   },
   "language switcher": {
