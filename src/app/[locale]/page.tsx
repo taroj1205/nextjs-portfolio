@@ -12,7 +12,7 @@ import { BriefIntro } from "@/components/BriefIntro";
 import { Languages } from "@/components/Languages";
 import { Metadata } from "next";
 import { useLocale, useTranslations } from "next-intl";
-import { Box, DiscList, Heading, ListItem, Link as YamadaLink } from "@yamada-ui/react";
+import { Box, Center, DiscList, Heading, ListItem, Link as YamadaLink } from "@yamada-ui/react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -85,9 +85,9 @@ export default function Home() {
 					<FaLinkedin />
 				</Link>
 			</div>
-			<div className="flex justify-center print:hidden">
+			<Box maxW="90vw" as={Center}>
 				<Carousel />
-			</div>
+			</Box>
 			<Image
 				src="/images/header-square.webp"
 				alt="header"

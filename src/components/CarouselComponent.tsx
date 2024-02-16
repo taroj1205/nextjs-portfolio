@@ -6,7 +6,7 @@ import {
 	CarouselControlPrev,
 	CarouselIndicators,
 } from "@yamada-ui/carousel";
-import { Center, Image, useBreakpointValue } from "@yamada-ui/react";
+import { Center, Image } from "@yamada-ui/react";
 
 const images = [
 	{
@@ -29,7 +29,6 @@ const images = [
 
 
 export const CarouselComponent = () => {
-	const size = useBreakpointValue({ base: "full", md: "50%" });
 	return (
 		<Carousel
 			speed={50}
@@ -40,12 +39,13 @@ export const CarouselComponent = () => {
 			{images.map((image, index) => (
 				<CarouselSlide key={index} as={Center}>
 					<Image
-						className="rounded-md w-[24rem] aspect-square"
+						className="rounded-md aspect-square"
 						src={image.src}
 						alt={image.alt}
 					/>
 				</CarouselSlide>
 			))}
+			<CarouselIndicators display="hidden" />
 		</Carousel>
 	);
 };

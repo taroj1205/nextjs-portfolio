@@ -29,13 +29,15 @@ import { ImPointUp } from "react-icons/im";
 import {
 	Box,
 	Button,
+	Divider,
 	HStack,
 	Menu,
 	MenuButton,
 	MenuItem,
 	MenuList,
 	Text,
-  useColorMode,
+	VStack,
+	useColorMode,
 	useDisclosure,
 } from "@yamada-ui/react";
 import "../../public/svg/blog/hatenablog.svg";
@@ -167,7 +169,7 @@ export const Navbar = () => {
 			<Box data-menu-open={mobileMenuOpen} className="h-16"></Box>
 			<nav
 				data-menu-open={mobileMenuOpen}
-				className="flex h-fit flex-col min-h-[4rem] z-40 w-screen items-center justify-center data-[menu-open=true]:h-[100svh] data-[menu-open=true]:justify-start data-[menu-open=true]:border-none fixed top-0 inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-xl">
+				className="flex h-fit flex-col min-h-[4rem] z-40 w-screen items-center justify-center data-[menu-open=true]:h-[100svh] data-[menu-open=true]:justify-start data-[menu-open=true]:border-none fixed top-0 inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-3xl data-[menu-open=true]:bg-black data-[menu-open=true]:bg-opacity-50">
 				<div
 					data-menu-open={mobileMenuOpen}
 					className={`flex items-center h-16 min-h-[4rem] justify-between md:hidden w-full px-2 pl-3`}>
@@ -196,10 +198,8 @@ export const Navbar = () => {
 				</div>
 				{/* Mobile menu */}
 				{mobileMenuOpen && (
-					<div className="flex flex-col justify-start h-full md:hidden px-6 w-full">
-						<Dropdown name="social" />
-						<Dropdown name="blog" />
-						<Dropdown name="apps" />
+					<div className="flex flex-col justify-start h-full md:hidden px-6 w-full overflow-y-auto">
+						<MobileMenu />
 					</div>
 				)}
 				<header className="hidden h-16 z-40 md:flex px-6 gap-4 w-full flex-row relative flex-nowrap items-center justify-between max-w-[1024px]">
@@ -244,10 +244,8 @@ type DropdownProps = {
 	}[];
 };
 
-const Dropdown = ({ name }: { name: string }) => {
-	const pathname = usePathname();
+export function useNested(name: string) {
 	const t = useTranslations("header");
-
 	const nested: NestedType = {
 		blog: [
 			{
@@ -362,8 +360,14 @@ const Dropdown = ({ name }: { name: string }) => {
 			},
 		],
 	};
+	return nested[name];
+}
 
-	const items = nested[name] as DropdownProps["items"];
+const Dropdown = ({ name }: { name: string }) => {
+	const pathname = usePathname();
+	const t = useTranslations("header");
+
+	const items = useNested(name) as DropdownProps["items"];
 
 	const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -422,3 +426,35 @@ const Dropdown = ({ name }: { name: string }) => {
 		</Menu>
 	);
 };
+
+const MenuItemComponent = ({ icon, text, href }: { icon: JSX.Element; text: string; href: string }) => (
+	<Link
+		href={href}
+		target="_blank"
+		rel="noopener"
+		className="group flex flex-row w-full items-center text-sm transition-colors duration-300 ease-in-out gap-2">
+		{icon}
+		<div className="whitespace-nowrap">{text}</div>
+	</Link>
+);
+
+const MobileMenu = () => {
+	const t = useTranslations("header");
+
+	const renderMenuItems = (items: DropdownProps["items"]) =>
+		items.map((item, index: number) => <MenuItemComponent key={index} {...item} />);
+
+	return (
+		<VStack>
+			<Text>{t("social")}</Text>
+			{renderMenuItems(useNested("social"))}
+			<Divider />
+			<Text>{t("blog")}</Text>
+			{renderMenuItems(useNested("blog"))}
+			<Divider />
+			<Text>{t("apps")}</Text>
+			{renderMenuItems(useNested("apps"))}
+			<Box h="1rem" />
+		</VStack>
+	);
+}
