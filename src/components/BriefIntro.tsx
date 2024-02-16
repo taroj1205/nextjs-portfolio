@@ -98,6 +98,12 @@ export const BriefIntro = () => {
 				<ListItem>{t("hobbies.shorinji kempo")}</ListItem>
 				<ListItem>{t("hobbies.table tennis")}</ListItem>
 			</DiscList>
+			<Heading as={"h3"} fontSize={"3xl"}>
+				{t("part time job.heading")}
+			</Heading>
+			<DiscList fontSize={"lg"}>
+				<ListItem>{t("part time job.westlake")}</ListItem>
+			</DiscList>
 		</Box>
 	);
 };
