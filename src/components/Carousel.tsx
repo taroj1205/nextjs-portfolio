@@ -1,7 +1,10 @@
+import { Box } from "@yamada-ui/react";
 import { CarouselComponent } from "./CarouselComponent";
 
 export const Carousel = () => {
 	return (
-		<CarouselComponent />
+		<Box maxW="24rem">
+			<CarouselComponent />
+		</Box>
 	);
 };

@@ -36,11 +36,9 @@ export const CarouselComponent = () => {
 			delay={2000}
 			autoplay
 			stopMouseEnterAutoplay={true}
-			slideSize={"100%"}
-			h={"fit-content"}
-			className="max-w-4xl h-fit">
+			slideSize={"100%"}>
 			{images.map((image, index) => (
-				<CarouselSlide className="h-fit" key={index} as={Center}>
+				<CarouselSlide key={index} as={Center}>
 					<Image
 						className="rounded-md w-[24rem] aspect-square"
 						src={image.src}
