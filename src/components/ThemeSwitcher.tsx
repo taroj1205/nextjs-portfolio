@@ -50,19 +50,19 @@ export const ThemeSwitcher = () => {
 						onChange={changeColorMode}
 						value={internalColorMode}>
 						<MenuOptionItem {...menuOptionItemProps} value="dark">
-							<ui.span className="flex items-center justify-center gap-1">
+							<ui.span className="flex items-center gap-2">
 								<Icon as={FiMoon} />
 								<div>Dark</div>
 							</ui.span>
 						</MenuOptionItem>
 						<MenuOptionItem {...menuOptionItemProps} value="light">
-							<ui.span className="flex items-center  gap-2">
+							<ui.span className="flex items-center gap-2">
 								<Icon as={FiSun} />
 								<div>Light</div>
 							</ui.span>
 						</MenuOptionItem>
 						<MenuOptionItem {...menuOptionItemProps} value="system">
-							<ui.span className="flex items-center  gap-2">
+							<ui.span className="flex items-center gap-2">
 								<Icon as={FiMonitor} />
 								<div>System</div>
 							</ui.span>
