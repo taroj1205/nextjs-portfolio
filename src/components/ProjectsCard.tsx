@@ -10,14 +10,22 @@ import {
 	Link as YamadaLink,
 	Wrap,
 } from "@yamada-ui/react";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { useLocale } from "next-intl";
+import portfolioImage from "../../public/images/portfolio.webp";
+import saveTwitterLinksImage from "../../public/images/save-twitter-links.webp";
+import hideTwitterBotsImage from "../../public/images/hide-twitter-bots.webp";
+import typingGameImage from "../../public/images/typing-game.webp";
+import connect4Image from "../../public/images/connect-4.webp";
+import appPyImage from "../../public/images/app_py.webp";
+import uoALinksImage from "../../public/images/UoALinks.webp";
+import chatImage from "../../public/images/chat.webp";
 
 interface Project {
 	title: string;
 	description: string;
-	thumbnail: string;
+	thumbnail: string | StaticImageData;
 	video: boolean;
 	lang: string;
 	framework: string;
@@ -34,7 +42,7 @@ export const ProjectsCard: React.FC = () => {
 				locale === "en"
 					? "This is my portfolio site."
 					: "これは僕のサイトです。",
-			thumbnail: "/images/portfolio.webp",
+			thumbnail: portfolioImage,
 			video: false,
 			lang: "JavaScript/Typescript",
 			framework: "Next.js",
@@ -47,7 +55,7 @@ export const ProjectsCard: React.FC = () => {
 				locale === "en"
 					? "This is a chrome extension for saving twitter links you've viewed."
 					: "Twitterのリンクを保存するためのChrome拡張機能です。",
-			thumbnail: "/images/save-twitter-links.webp",
+			thumbnail: saveTwitterLinksImage,
 			video: false,
 			lang: "JavaScript/Typescript",
 			framework: "Chrome",
@@ -55,12 +63,15 @@ export const ProjectsCard: React.FC = () => {
 			githubLink: "https://github.com/taroj1205/chrome-twitter-link",
 		},
 		{
-			title: locale === "en" ? "Hide Twitter Bots (Chrome Extension)" : "Twitterのボットを隠す拡張機能。",
+			title:
+				locale === "en"
+					? "Hide Twitter Bots (Chrome Extension)"
+					: "Twitterのボットを隠す拡張機能。",
 			description:
 				locale === "en"
 					? "This is a chrome extension for hiding twitter bots."
 					: "Twitterのボットを隠すためのChrome拡張機能です。",
-			thumbnail: "/images/hide-twitter-bots.webp",
+			thumbnail: hideTwitterBotsImage,
 			video: false,
 			lang: "JavaScript/Typescript",
 			framework: "Chrome",
@@ -73,7 +84,7 @@ export const ProjectsCard: React.FC = () => {
 				locale === "en"
 					? "Learn English with this typing game."
 					: "英語を習得するためのタイピングゲームです。",
-			thumbnail: "/images/typing-game.webp",
+			thumbnail: typingGameImage,
 			video: false,
 			lang: "JavaScript/TypeScript",
 			framework: "Next.js",
@@ -86,7 +97,7 @@ export const ProjectsCard: React.FC = () => {
 				locale === "en"
 					? "This is a Connect 4 game made with Next.js."
 					: "これはNext.jsで作られたConnect 4ゲームです。",
-			thumbnail: "/images/connect-4.webp",
+			thumbnail: connect4Image,
 			video: false,
 			lang: "JavaScript/Typescript",
 			framework: "Next.js",
@@ -114,7 +125,7 @@ export const ProjectsCard: React.FC = () => {
 				locale === "en"
 					? "Learn English with this typing game."
 					: "英語を習得するためのタイピングゲームです。",
-			thumbnail: "/images/app_py.webp",
+			thumbnail: appPyImage,
 			video: false,
 			lang: "JavaScript",
 			framework: "Flask/SQLite3 (Server)",
@@ -126,11 +137,11 @@ export const ProjectsCard: React.FC = () => {
 			title: locale === "en" ? "UoA Links" : "UoAのリンクなど",
 			description:
 				locale === "en" ? "Useful links for UoA" : "UoAの便利なリンクです",
-			thumbnail: "/videos/UoALinks.webm",
-			video: true,
+			thumbnail: uoALinksImage,
+			video: false,
 			lang: "JavaScript/TypeScript",
 			framework: "Next.js",
-			link: "/portal",
+			link: "/uoa",
 			githubLink: "https://github.com/taroj1205/nextjs-portfolio/",
 		},
 		// {
@@ -169,8 +180,8 @@ export const ProjectsCard: React.FC = () => {
 				locale === "en"
 					? "This is a feature-rich chat app made with Next.js and Supabase."
 					: "Next.jsとSupabaseで作られた機能豊富なチャットアプリです。",
-			thumbnail: "/videos/chat.webm",
-			video: true,
+			thumbnail: chatImage,
+			video: false,
 			lang: "JavaScript/TypeScript",
 			framework: "Next.js",
 			link: "https://chat-taroj.vercel.app/",
@@ -203,7 +214,7 @@ export const ProjectsCard: React.FC = () => {
 					<CardHeader maxH={318} roundedTop={"md"} overflow={"hidden"} p={0}>
 						{project.video ? (
 							<video
-								src={project.thumbnail}
+								src={String(project.thumbnail)}
 								autoPlay
 								loop
 								muted
@@ -221,7 +232,9 @@ export const ProjectsCard: React.FC = () => {
 						)}
 					</CardHeader>
 					<CardBody bg={["#fbfcfe", "#0b0d0e"]}>
-						<YamadaLink href={project.link} isExternal fontSize="md">{project.title}</YamadaLink>
+						<YamadaLink href={project.link} isExternal fontSize="md">
+							{project.title}
+						</YamadaLink>
 						<Text fontSize={"sm"}>{project.description}</Text>
 					</CardBody>
 					<Divider orientation="horizontal" />
