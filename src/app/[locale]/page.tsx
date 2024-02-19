@@ -11,11 +11,23 @@ import {
 import { BriefIntro } from "@/components/BriefIntro";
 import { Languages } from "@/components/Languages";
 import { useLocale, useTranslations } from "next-intl";
-import { Box, Center, DiscList, Heading, ListItem, Link as YamadaLink } from "@yamada-ui/react";
+import {
+	Box,
+	Center,
+	DiscList,
+	Heading,
+	ListItem,
+	Text,
+	Link as YamadaLink,
+} from "@yamada-ui/react";
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
 
-export async function generateMetadata({ params: { locale } }: {params: {locale: string}}) {
+export async function generateMetadata({
+	params: { locale },
+}: {
+	params: { locale: string };
+}) {
 	const t = await getTranslations({ locale, namespace: "metadata" });
 
 	return {
@@ -29,27 +41,24 @@ export default function Home() {
 	const t = useTranslations();
 	return (
 		<Box className="max-w-5xl mx-auto">
-			<Heading textAlign="center" as={"h1"} size={"3xl"}>
-				{locale === "en" && "Hi👋 I'm Shintaro Jokagi."}
+			<Heading textAlign="center" as={"h1"} fontSize={"4xl"} textWrap="balance" overflowWrap="break-word">
+				{locale === "en" && (
+					<span className="text-balance">
+						Hi👋 I&apos;m <span className="text-5xl text-nowrap">Shintaro Jokagi.</span>
+					</span>
+				)}
 				{locale === "ja" && (
-					<span className="flex flex-row flex-wrap items-center justify-center">
-						<ruby>
-							こんにちは<rp>(</rp>
-							<rt className="opacity-0">こんにちは</rt>
+					<>
+						<span className="whitespace-normal">こんにちは👋 </span>
+						<ruby className="text-5xl text-nowrap">
+							上鍵<rp>(</rp>
+							<rt>じょうかぎ</rt>
+							<rp>)</rp>心太朗<rp>(</rp>
+							<rt>しんたろう</rt>
 							<rp>)</rp>
 						</ruby>
-						<span className="mb-1">👋</span>{" "}
-						<span>
-							<ruby>
-								上鍵<rp>(</rp>
-								<rt>じょうかぎ</rt>
-								<rp>)</rp>心太朗<rp>(</rp>
-								<rt>しんたろう</rt>
-								<rp>)</rp>
-							</ruby>
-							です。
-						</span>
-					</span>
+						<span className="text-nowrap">です。</span>
+					</>
 				)}
 			</Heading>
 			<div className="flex flex-wrap justify-center space-x-4 my-4">
@@ -104,7 +113,7 @@ export default function Home() {
 			<div className="w-full my-8 p-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent bg-opacity-10"></div>
 			<Box className="mt-8 space-y-4">
 				<Heading as={"h2"}>{t("heading.programming")}</Heading>
-				<Heading as={"h3"} size={"lg"}>
+				<Heading as={"h3"} fontSize="2xl">
 					{t("heading.open source")}
 				</Heading>
 				<DiscList fontSize={"lg"}>
@@ -112,7 +121,9 @@ export default function Home() {
 						{t("open source.yamada.title")}
 						<DiscList>
 							<ListItem>
-								<YamadaLink href="https://yamada-ui.com/community/team" isExternal>
+								<YamadaLink
+									href="https://yamada-ui.com/community/team"
+									isExternal>
 									https://yamada-ui.com/community/team
 								</YamadaLink>
 							</ListItem>
@@ -124,9 +135,7 @@ export default function Home() {
 			<div className="w-full my-8 p-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent bg-opacity-10"></div>
 
 			<Box className="mt-8 space-y-4">
-				<Heading as={"h2"}>
-					{t("projects.title")}
-				</Heading>
+				<Heading as={"h2"}>{t("projects.title")}</Heading>
 				<ProjectsCard />
 			</Box>
 		</Box>

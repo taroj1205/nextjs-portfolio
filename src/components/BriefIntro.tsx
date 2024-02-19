@@ -39,7 +39,7 @@ export const BriefIntro = () => {
 	const locale = useLocale();
 	return (
 		<Box className="mt-8 space-y-4">
-			<Heading as={"h2"}>{t("title")}</Heading>
+			<Heading as={"h2"} fontSize="3xl">{t("title")}</Heading>
 			<DiscList fontSize={"lg"}>
 				<ListItem>{t("born")}</ListItem>
 				<ListItem>{t("age")}</ListItem>
@@ -53,7 +53,7 @@ export const BriefIntro = () => {
 						title={
 							locale === "en"
 								? "Been to 11 schools by the end of 2023."
-								: "2023年までに11校行きました。"
+								: "2023年までに３カ国11校経験しました。"
 						}
 						description={
 							locale === "en"
@@ -64,7 +64,7 @@ export const BriefIntro = () => {
 					/>
 				</ListItem>
 			</DiscList>
-			<Heading as={"h3"} fontSize={"3xl"}>
+			<Heading as={"h3"} fontSize={"2xl"}>
 				{t("lived in.heading")}
 			</Heading>
 			<DiscList fontSize={"lg"}>
@@ -72,15 +72,18 @@ export const BriefIntro = () => {
 				<ListItem>{t("lived in.philippines")}</ListItem>
 				<ListItem>{t("lived in.newzealand")}</ListItem>
 			</DiscList>
-			<Heading as={"h3"} fontSize={"3xl"}>
+			<Heading as={"h3"} fontSize={"2xl"}>
 				{t("hobbies.heading")}
 			</Heading>
 			<DiscList fontSize={"lg"}>
+				<ListItem>{t("hobbies.programming")}</ListItem>
 				<ListItem>{t("hobbies.soccer")}</ListItem>
 				<ListItem>
 					<DrawerComponent
 						title={locale === "en" ? "Kendama (けん玉)" : "けん玉"}
-						description={locale === "en" ? "Japanese Traditional Toy like Yo-yo" : ""}
+						description={
+							locale === "en" ? "Japanese Traditional Toy like Yo-yo" : ""
+						}
 						imageRef={images.kendama}
 					/>{" "}
 					{locale === "en" && "(Japanese Traditional Toy like Yo-yo)"}
@@ -89,16 +92,24 @@ export const BriefIntro = () => {
 					<DrawerComponent
 						title={locale === "en" ? "Juggling" : "ジャグリング"}
 						description={
-							locale === "en" ? "This is me practising juggling." : "ジャグリングを練習中です。"
+							locale === "en"
+								? "This is me practising juggling."
+								: "ジャグリングを練習中です。"
 						}
 						imageRef={images.juggling}
 					/>
 				</ListItem>
-				<ListItem>{t("hobbies.programming")}</ListItem>
 				<ListItem>{t("hobbies.shorinji kempo")}</ListItem>
 				<ListItem>{t("hobbies.table tennis")}</ListItem>
+				<ListItem>{t("hobbies.tennis")}</ListItem>
+				<ListItem>{t("hobbies.basketball")}</ListItem>
+				<ListItem>{t("hobbies.volleyball")}</ListItem>
+				<ListItem>{t("hobbies.baseball")}</ListItem>
+				<ListItem>{t("hobbies.softball")}</ListItem>
+				<ListItem>{t("hobbies.running")}</ListItem>
+				<ListItem>{t("hobbies.pen spinning")}</ListItem>
 			</DiscList>
-			<Heading as={"h3"} fontSize={"3xl"}>
+			<Heading as={"h3"} fontSize={"2xl"}>
 				{t("part time job.heading")}
 			</Heading>
 			<DiscList fontSize={"lg"}>
@@ -133,10 +144,16 @@ const DrawerComponent: FC<DrawerComponentProps> = ({
 				maxH={"95%"}
 				onClose={onClose}>
 				<div className="max-w-4xl w-full mx-auto">
-					<DrawerHeader><Heading mx="auto">{title}</Heading></DrawerHeader>
+					<DrawerHeader>
+						<Heading mx="auto">{title}</Heading>
+					</DrawerHeader>
 
 					<DrawerBody>
-						{description && <Text fontSize={"lg"} mx={"auto"}>{description}</Text>}
+						{description && (
+							<Text fontSize={"lg"} mx={"auto"}>
+								{description}
+							</Text>
+						)}
 						{imageRef.video ? (
 							<iframe
 								width="315"

@@ -104,7 +104,7 @@
   },
   "brief intro": {
     "title": "自己紹介",
-    "born": "2005年に日本（東京）で生まれました。",
+    "born": "2005年東京生まれ。",
     "age": "18歳。",
     "high school": "ニュージーランドのWestlake Boys High School卒業（2023年）。",
     "university": "オークランド大学（2024年1月から）",
@@ -120,10 +120,17 @@
       "soccer": "サッカー",
       "programming": "プログラミング",
       "shorinji kempo": "少林寺拳法",
-      "table tennis": "卓球"
+      "table tennis": "卓球",
+      "tennis": "テニス",
+      "basketball": "バスケ",
+      "volleyball": "バレーボール",
+      "baseball": "野球",
+      "softball": "ソフトボール",
+      "running": "ランニング",
+      "pen spinning": "ペン回し"
     },
     "part time job": {
-      "westlake": "Westlake Boys High Schoolで留学生のアシスタント",
+      "westlake": "Westlake Boys High Schoolで留学生アシスタント",
       "heading": "バイト"
     }
   },

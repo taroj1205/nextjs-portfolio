@@ -5,36 +5,36 @@ export const Languages = () => {
 	const t = useTranslations("languages");
 	return (
 		<Box className="mt-4 space-y-4">
-			<Heading as={"h3"} size={"lg"}>
+			<Heading as={"h3"} fontSize="2xl">
 				{t("heading")}
 			</Heading>
-			<Text className="text-lg">
+			<Text fontSize="lg">
 				JavaScript, TypeScript, HTML, CSS, Markdown, C# (with Unity), Python
 			</Text>
 
-			<Heading as={"h3"} size={"lg"}>
+			<Heading as={"h3"} fontSize="2xl">
 				{t("framework")}
 			</Heading>
-			<Text className="text-lg">
+			<Text fontSize="lg">
 				Next.js, Express, React.js, Node.js, Flask, Tailwind CSS
 			</Text>
 
-			<Heading as={"h3"} size={"lg"}>
+			<Heading as={"h3"} fontSize="2xl">
 				UI {t("library")}
 			</Heading>
-			<Text className="text-lg">
+			<Text fontSize="lg">
 				Next UI, Chakra UI, Material UI, Joy UI, Yamada UI
 			</Text>
 
-			<Heading as={"h3"} size={"lg"}>
+			<Heading as={"h3"} fontSize="2xl">
 				SQL
 			</Heading>
-			<Text className="text-lg">MySQL, SQLite, PostgreSQL</Text>
+			<Text fontSize="lg">MySQL, SQLite, PostgreSQL</Text>
 
-			<Heading as={"h3"} size={"lg"}>
+			<Heading as={"h3"} fontSize="2xl">
 				{t("third party")}
 			</Heading>
-			<Text className="text-lg">
+			<Text fontSize="lg">
 				Supabase, Vercel, Netlify, GitHub, Auth0, Clerk
 			</Text>
 		</Box>
