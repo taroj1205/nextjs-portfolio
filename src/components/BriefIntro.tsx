@@ -52,7 +52,7 @@ export const BriefIntro = () => {
 					<DrawerComponent
 						title={
 							locale === "en"
-								? "Been to 11 schools by the end of 2023."
+								? "Been to 11 schools in 3 countries by the end of 2023."
 								: "2023年までに３カ国11校経験しました。"
 						}
 						description={
