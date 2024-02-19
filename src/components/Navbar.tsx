@@ -170,7 +170,7 @@ export const Navbar = () => {
 			<Box
 				as="nav"
 				data-menu-open={mobileMenuOpen}
-				className="flex h-fit flex-col min-h-[4rem] z-40 w-screen items-center justify-center data-[menu-open=true]:h-[100svh] data-[menu-open=true]:justify-start data-[menu-open=true]:border-none fixed top-0 inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-3xl nav-background">
+				className="flex h-fit flex-col min-h-[4rem] z-40 w-screen items-center justify-center data-[menu-open=true]:h-full data-[menu-open=true]:justify-start data-[menu-open=true]:border-none fixed top-0 inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-3xl nav-background">
 				<div
 					data-menu-open={mobileMenuOpen}
 					className={`flex items-center h-16 min-h-[4rem] justify-between md:hidden w-full px-2 pl-3`}>
