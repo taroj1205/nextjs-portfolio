@@ -10,15 +10,19 @@ import {
 } from "react-icons/fa";
 import { BriefIntro } from "@/components/BriefIntro";
 import { Languages } from "@/components/Languages";
-import { Metadata } from "next";
 import { useLocale, useTranslations } from "next-intl";
 import { Box, Center, DiscList, Heading, ListItem, Link as YamadaLink } from "@yamada-ui/react";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-	title: "taroj1205 - Portfolio",
-	description: "taroj1205's website created with Next.js",
-};
+export async function generateMetadata({ params: { locale } }: {params: {locale: string}}) {
+	const t = await getTranslations({ locale, namespace: "metadata" });
+
+	return {
+		title: t("title"),
+		description: t("description"),
+	};
+}
 
 export default function Home() {
 	const locale = useLocale();

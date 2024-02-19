@@ -276,5 +276,9 @@
     "yamada": {
       "title": "Yamada UI (Core Member)"
     }
+  },
+  "metadata": {
+    "title": "taroj1205 - Portfolio",
+    "description": "taroj1205's website created with Next.js"
   }
 }

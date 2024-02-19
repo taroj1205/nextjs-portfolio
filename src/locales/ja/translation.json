@@ -276,5 +276,9 @@
     "yamada": {
       "title": "Yamada UIのコアメンバー"
     }
+  },
+  "metadata": {
+    "title": "taroj1205 - ポートフォリオ",
+    "description": "taroj1205のNext.jsで作ったサイト"
   }
 }
