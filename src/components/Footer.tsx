@@ -3,7 +3,7 @@ import { Link as IntlLink, usePathname } from "@/lib/next-intl";
 import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import React, { useEffect, useRef, useState } from "react";
-import { FaCircle } from "react-icons/fa";
+import { FaArrowUp, FaCircle } from "react-icons/fa";
 import Image from "next/image";
 import {
 	FaFacebook,
@@ -14,7 +14,13 @@ import {
 	FaYoutube,
 } from "react-icons/fa";
 import {
-	 Button, Menu, MenuButton, MenuList, MenuItem, useDisclosure, Text
+	Button,
+	Menu,
+	MenuButton,
+	MenuList,
+	MenuItem,
+	useDisclosure,
+	Text,
 } from "@yamada-ui/react";
 import { icons } from "./Navbar";
 
@@ -32,13 +38,6 @@ const Footer = () => {
 	const locale = useLocale();
 
 	const pathname = usePathname();
-
-	const footerLinks = [
-		{ href: "/", text: t("home") },
-		{ href: "/about", text: t("about") },
-		{ href: "/posts", text: t("blog") },
-		// { href: "/apps", text: t("apps") },
-	];
 
 	return (
 		<footer className={`w-full backdrop-blur-lg`}>
@@ -67,7 +66,7 @@ const Footer = () => {
 										className="w-4 h-4 brightness-90 group-hover:brightness-100 transition-all duration-300 ease-in-out"
 									/>
 								)}
-								<p>{locale === "en" ? "日本語" : "English"}</p>
+								<Text>{locale === "en" ? "日本語" : "English"}</Text>
 							</Link>
 						</li>
 					</ul>
@@ -90,8 +89,14 @@ const Footer = () => {
 				</div>
 				<button
 					onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-					className="py-1 px-2 hidden lg:block text-gray-600 text-md md:text-sm hover:text-black footer-link transition-colors duration-300">
-					{locale === "en" ? "Scroll to Top" : "トップへスクロール"}
+					className="py-2 md:py-1 px-2 text-md md:text-sm text-gray-600 hover:text-black footer-link transition-colors duration-300">
+					<Text className="hidden md:block">
+						{locale === "en" ? "Scroll to Top" : "トップへスクロール"}
+					</Text>
+					<FaArrowUp
+						className="md:hidden text-gray-600 hover:text-black footer-link"
+						size={16}
+					/>
 				</button>
 				<ul className="flex flex-row text-md md:text-sm">
 					<li className="py-1 flex items-center justify-center">
@@ -101,7 +106,7 @@ const Footer = () => {
 							rel="noopener"
 							className="py-1 px-2 md:pr-2 w-[6rem] md:w-auto space-x-1 flex flex-row items-center justify-start text-gray-600 hover:text-black footer-link transition-colors duration-300">
 							<FaGithub size={16} />
-							<p>GitHub</p>
+							<Text>GitHub</Text>
 						</Link>
 					</li>
 				</ul>
@@ -165,54 +170,54 @@ const Dropup = () => {
 
 	const items = nested["social"] as DropupProps["items"];
 
-    const { isOpen, onOpen, onClose } = useDisclosure();
+	const { isOpen, onOpen, onClose } = useDisclosure();
 
-    useEffect(() => {
-        onClose();
-    }, [onClose, pathname]);
+	useEffect(() => {
+		onClose();
+	}, [onClose, pathname]);
 
-    return (
-			<Menu
-				isOpen={isOpen}
-				onClose={onClose}
-				onOpen={onOpen}
-				closeOnSelect
-				closeOnEsc>
-				<MenuButton
-					as={Button}
-					onClick={onOpen}
-					data-active={pathname.startsWith(items[0].href.toString())}
-					data-menu-open={isOpen}
-					className="group"
-					variant={"unstyled"}>
-					<div className="flex items-center flex-row flex-nowrap space-x-2">
-						<Text
-							fontWeight={"normal"}
-							className="footer-link text-gray-600 group-hover:text-white transition-colors duration-300"
-							fontSize="md">
-							{t("name")}
-						</Text>
-						<div
-							className="dropup before:bg-gray-600 after:bg-gray-600 group-hover:before:bg-black group-hover:after:bg-black transition-colors duration-300"
-							data-menu-open={isOpen}
-						/>
-					</div>
-				</MenuButton>
-				<MenuList>
-					{items.map((item, index) => (
-						<MenuItem
-							key={index}
-							as={Link}
-							target="_blank"
-							rel="noopener"
-							href={item.href}>
-							{item.icon}
-							<Text className="whitespace-nowrap">{item.text}</Text>
-						</MenuItem>
-					))}
-				</MenuList>
-			</Menu>
-		);
+	return (
+		<Menu
+			isOpen={isOpen}
+			onClose={onClose}
+			onOpen={onOpen}
+			closeOnSelect
+			closeOnEsc>
+			<MenuButton
+				as={Button}
+				onClick={onOpen}
+				data-active={pathname.startsWith(items[0].href.toString())}
+				data-menu-open={isOpen}
+				className="group"
+				variant={"unstyled"}>
+				<div className="flex items-center flex-row flex-nowrap space-x-2">
+					<Text
+						fontWeight={"normal"}
+						className="footer-link text-gray-600 group-hover:text-white transition-colors duration-300"
+						fontSize="md">
+						{t("name")}
+					</Text>
+					<div
+						className="dropup before:bg-gray-600 after:bg-gray-600 group-hover:before:bg-black group-hover:after:bg-black transition-colors duration-300"
+						data-menu-open={isOpen}
+					/>
+				</div>
+			</MenuButton>
+			<MenuList>
+				{items.map((item, index) => (
+					<MenuItem
+						key={index}
+						as={Link}
+						target="_blank"
+						rel="noopener"
+						href={item.href}>
+						{item.icon}
+						<Text className="whitespace-nowrap">{item.text}</Text>
+					</MenuItem>
+				))}
+			</MenuList>
+		</Menu>
+	);
 };
 
 export default Footer;

@@ -284,10 +284,19 @@ footer {
   @apply bg-gray-950
 }
 
+.nav-background {
+  @apply bg-white bg-opacity-50
+}
+
+[data-mode="dark"] .nav-background {
+  @apply bg-[#141414] bg-opacity-50
+}
+
 [data-mode="dark"] .footer-lang,
 [data-mode="dark"] .footer-link {
   @apply  text-gray-400 hover:text-gray-200
 }
+
 
 [data-mode="dark"] .footer-lang img {
   @apply brightness-75
