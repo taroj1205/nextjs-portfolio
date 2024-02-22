@@ -6,42 +6,24 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider } from "next-intl";
 import { Navbar } from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Box, ColorModeScript, VStack } from "@yamada-ui/react";
+import { ColorModeScript } from "@yamada-ui/react";
 import Script from "next/script";
+import { getTranslations } from "next-intl/server";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-	title: "taroj1205 - Portfolio",
-	description: "taroj1205's website created with Next.js",
-	openGraph: {
-		title: "taroj1205 - Portfolio",
-		description: "taroj1205's website created with Next.js",
-		images: [
-			{
-				url: "https://taroj1205.netlify.app/images/header.webp",
-				width: 1200,
-				height: 630,
-				alt: "taroj1205's image",
-			},
-		],
-	},
-	twitter: {
-		title: "taroj1205 - Portfolio",
-		description: "taroj1205's website created with Next.js",
-		images: [
-			{
-				url: "https://taroj1205.netlify.app/images/header.webp",
-				width: 1200,
-				height: 630,
-				alt: "taroj1205's image",
-			},
-		],
-	},
-	icons: {
-		shortcut: "https://taroj1205.netlify.app/favicon.ico",
-	},
-};
+export async function generateMetadata({
+	params: { locale },
+}: {
+	params: { locale: string };
+}) {
+	const t = await getTranslations({ locale, namespace: "metadata" });
+
+	return {
+		title: t("title"),
+		description: t("description"),
+	};
+}
 
 export default async function RootLayout({
 	children,
