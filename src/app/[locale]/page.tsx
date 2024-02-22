@@ -21,20 +21,6 @@ import {
 	Link as YamadaLink,
 } from "@yamada-ui/react";
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
-
-export async function generateMetadata({
-	params: { locale },
-}: {
-	params: { locale: string };
-}) {
-	const t = await getTranslations({ locale, namespace: "metadata" });
-
-	return {
-		title: t("title"),
-		description: t("description"),
-	};
-}
 
 export default function Home() {
 	const locale = useLocale();
