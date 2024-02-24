@@ -13,14 +13,14 @@ import {
 import Image, { StaticImageData } from "next/image";
 import { FaGithub } from "react-icons/fa";
 import { useLocale } from "next-intl";
-import portfolioImage from "../../public/images/portfolio.webp";
-import saveTwitterLinksImage from "../../public/images/save-twitter-links.webp";
-import hideTwitterBotsImage from "../../public/images/hide-twitter-bots.webp";
-import typingGameImage from "../../public/images/typing-game.webp";
-import connect4Image from "../../public/images/connect-4.webp";
-import appPyImage from "../../public/images/app_py.webp";
-import uoALinksImage from "../../public/images/UoALinks.webp";
-import chatImage from "../../public/images/chat.webp";
+import portfolioImage from "../assets/projects/portfolio.webp";
+import saveTwitterLinksImage from "../assets/projects/save-twitter-links.webp";
+import hideTwitterBotsImage from "../assets/projects/hide-twitter-bots.webp";
+import typingGameImage from "../assets/projects/typing-game.webp";
+import connect4Image from "../assets/projects/connect-4.webp";
+import appPyImage from "../assets/projects/app_py.webp";
+import uoALinksImage from "../assets/projects/UoALinks.webp";
+import chatImage from "../assets/projects/chat.webp";
 
 interface Project {
 	title: string;
@@ -129,7 +129,7 @@ export const ProjectsCard: React.FC = () => {
 			video: false,
 			lang: "JavaScript",
 			framework: "Flask/SQLite3 (Server)",
-			link: "https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
+			link: "https://taroj1205.github.io/typing/",
 			githubLink:
 				"https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
 		},
