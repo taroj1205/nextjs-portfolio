@@ -46,7 +46,7 @@ export const ProjectsCard: React.FC = () => {
 			video: false,
 			lang: "JavaScript/Typescript",
 			framework: "Next.js",
-			link: "https://taroj1205.poyo.jp",
+			link: "https://taroj.vercel.app",
 			githubLink: "https://github.com/taroj1205/portfolio",
 		},
 		{

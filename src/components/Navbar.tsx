@@ -304,7 +304,7 @@ export function useNested(name: string) {
 			// 	description: t("ncea.description"),
 			// },
 			{
-				href: "https://taroj1205.vercel.app/apps/search",
+				href: "https://taroj.vercel.app/apps/search",
 				text: t("search.name"),
 				icon: icons.search,
 				description: t("search.description"),
