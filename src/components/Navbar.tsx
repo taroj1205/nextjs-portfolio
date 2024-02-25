@@ -298,13 +298,13 @@ export function useNested(name: string) {
 				description: t("typing.description"),
 			},
 			// {
-			// 	href: "https://taroj.poyo.jp/apps/ncea",
+			// 	href: "https://taroj.vercel.app/apps/ncea",
 			// 	text: "NCEA",
 			// 	icon: icons.ncea,
 			// 	description: t("ncea.description"),
 			// },
 			{
-				href: "https://taroj1205.poyo.jp/apps/search",
+				href: "https://taroj1205.vercel.app/apps/search",
 				text: t("search.name"),
 				icon: icons.search,
 				description: t("search.description"),

@@ -17,7 +17,6 @@ import {
 	DiscList,
 	Heading,
 	ListItem,
-	Text,
 	Link as YamadaLink,
 } from "@yamada-ui/react";
 import Link from "next/link";
