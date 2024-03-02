@@ -103,6 +103,7 @@ export const BriefIntro = () => {
 				<ListItem>{t("hobbies.table tennis")}</ListItem>
 				<ListItem>{t("hobbies.tennis")}</ListItem>
 				<ListItem>{t("hobbies.basketball")}</ListItem>
+				<ListItem>{t("hobbies.badminton")}</ListItem>
 				<ListItem>{t("hobbies.volleyball")}</ListItem>
 				<ListItem>{t("hobbies.baseball")}</ListItem>
 				<ListItem>{t("hobbies.softball")}</ListItem>
