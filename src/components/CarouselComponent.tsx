@@ -32,7 +32,7 @@ export const CarouselComponent = () => {
 	return (
 		<Carousel
 			speed={50}
-			delay={2000}
+			delay={4000}
 			autoplay
 			stopMouseEnterAutoplay={true}
 			slideSize={"100%"}>
