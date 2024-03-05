@@ -19,7 +19,7 @@ import hideTwitterBotsImage from "../assets/projects/hide-twitter-bots.webp";
 import typingGameImage from "../assets/projects/typing-game.webp";
 import connect4Image from "../assets/projects/connect-4.webp";
 import appPyImage from "../assets/projects/app_py.webp";
-import uoALinksImage from "../assets/projects/UoALinks.webp";
+import reversiImage from "../assets/projects/reversi.webp";
 import chatImage from "../assets/projects/chat.webp";
 
 interface Project {
@@ -134,16 +134,29 @@ export const ProjectsCard: React.FC = () => {
 				"https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
 		},
 		{
-			title: locale === "en" ? "UoA Links" : "UoAのリンクなど",
+			title: locale === "en" ? "Reversi" : "オセロ",
 			description:
-				locale === "en" ? "Useful links for UoA" : "UoAの便利なリンクです",
-			thumbnail: uoALinksImage,
+				locale === "en"
+					? "Reversi game made with Next.js"
+					: "Next.jsで作られたオセロゲームです。",
+			thumbnail: reversiImage,
 			video: false,
-			lang: "JavaScript/TypeScript",
+			lang: "JavaScript/Typescript",
 			framework: "Next.js",
-			link: "/uoa",
-			githubLink: "https://github.com/taroj1205/nextjs-portfolio/",
+			link: "https://nextjs-reversi.vercel.app/",
+			githubLink: "https://github.com/taroj1205/nextjs-reversi",
 		},
+		// {
+		// 	title: locale === "en" ? "UoA Links" : "UoAのリンクなど",
+		// 	description:
+		// 		locale === "en" ? "Useful links for UoA" : "UoAの便利なリンクです",
+		// 	thumbnail: uoALinksImage,
+		// 	video: false,
+		// 	lang: "JavaScript/TypeScript",
+		// 	framework: "Next.js",
+		// 	link: "/uoa",
+		// 	githubLink: "https://github.com/taroj1205/nextjs-portfolio/",
+		// },
 		// {
 		// 	title:
 		// 		locale === "en"
