@@ -31,11 +31,12 @@ const images = [
 export const CarouselComponent = () => {
 	return (
 		<Carousel
-			speed={50}
+			speed={5}
+			animationDuration="slow"
 			delay={4000}
 			autoplay
 			stopMouseEnterAutoplay={true}
-			slideSize={"100%"}>
+			slideSize="full">
 			{images.map((image, index) => (
 				<CarouselSlide key={index} as={Center}>
 					<Image
