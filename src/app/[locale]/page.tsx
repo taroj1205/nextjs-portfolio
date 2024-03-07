@@ -48,13 +48,6 @@ export default function Home() {
 			</Heading>
 			<div className="flex flex-wrap justify-center space-x-4 my-4">
 				<Link
-					href="https://taroj1205.poyo.jp"
-					target="_blank"
-					rel="noopener"
-					className="px-2 py-2 bg-blue-500 hover:bg-transparent hover:text-blue-500 active:text-blue-700 border active:bg-opacity-20 transition-colors duration-300 ease-in-out border-blue-500 active:bg-blue-700 rounded text-white flex items-center space-x-2">
-					<FaGlobe />
-				</Link>
-				<Link
 					href="https://twitter.com/taroj1205"
 					target="_blank"
 					rel="noopener"
