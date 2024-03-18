@@ -9,7 +9,7 @@ export const Languages = () => {
 				{t("heading")}
 			</Heading>
 			<Text fontSize="lg">
-				JavaScript, TypeScript, HTML, CSS, Markdown, C# (with Unity), Python
+				JavaScript, TypeScript, HTML, CSS, Markdown, Python
 			</Text>
 
 			<Heading as={"h3"} fontSize="2xl">
