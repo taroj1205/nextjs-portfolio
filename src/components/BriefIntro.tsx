@@ -141,7 +141,8 @@ const DrawerComponent: FC<DrawerComponentProps> = ({
 				isOpen={isOpen}
 				size="sm"
 				maxH="95%"
-				onClose={onClose}>
+				onClose={onClose}
+				closeOnDrag>
 				<div className="max-w-4xl w-full mx-auto">
 					<DrawerHeader>
 						<Heading mx="auto">{title}</Heading>
