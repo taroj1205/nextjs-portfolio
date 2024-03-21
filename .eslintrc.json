@@ -11,7 +11,10 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "prettier",
-    "plugin:@next/next/recommended"
+    "plugin:@next/next/recommended",
+    "next/core-web-vitals",
+    "next",
+    "prettier"
   ],
   "env": {
     "es6": true,
@@ -24,14 +27,7 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx",
-          ".mts",
-          ".d.ts"
-        ]
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".mts", ".d.ts"]
       }
     }
   },
@@ -54,10 +50,7 @@
     "no-console": [
       "warn",
       {
-        "allow": [
-          "warn",
-          "error"
-        ]
+        "allow": ["warn", "error"]
       }
     ],
     "react/react-in-jsx-scope": "off",
@@ -71,24 +64,9 @@
   },
   "overrides": [
     {
-      "files": [
-        "**/*.ts",
-        "**/*.tsx"
-      ],
+      "files": ["**/*.ts", "**/*.tsx"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ]
-      }
-    },
-    {
-      "files": [
-        "scripts/**/*",
-        "packages/cli/**/*",
-        "stories/**/*"
-      ],
-      "rules": {
-        "no-console": "off"
+        "project": ["tsconfig.json"]
       }
     }
   ]

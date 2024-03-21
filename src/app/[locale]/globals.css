@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -9,57 +9,57 @@
 
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
- 
+
     --primary: 222.2 47.4% 11.2%;
     --primary-foreground: 210 40% 98%;
- 
+
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
- 
+
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
- 
+
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
     --ring: 222.2 84% 4.9%;
- 
+
     --radius: 0.5rem;
   }
- 
+
   [data-mode="dark"] {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;
- 
+
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
- 
+
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
- 
+
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
- 
+
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
- 
+
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
- 
+
     --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 210 40% 98%;
- 
+
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
- 
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
@@ -67,7 +67,8 @@
 }
 
 @layer base {
-  .navbar-link[data-menu-open='true'], .footer-dropup[data-menu-open='true'] {
+  .navbar-link[data-menu-open="true"],
+  .footer-dropup[data-menu-open="true"] {
     @apply scale-[0.99] md:scale-[0.97];
   }
 }
@@ -76,17 +77,16 @@ footer {
   margin-top: auto;
 }
 
-	html {
-		font-family: system-ui, sans-serif;
-		--tw-bg-opacity: 1;
-	}
-  :is(:where([data-mode="dark"]) html) {
-		background-color: rgb(17 24 39 / var(--tw-bg-opacity));
-  }
-	:is(:where([data-mode="dark"]) body) {
-		background-color: hsla(0, 0%, 0%, 0.4);
-	}
-
+html {
+  font-family: system-ui, sans-serif;
+  --tw-bg-opacity: 1;
+}
+:is(:where([data-mode="dark"]) html) {
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+:is(:where([data-mode="dark"]) body) {
+  background-color: hsla(0, 0%, 0%, 0.4);
+}
 
 :is(:where([data-mode="dark"]) .sun) {
   display: none;
@@ -123,7 +123,7 @@ footer {
 
 .menu-toggle::before,
 .menu-toggle::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   width: 100%;
@@ -136,25 +136,25 @@ footer {
 }
 
 .menu-toggle::before {
-    top: 0;
-    transform: translateY(-5px);
+  top: 0;
+  transform: translateY(-5px);
 }
 
 .menu-toggle::after {
-    bottom: 0;
-    transform: translateY(5px);
+  bottom: 0;
+  transform: translateY(5px);
 }
 
-.menu-toggle[data-menu-open='true'] {
+.menu-toggle[data-menu-open="true"] {
   background: transparent;
 }
 
-.menu-toggle[data-menu-open='true']::before {
+.menu-toggle[data-menu-open="true"]::before {
   transform: rotate(45deg);
   top: 0;
 }
 
-.menu-toggle[data-menu-open='true']::after {
+.menu-toggle[data-menu-open="true"]::after {
   transform: rotate(-45deg);
   bottom: 0;
 }
@@ -170,7 +170,7 @@ footer {
 
 .navbar-dropdown::before,
 .navbar-dropdown::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   width: 10px;
@@ -184,20 +184,20 @@ footer {
   background-color: white !important;
 }
 
-.navbar-dropdown[data-menu-open='true']::before {
+.navbar-dropdown[data-menu-open="true"]::before {
   transform: translateY(3px) rotate(45deg);
 }
 
-.navbar-dropdown[data-menu-open='true']::after {
+.navbar-dropdown[data-menu-open="true"]::after {
   transform: translateY(-3px) rotate(-45deg);
 }
 
-.navbar-dropdown[data-menu-open='false']::before,
+.navbar-dropdown[data-menu-open="false"]::before,
 .navbar-dropdown:hover::before {
   transform: translateY(-3px) rotate(45deg);
 }
 
-.navbar-dropdown[data-menu-open='false']::after,
+.navbar-dropdown[data-menu-open="false"]::after,
 .navbar-dropdown:hover::after {
   transform: translateY(3px) rotate(-45deg);
 }
@@ -212,7 +212,7 @@ footer {
 
 .dropup::before,
 .dropup::after {
-  content: '';
+  content: "";
   position: absolute;
   right: 0;
   width: 10px;
@@ -231,21 +231,20 @@ footer {
   background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
-
-.dropup[data-menu-open='true']::before {
+.dropup[data-menu-open="true"]::before {
   transform: translateY(-3px) rotate(-45deg);
 }
 
-.dropup[data-menu-open='true']::after {
+.dropup[data-menu-open="true"]::after {
   transform: translateY(3px) rotate(45deg);
 }
 
-.dropup[data-menu-open='false']::before,
+.dropup[data-menu-open="false"]::before,
 .dropup:hover::before {
   transform: translateY(3px) rotate(-45deg);
 }
 
-.dropup[data-menu-open='false']::after,
+.dropup[data-menu-open="false"]::after,
 .dropup:hover::after {
   transform: translateY(-3px) rotate(45deg);
 }
@@ -255,10 +254,12 @@ footer {
 }
 
 @keyframes disappear-arrow {
-  0%, 50% {
+  0%,
+  50% {
     display: block;
   }
-  50.01%, 100% {
+  50.01%,
+  100% {
     display: none;
   }
 }
@@ -268,46 +269,47 @@ footer {
 }
 
 @keyframes disappear-hand {
-  0%, 50% {
+  0%,
+  50% {
     display: none;
   }
-  50.01%, 100% {
+  50.01%,
+  100% {
     display: block;
   }
 }
 
 [data-mode="dark"] .first-table-row {
-  @apply bg-gray-800
+  @apply bg-gray-800;
 }
 
 [data-mode="dark"] .second-table-row {
-  @apply bg-gray-950
+  @apply bg-gray-950;
 }
 
 .nav-background {
-  @apply bg-white bg-opacity-50
+  @apply bg-white bg-opacity-50;
 }
 
 [data-mode="dark"] .nav-background {
-  @apply bg-[#141414] bg-opacity-50
+  @apply bg-[#141414] bg-opacity-50;
 }
 
 [data-mode="dark"] .footer-lang,
 [data-mode="dark"] .footer-link {
-  @apply  text-gray-400 hover:text-gray-200
+  @apply text-gray-400 hover:text-gray-200;
 }
 
-
 [data-mode="dark"] .footer-lang img {
-  @apply brightness-75
+  @apply brightness-75;
 }
 
 [data-mode="dark"] .footer-github {
-  @apply text-white
+  @apply text-white;
 }
 
 [data-mode="dark"] .footer-linkedin {
-  @apply text-white
+  @apply text-white;
 }
 
 [data-mode="dark"] .hide-on-dark {
