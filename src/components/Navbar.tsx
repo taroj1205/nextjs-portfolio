@@ -1,5 +1,21 @@
 "use client";
 import {
+	Box,
+	Button,
+	Divider,
+	HStack,
+	Menu,
+	MenuButton,
+	MenuItem,
+	MenuList,
+	Text,
+	VStack,
+	useDisclosure,
+} from "@yamada-ui/react";
+import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { useEffect, useState } from "react";
+import {
 	FaArchive,
 	FaBlog,
 	FaCubes,
@@ -13,33 +29,14 @@ import {
 	FaTwitter,
 	FaUniversity,
 	FaYoutube,
-} from "react-icons/fa";
-import { RiAiGenerate, RiHome2Line, RiUserLine } from "react-icons/ri";
-import { FaChartBar, FaComments, FaSearch } from "react-icons/fa";
-import { TbSchool } from "react-icons/tb";
+ FaChartBar, FaComments, FaSearch } from "react-icons/fa";
 import { FcPlanner } from "react-icons/fc";
+import { RiAiGenerate } from "react-icons/ri";
 import { SlSocialDropbox } from "react-icons/sl";
-import { useTranslations } from "next-intl";
+import { TbSchool } from "react-icons/tb";
+import { LangToggle } from "./LangToggle";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { Link, usePathname } from "@/lib/next-intl";
-import { LangToggle } from "./LangToggle";
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { ImPointUp } from "react-icons/im";
-import {
-	Box,
-	Button,
-	Divider,
-	HStack,
-	Menu,
-	MenuButton,
-	MenuItem,
-	MenuList,
-	Text,
-	VStack,
-	useColorMode,
-	useDisclosure,
-} from "@yamada-ui/react";
 import "../../public/svg/blog/hatenablog.svg";
 import "../../public/svg/blog/hatenablog_white.svg";
 import "../../public/svg/blog/note.svg";
@@ -106,26 +103,26 @@ export const icons = {
 	university: <FaUniversity className="text-blue-600" size={30} />,
 	hatena: (
 		<Image
-			alt={"hatenablog icon"}
-			className={"hide-on-dark"}
+			alt="hatenablog icon"
+			className="hide-on-dark"
 			height={30}
 			width={30}
-			src={"/svg/blog/hatenablog.svg"}
+			src="/svg/blog/hatenablog.svg"
 		/>
 	),
 	hatena_dark: (
 		<Image
-			alt={"hatenablog icon"}
-			className={"hide-on-light"}
+			alt="hatenablog icon"
+			className="hide-on-light"
 			height={30}
 			width={30}
-			src={"/svg/blog/hatenablog_white.svg"}
+			src="/svg/blog/hatenablog_white.svg"
 		/>
 	),
 	note: (
 		<Image
-			alt={"note icon"}
-			className={"hide-on-dark"}
+			alt="note icon"
+			className="hide-on-dark"
 			height={30}
 			width={30}
 			src="/svg/blog/note.svg"
@@ -133,11 +130,11 @@ export const icons = {
 	),
 	note_dark: (
 		<Image
-			alt={"hatenablog icon"}
-			className={"hide-on-light"}
+			alt="hatenablog icon"
+			className="hide-on-light"
 			height={30}
 			width={30}
-			src={"/svg/blog/note_white.svg"}
+			src="/svg/blog/note_white.svg"
 		/>
 	),
 };
@@ -173,7 +170,7 @@ export const Navbar = () => {
 				className="flex h-fit flex-col min-h-[4rem] z-40 w-screen items-center justify-center data-[menu-open=true]:h-full data-[menu-open=true]:justify-start data-[menu-open=true]:border-none fixed top-0 inset-x-0 backdrop-blur-lg data-[menu-open=true]:backdrop-blur-3xl nav-background">
 				<div
 					data-menu-open={mobileMenuOpen}
-					className={`flex items-center h-16 min-h-[4rem] justify-between md:hidden w-full px-2 pl-3`}>
+					className="flex items-center h-16 min-h-[4rem] justify-between md:hidden w-full px-2 pl-3">
 					{/* Mobile hamburger menu button */}
 					<div className="relative group">
 						<button
@@ -198,11 +195,9 @@ export const Navbar = () => {
 					</div>
 				</div>
 				{/* Mobile menu */}
-				{mobileMenuOpen && (
-					<div className="flex flex-col justify-start h-full md:hidden px-6 w-full overflow-y-auto">
+				{mobileMenuOpen ? <div className="flex flex-col justify-start h-full md:hidden px-6 w-full overflow-y-auto">
 						<MobileMenu />
-					</div>
-				)}
+					</div> : null}
 				<header className="hidden h-16 z-40 md:flex px-6 gap-4 w-full flex-row relative flex-nowrap items-center justify-between max-w-[1024px]">
 					<div className="h-full flex flex-grow items-center justify-start">
 						<Link href="/" className="flex items-center">
@@ -220,7 +215,7 @@ export const Navbar = () => {
 					</div>
 					{/* Desktop menu */}
 					<div
-						className={`hidden h-full md:flex gap-4 items-center justify-center`}>
+						className="hidden h-full md:flex gap-4 items-center justify-center">
 						<Dropdown name="social" />
 						<Dropdown name="blog" />
 						<Dropdown name="apps" />
@@ -389,7 +384,7 @@ const Dropdown = ({ name }: { name: string }) => {
 				data-active={pathname.startsWith(items[0].href.toString())}
 				w="fit"
 				data-menu-open={isOpen}
-				variant={"unstyled"}>
+				variant="unstyled">
 				<HStack gap={1.5} flexWrap="nowrap">
 					{name === "blog" ? (
 						<>

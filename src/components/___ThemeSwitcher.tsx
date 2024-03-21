@@ -5,9 +5,7 @@ import {
 	Popover,
 	PopoverContent,
 	PopoverBody,
-	ButtonGroup,
   PopoverTrigger,
-  Text,
   Radio,
   RadioGroup
 } from "@yamada-ui/react";
@@ -25,7 +23,7 @@ export const ThemeSwitcher = memo(() => {
 				</PopoverTrigger>
 				<PopoverContent>
 					<PopoverBody>
-						<RadioGroup direction={"column"} value={internalColorMode} onChange={changeColorMode}>
+						<RadioGroup direction="column" value={internalColorMode} onChange={changeColorMode}>
 							<Radio value="light">Light</Radio>
 							<Radio value="dark">Dark</Radio>
 							<Radio value="system">System</Radio>

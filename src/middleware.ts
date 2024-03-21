@@ -1,5 +1,5 @@
+import type { NextRequest } from 'next/server';
 import createIntlMiddleware from 'next-intl/middleware';
-import { NextRequest } from 'next/server';
 
 export default async function middleware(request: NextRequest) {
   // Step 1: Use the incoming request

@@ -1,6 +1,6 @@
 "use client";
+import { Text } from "@yamada-ui/react";
 import { useTranslations } from "next-intl";
-import { Text, Tooltip } from "@yamada-ui/react";
 import {Tooltip as ReactTooltip} from "react-tooltip";
 
 export const SchoolHistory = () => {

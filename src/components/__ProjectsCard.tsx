@@ -6,7 +6,6 @@ import {
 	Image,
 	Heading,
 	Text,
-	Button,
 	HStack,
 } from "@yamada-ui/react";
 
@@ -119,16 +118,16 @@ interface Project {
 
 export const ProjectsCard = () => {
 	return (
-		<HStack wrap={"wrap"} gap={5}>
+		<HStack wrap="wrap" gap={5}>
 			{projects.map((project: Project, index: number) => (
 				<Card
 					key={index}
-					direction={"column"}
-					overflow={"hidden"}
-					maxW={"320px"}
-					maxH={"320px"}
-					variant={"outline"}
-					outlineColor={"#2d3134"}
+					direction="column"
+					overflow="hidden"
+					maxW="320px"
+					maxH="320px"
+					variant="outline"
+					outlineColor="#2d3134"
 					className="bg-[#0b0d0e]">
 					{project.video ? (
 						<video src={project.thumbnail} autoPlay loop muted playsInline />
@@ -137,8 +136,8 @@ export const ProjectsCard = () => {
 							src={project.thumbnail}
 							alt={project.title}
 							objectFit="cover"
-							maxW={"318px"}
-							maxH={"159px"}
+							maxW="318px"
+							maxH="159px"
 						/>
 					)}
 
@@ -150,8 +149,8 @@ export const ProjectsCard = () => {
 						<Text>{project.description}</Text>
 					</CardBody>
 
-					<CardFooter backgroundColor={"#171a1c"}>
-						<Text size={"xs"}>{project.lang}</Text>
+					<CardFooter backgroundColor="#171a1c">
+						<Text size="xs">{project.lang}</Text>
 					</CardFooter>
 				</Card>
 			))}

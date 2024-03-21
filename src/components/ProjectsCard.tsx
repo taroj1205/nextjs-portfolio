@@ -10,17 +10,18 @@ import {
 	Link as YamadaLink,
 	Wrap,
 } from "@yamada-ui/react";
-import Image, { StaticImageData } from "next/image";
-import { FaGithub } from "react-icons/fa";
+import type { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useLocale } from "next-intl";
-import portfolioImage from "../assets/projects/portfolio.webp";
-import saveTwitterLinksImage from "../assets/projects/save-twitter-links.webp";
-import hideTwitterBotsImage from "../assets/projects/hide-twitter-bots.webp";
-import typingGameImage from "../assets/projects/typing-game.webp";
-import connect4Image from "../assets/projects/connect-4.webp";
+import { FaGithub } from "react-icons/fa";
 import appPyImage from "../assets/projects/app_py.webp";
-import reversiImage from "../assets/projects/reversi.webp";
 import chatImage from "../assets/projects/chat.webp";
+import connect4Image from "../assets/projects/connect-4.webp";
+import hideTwitterBotsImage from "../assets/projects/hide-twitter-bots.webp";
+import portfolioImage from "../assets/projects/portfolio.webp";
+import reversiImage from "../assets/projects/reversi.webp";
+import saveTwitterLinksImage from "../assets/projects/save-twitter-links.webp";
+import typingGameImage from "../assets/projects/typing-game.webp";
 
 interface Project {
 	title: string;
@@ -222,9 +223,9 @@ export const ProjectsCard: React.FC = () => {
 					key={index}
 					bg={["#f0f4f8", "#171a1c"]}
 					variant="outline"
-					w={"320px"}
-					h={"276px"}>
-					<CardHeader maxH={318} roundedTop={"md"} overflow={"hidden"} p={0}>
+					w="320px"
+					h="276px">
+					<CardHeader maxH={318} roundedTop="md" overflow="hidden" p={0}>
 						{project.video ? (
 							<video
 								src={String(project.thumbnail)}
@@ -248,21 +249,21 @@ export const ProjectsCard: React.FC = () => {
 						<YamadaLink href={project.link} isExternal fontSize="md">
 							{project.title}
 						</YamadaLink>
-						<Text fontSize={"sm"}>{project.description}</Text>
+						<Text fontSize="sm">{project.description}</Text>
 					</CardBody>
 					<Divider orientation="horizontal" />
-					<CardFooter pl={"md"} pr={"xs"} py={"xs"}>
+					<CardFooter pl="md" pr="xs" py="xs">
 						<Text fontSize="xs">{project.lang}</Text>
-						<Divider orientation="vertical" h={"50%"} />
+						<Divider orientation="vertical" h="50%" />
 						<Text fontSize="xs">{project.framework}</Text>
 						<Spacer />
 						<IconButton
 							as={YamadaLink}
-							variant={"ghost"}
+							variant="ghost"
 							m={0}
-							size={"md"}
-							h={"36px"}
-							w={"36px"}
+							size="md"
+							h="36px"
+							w="36px"
 							href={project.githubLink}
 							target="_blank"
 							rel="noopener noreferrer">

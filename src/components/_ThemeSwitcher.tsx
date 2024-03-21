@@ -1,9 +1,8 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
-import { useTheme } from "next-themes";
-import { FiMonitor, FiMoon, FiSun, FiCheck } from "react-icons/fi";
-import { FaSpinner } from "react-icons/fa";
 import { Button, useColorMode, useColorModeValue } from "@yamada-ui/react";
+import { useState, useEffect, useRef } from "react";
+import { FaSpinner } from "react-icons/fa";
+import { FiMonitor, FiMoon, FiSun, FiCheck } from "react-icons/fi";
 
 export const ThemeSwitcher = () => {
 	const [mounted, setMounted] = useState(false);
@@ -41,7 +40,7 @@ export const ThemeSwitcher = () => {
 					type="button"
 					title="Switch theme"
 					bg={bg}
-					className={`flex items-center justify-center w-fit p-1 mr-1 md:mr-0 rounded-md active:scale-95 duration-200 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50`}
+					className="flex items-center justify-center w-fit p-1 mr-1 md:mr-0 rounded-md active:scale-95 duration-200 focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
 					onClick={() => setIsOpen(!isOpen)}>
 					{mounted ? (
 						colorMode === "dark" ? (
@@ -74,8 +73,7 @@ export const ThemeSwitcher = () => {
 					)}
 				</Button>
 			</div>
-			{isOpen && (
-				<div className="popup origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none">
+			{isOpen ? <div className="popup origin-top-right absolute right-0 mt-2 w-32 rounded-md shadow-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 focus:outline-none">
 					<div
 						className="py-1"
 						role="menu"
@@ -150,8 +148,7 @@ export const ThemeSwitcher = () => {
 							</div>
 						</button>
 					</div>
-				</div>
-			)}
+				</div> : null}
 		</div>
 	);
 };

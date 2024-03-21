@@ -2,8 +2,6 @@
 import {
 	Carousel,
 	CarouselSlide,
-	CarouselControlNext,
-	CarouselControlPrev,
 	CarouselIndicators,
 } from "@yamada-ui/carousel";
 import { Center, Image } from "@yamada-ui/react";
