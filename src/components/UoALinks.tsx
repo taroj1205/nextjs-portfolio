@@ -1,4 +1,6 @@
 "use client";
+import { faFile, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Icon as FontAwesomeIcon } from "@yamada-ui/fontawesome";
 import {
 	Card,
 	CardHeader,
@@ -26,10 +28,10 @@ import {
 	Tag,
 } from "@yamada-ui/react";
 import Link from "next/link";
-import { Icon as FontAwesomeIcon } from "@yamada-ui/fontawesome";
-import { faFile, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { useForm, SubmitHandler, Controller } from "react-hook-form";
-import { Dispatch, SetStateAction, useState } from "react";
+import type { Dispatch, SetStateAction} from "react";
+import { useState } from "react";
+import type { SubmitHandler} from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { SubmitForm } from "@/util/SubmitForm";
 
 const links = [
@@ -123,8 +125,8 @@ export const UoALinks: React.FC = () => {
 						rel="noopener noreferrer"
 						key={index}
 						maxW="90vw"
-						w={"260px"}
-						h={"350px"}
+						w="260px"
+						h="350px"
 						variant="outline">
 						<CardHeader justifyContent="center">
 							<Image
@@ -141,11 +143,11 @@ export const UoALinks: React.FC = () => {
 						</CardBody>
 					</Card>
 				))}
-				<Card maxW="90vw" w={"260px"} h={"350px"} variant="none">
+				<Card maxW="90vw" w="260px" h="350px" variant="none">
 					<CardBody className="flex items-center justify-center">
 						<IconButton
 							onClick={onOpen}
-							size={"lg"}
+							size="lg"
 							zIndex={100}
 							className="opacity-0 hover:opacity-100 cursor-pointer transition-opacity duration-300"
 							icon={<FontAwesomeIcon icon={faPlus} />}

@@ -1,8 +1,6 @@
 "use client";
 import {
 	Drawer,
-	DrawerOverlay,
-	DrawerCloseButton,
 	DrawerHeader,
 	DrawerBody,
 	DrawerFooter,
@@ -16,8 +14,8 @@ import {
 	Box,
 } from "@yamada-ui/react";
 import { useLocale, useTranslations } from "next-intl";
+import type { ReactNode, FC } from "react";
 import { SchoolHistory } from "./SchoolHistory";
-import { ReactNode, FC } from "react";
 
 const images: {
 	[key: string]: { video?: string; image?: string; component?: ReactNode };
@@ -39,8 +37,8 @@ export const BriefIntro = () => {
 	const locale = useLocale();
 	return (
 		<Box className="mt-8 space-y-4">
-			<Heading as={"h2"} fontSize="3xl">{t("title")}</Heading>
-			<DiscList fontSize={"lg"}>
+			<Heading as="h2" fontSize="3xl">{t("title")}</Heading>
+			<DiscList fontSize="lg">
 				<ListItem>{t("born")}</ListItem>
 				<ListItem>{t("age")}</ListItem>
 				<ListItem>{t("high school")}</ListItem>
@@ -64,18 +62,18 @@ export const BriefIntro = () => {
 					/>
 				</ListItem>
 			</DiscList>
-			<Heading as={"h3"} fontSize={"2xl"}>
+			<Heading as="h3" fontSize="2xl">
 				{t("lived in.heading")}
 			</Heading>
-			<DiscList fontSize={"lg"}>
+			<DiscList fontSize="lg">
 				<ListItem>{t("lived in.japan")}</ListItem>
 				<ListItem>{t("lived in.philippines")}</ListItem>
 				<ListItem>{t("lived in.newzealand")}</ListItem>
 			</DiscList>
-			<Heading as={"h3"} fontSize={"2xl"}>
+			<Heading as="h3" fontSize="2xl">
 				{t("hobbies.heading")}
 			</Heading>
-			<DiscList fontSize={"lg"}>
+			<DiscList fontSize="lg">
 				<ListItem>{t("hobbies.programming")}</ListItem>
 				<ListItem>{t("hobbies.soccer")}</ListItem>
 				<ListItem>
@@ -110,10 +108,10 @@ export const BriefIntro = () => {
 				<ListItem>{t("hobbies.running")}</ListItem>
 				<ListItem>{t("hobbies.pen spinning")}</ListItem>
 			</DiscList>
-			<Heading as={"h3"} fontSize={"2xl"}>
+			<Heading as="h3" fontSize="2xl">
 				{t("part time job.heading")}
 			</Heading>
-			<DiscList fontSize={"lg"}>
+			<DiscList fontSize="lg">
 				<ListItem>{t("part time job.westlake")}</ListItem>
 			</DiscList>
 		</Box>
@@ -142,7 +140,7 @@ const DrawerComponent: FC<DrawerComponentProps> = ({
 				placement="bottom"
 				isOpen={isOpen}
 				size="sm"
-				maxH={"95%"}
+				maxH="95%"
 				onClose={onClose}>
 				<div className="max-w-4xl w-full mx-auto">
 					<DrawerHeader>
@@ -150,11 +148,9 @@ const DrawerComponent: FC<DrawerComponentProps> = ({
 					</DrawerHeader>
 
 					<DrawerBody>
-						{description && (
-							<Text fontSize={"lg"} mx={"auto"}>
+						{description ? <Text fontSize="lg" mx="auto">
 								{description}
-							</Text>
-						)}
+							</Text> : null}
 						{imageRef.video ? (
 							<iframe
 								width="315"

@@ -1,13 +1,13 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./providers";
 import { notFound } from "next/navigation";
-import { NextIntlClientProvider } from "next-intl";
-import { Navbar } from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { ColorModeScript } from "@yamada-ui/react";
 import Script from "next/script";
+import { NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { Providers } from "./providers";
+import Footer from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
+import { ColorModeScript } from "@yamada-ui/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,7 +46,7 @@ export default async function RootLayout({
 						<ColorModeScript
 							type="cookie"
 							nonce="testing"
-							initialColorMode={"system"}
+							initialColorMode="system"
 						/>
 						<div className="flex flex-col min-h-svh">
 							<Navbar />

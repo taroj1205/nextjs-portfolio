@@ -1,16 +1,3 @@
-import Image from "next/image";
-import { ProjectsCard } from "@/components/ProjectsCard";
-import { Carousel } from "@/components/Carousel";
-import {
-	FaGlobe,
-	FaTwitter,
-	FaInstagram,
-	FaFacebook,
-	FaLinkedin,
-} from "react-icons/fa";
-import { BriefIntro } from "@/components/BriefIntro";
-import { Languages } from "@/components/Languages";
-import { useLocale, useTranslations } from "next-intl";
 import {
 	Box,
 	Center,
@@ -19,14 +6,26 @@ import {
 	ListItem,
 	Link as YamadaLink,
 } from "@yamada-ui/react";
+import Image from "next/image";
 import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import {
+	FaTwitter,
+	FaInstagram,
+	FaFacebook,
+	FaLinkedin,
+} from "react-icons/fa";
+import { BriefIntro } from "@/components/BriefIntro";
+import { Carousel } from "@/components/Carousel";
+import { Languages } from "@/components/Languages";
+import { ProjectsCard } from "@/components/ProjectsCard";
 
 export default function Home() {
 	const locale = useLocale();
 	const t = useTranslations();
 	return (
 		<Box className="max-w-5xl mx-auto">
-			<Heading textAlign="center" as={"h1"} fontSize={"4xl"} textWrap="balance" overflowWrap="break-word">
+			<Heading textAlign="center" as="h1" fontSize="4xl" textWrap="balance" overflowWrap="break-word">
 				{locale === "en" && (
 					<span className="text-balance">
 						Hi👋 I&apos;m <span className="text-5xl text-nowrap">Shintaro Jokagi.</span>
@@ -90,11 +89,11 @@ export default function Home() {
 			<BriefIntro />
 			<div className="w-full my-8 p-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent bg-opacity-10"></div>
 			<Box className="mt-8 space-y-4">
-				<Heading as={"h2"}>{t("heading.programming")}</Heading>
-				<Heading as={"h3"} fontSize="2xl">
+				<Heading as="h2">{t("heading.programming")}</Heading>
+				<Heading as="h3" fontSize="2xl">
 					{t("heading.open source")}
 				</Heading>
-				<DiscList fontSize={"lg"}>
+				<DiscList fontSize="lg">
 					<ListItem>
 						{t("open source.yamada.title")}
 						<DiscList>
@@ -113,7 +112,7 @@ export default function Home() {
 			<div className="w-full my-8 p-[1px] bg-gradient-to-r from-transparent via-gray-500 to-transparent bg-opacity-10"></div>
 
 			<Box className="mt-8 space-y-4">
-				<Heading as={"h2"}>{t("projects.title")}</Heading>
+				<Heading as="h2">{t("projects.title")}</Heading>
 				<ProjectsCard />
 			</Box>
 		</Box>

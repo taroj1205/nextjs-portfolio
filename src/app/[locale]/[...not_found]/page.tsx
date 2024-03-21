@@ -1,6 +1,6 @@
-import { headers } from 'next/headers'
-import { Metadata } from 'next';
 import { Heading, Link, Text, VStack } from '@yamada-ui/react';
+import type { Metadata } from 'next';
+import { headers } from 'next/headers'
 
 export const metadata: Metadata = {
     title: '404 Not Found',

@@ -1,18 +1,4 @@
 "use client";
-import { Link as IntlLink, usePathname } from "@/lib/next-intl";
-import Link from "next/link";
-import { useLocale, useTranslations } from "next-intl";
-import React, { useEffect, useRef, useState } from "react";
-import { FaArrowUp, FaCircle } from "react-icons/fa";
-import Image from "next/image";
-import {
-	FaFacebook,
-	FaGithub,
-	FaInstagram,
-	FaLinkedin,
-	FaTwitter,
-	FaYoutube,
-} from "react-icons/fa";
 import {
 	Button,
 	Menu,
@@ -22,7 +8,16 @@ import {
 	useDisclosure,
 	Text,
 } from "@yamada-ui/react";
+import Image from "next/image";
+import Link from "next/link";
+import { useLocale, useTranslations } from "next-intl";
+import React, { useEffect } from "react";
+import { FaArrowUp ,
+	FaGithub,
+} from "react-icons/fa";
+
 import { icons } from "./Navbar";
+import { usePathname } from "@/lib/next-intl";
 
 type NestedType = {
 	[key: string]: {
@@ -40,7 +35,7 @@ const Footer = () => {
 	const pathname = usePathname();
 
 	return (
-		<footer className={`w-full backdrop-blur-lg`}>
+		<footer className="w-full backdrop-blur-lg">
 			<div className="w-full p-[1px] bg-gradient-to-r from-transparent via-foreground/10 to-transparent" />
 			<div className="mx-auto p-4 py-2 lg:py-4 max-w-4xl flex flex-row justify-between items-center w-full">
 				<div className="flex flex-row flex-wrap items-center justify-center">
@@ -189,10 +184,10 @@ const Dropup = () => {
 				data-active={pathname.startsWith(items[0].href.toString())}
 				data-menu-open={isOpen}
 				className="group"
-				variant={"unstyled"}>
+				variant="unstyled">
 				<div className="flex items-center flex-row flex-nowrap space-x-2">
 					<Text
-						fontWeight={"normal"}
+						fontWeight="normal"
 						className="footer-link text-gray-600 group-hover:text-white transition-colors duration-300"
 						fontSize="md">
 						{t("name")}

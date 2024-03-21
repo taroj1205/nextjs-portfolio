@@ -7,9 +7,9 @@ import {
 	Heading,
 	Text,
 } from "@yamada-ui/react";
-import { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export const metadata: Metadata = {
 	title: "UoA Links",
@@ -75,8 +75,8 @@ export default function Home() {
 						rel="noopener noreferrer"
 						key={index}
 						maxW="90vw"
-						w={"260px"}
-						h={"350px"}
+						w="260px"
+						h="350px"
 						variant="outline"
 						className="hover:bg-foreground/10 transition-colors duration-300 ease-in-out">
 						<CardHeader justifyContent="center">
