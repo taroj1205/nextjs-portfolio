@@ -1,15 +1,12 @@
-import { ColorModeScript } from "@yamada-ui/react"
-import { Inter } from "next/font/google"
+import { Box, ColorModeScript, VStack } from "@yamada-ui/react"
 import "./globals.css"
 import { notFound } from "next/navigation"
 import Script from "next/script"
 import { NextIntlClientProvider } from "next-intl"
 import { getTranslations } from "next-intl/server"
 import { Providers } from "./providers"
-import Footer from "@/components/Footer"
+import { Footer } from "@/components/Footer"
 import { Navbar } from "@/components/Navbar"
-
-const inter = Inter({ subsets: ["latin"] })
 
 export async function generateMetadata({
   params: { locale },
@@ -40,9 +37,7 @@ export default async function RootLayout({
   }
   return (
     <html lang={locale} data-mode="dark" style={{ colorScheme: "dark" }}>
-      <body
-        className={`${inter.className} scroll-smooth ui-dark subpixel-antialiased`}
-      >
+      <body className="ui-dark">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Providers>
             <ColorModeScript
@@ -50,11 +45,13 @@ export default async function RootLayout({
               nonce="testing"
               initialColorMode="system"
             />
-            <div className="flex flex-col min-h-svh">
+            <VStack overflowX="hidden">
               <Navbar />
-              <main className="p-6">{children}</main>
+              <Box as="main" p="6">
+                {children}
+              </Box>
               <Footer />
-            </div>
+            </VStack>
           </Providers>
         </NextIntlClientProvider>
         <Script

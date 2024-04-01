@@ -1,20 +1,13 @@
-"use client"
 import {
-  Drawer,
-  DrawerHeader,
-  DrawerBody,
-  DrawerFooter,
-  Button,
-  useDisclosure,
-  Image,
-  Text,
   DiscList,
   ListItem,
   Heading,
-  Box,
+  VStack,
 } from "@yamada-ui/react"
 import { useLocale, useTranslations } from "next-intl"
-import type { ReactNode, FC } from "react"
+import type { ReactNode} from "react";
+import { memo } from "react"
+import { DrawerComponent } from "./DrawerComponent"
 import { SchoolHistory } from "./SchoolHistory"
 
 const images: {
@@ -32,11 +25,11 @@ const images: {
   },
 }
 
-export const BriefIntro = () => {
+export const BriefIntro = memo(() => {
   const t = useTranslations("brief intro")
   const locale = useLocale()
   return (
-    <Box className="mt-8 space-y-4">
+    <VStack>
       <Heading as="h2" fontSize="3xl">
         {t("title")}
       </Heading>
@@ -116,80 +109,8 @@ export const BriefIntro = () => {
       <DiscList fontSize="lg">
         <ListItem>{t("part time job.westlake")}</ListItem>
       </DiscList>
-    </Box>
+    </VStack>
   )
-}
+})
 
-type DrawerComponentProps = {
-  title: string
-  description?: string
-  imageRef: { component?: ReactNode; image?: string; video?: string }
-}
-
-const DrawerComponent: FC<DrawerComponentProps> = ({
-  title,
-  description,
-  imageRef,
-}) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-
-  return (
-    <>
-      <button onClick={onOpen} className="underline hover:no-underline">
-        {title}
-      </button>
-      <Drawer
-        placement="bottom"
-        isOpen={isOpen}
-        size="sm"
-        maxH="95%"
-        onClose={onClose}
-        closeOnDrag
-      >
-        <div className="max-w-4xl w-full mx-auto">
-          <DrawerHeader>
-            <Heading mx="auto">{title}</Heading>
-          </DrawerHeader>
-
-          <DrawerBody>
-            {description ? (
-              <Text fontSize="lg" mx="auto">
-                {description}
-              </Text>
-            ) : null}
-            {imageRef.video ? (
-              <iframe
-                width="315"
-                height="560"
-                className="max-h-[70vh] mx-auto"
-                src={`https://www.youtube.com/embed/${imageRef.video}`}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            ) : imageRef.image ? (
-              <Image
-                className="max-h-[300px]"
-                src={imageRef.image}
-                alt={title}
-              />
-            ) : imageRef.component ? (
-              imageRef.component
-            ) : null}
-          </DrawerBody>
-
-          <DrawerFooter>
-            <Button
-              className="mx-auto"
-              variant="outline"
-              colorScheme="gray"
-              onClick={onClose}
-            >
-              Close
-            </Button>
-          </DrawerFooter>
-        </div>
-      </Drawer>
-    </>
-  )
-}
+BriefIntro.displayName = "BriefIntro"

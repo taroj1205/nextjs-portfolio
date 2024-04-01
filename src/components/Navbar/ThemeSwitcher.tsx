@@ -1,4 +1,5 @@
-"use client"
+import { faDisplay, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
+import { Icon } from "@yamada-ui/fontawesome"
 import type { MenuOptionItemProps } from "@yamada-ui/react"
 import {
   Menu,
@@ -7,13 +8,14 @@ import {
   MenuOptionItem,
   MenuOptionGroup,
   useColorMode,
-  Icon,
-  ui,
   useDisclosure,
+  Box,
+  IconButton,
+  HStack,
 } from "@yamada-ui/react"
-import { FiMoon, FiSun, FiMonitor } from "react-icons/fi"
+import { memo } from "react"
 
-export const ThemeSwitcher = () => {
+export const ThemeSwitcher = memo(() => {
   const { changeColorMode, internalColorMode } = useColorMode()
   const menuOptionItemProps: MenuOptionItemProps = {
     flexDirection: "row-reverse",
@@ -23,24 +25,43 @@ export const ThemeSwitcher = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
-    <div className="relative inline-block">
+    <Box>
       <Menu
         isOpen={isOpen}
         onClose={onClose}
         onOpen={onOpen}
         closeOnSelect
         closeOnEsc
+        placement="bottom"
       >
         <MenuButton
-          as="button"
+          as={IconButton}
           type="button"
           title="Switch theme"
           data-open={isOpen}
-          className="switch-button group p-2 flex items-center justify-center w-fit mr-1 md:mr-0 rounded-md duration-200 data-[open=true]:border-blue-300 data-[open=true]:ring data-[open=true]:ring-blue-200 data-[open=true]:ring-opacity-50"
-        >
-          <FiMoon className="text-indigo-500 w-6 h-6 moon group-active:scale-95" />
-          <FiSun className="text-yellow-500 w-6 h-6 sun group-active:scale-95" />
-        </MenuButton>
+          rounded="full"
+          outline={isOpen ? "3px solid" : "none"}
+          outlineColor="rgba(191, 219, 254, 0.5)"
+          variant="ghost"
+          transitionDuration="300ms"
+          icon={
+            <>
+              <Icon
+                icon={faMoon}
+                className="hide-on-light"
+                color="indigo.500"
+                size="xl"
+              />
+              <Icon
+                icon={faSun}
+                className="hide-on-dark"
+                color="yellow.500"
+                size="xl"
+              />
+            </>
+          }
+          // TODO active scale
+        />
 
         <MenuList>
           <MenuOptionGroup
@@ -50,26 +71,28 @@ export const ThemeSwitcher = () => {
             value={internalColorMode}
           >
             <MenuOptionItem {...menuOptionItemProps} value="dark">
-              <ui.span className="flex items-center gap-2">
-                <Icon as={FiMoon} />
+              <HStack as="span" gap="2">
+                <Icon icon={faMoon} />
                 <div>Dark</div>
-              </ui.span>
+              </HStack>
             </MenuOptionItem>
             <MenuOptionItem {...menuOptionItemProps} value="light">
-              <ui.span className="flex items-center gap-2">
-                <Icon as={FiSun} />
+              <HStack as="span" gap="2">
+                <Icon icon={faSun} />
                 <div>Light</div>
-              </ui.span>
+              </HStack>
             </MenuOptionItem>
             <MenuOptionItem {...menuOptionItemProps} value="system">
-              <ui.span className="flex items-center gap-2">
-                <Icon as={FiMonitor} />
+              <HStack as="span" gap="2">
+                <Icon icon={faDisplay} />
                 <div>System</div>
-              </ui.span>
+              </HStack>
             </MenuOptionItem>
           </MenuOptionGroup>
         </MenuList>
       </Menu>
-    </div>
+    </Box>
   )
-}
+})
+
+ThemeSwitcher.displayName = "ThemeSwitcher"

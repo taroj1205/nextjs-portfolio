@@ -1,10 +1,10 @@
-import { Box, Heading, Text } from "@yamada-ui/react"
+import { Heading, Text, VStack } from "@yamada-ui/react"
 import { useTranslations } from "next-intl"
 
 export const Languages = () => {
   const t = useTranslations("languages")
   return (
-    <Box className="mt-4 space-y-4">
+    <VStack>
       <Heading as="h3" fontSize="2xl">
         {t("heading")}
       </Heading>
@@ -35,6 +35,6 @@ export const Languages = () => {
         {t("third party")}
       </Heading>
       <Text fontSize="lg">Supabase, Vercel, Netlify, GitHub, Auth0, Clerk</Text>
-    </Box>
+    </VStack>
   )
 }
