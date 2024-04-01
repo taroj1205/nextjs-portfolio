@@ -1,30 +1,39 @@
 "use client"
-import { Text } from "@yamada-ui/react"
+import { Box, Text, VStack } from "@yamada-ui/react"
 import { useTranslations } from "next-intl"
+import { memo } from "react"
 import { Tooltip as ReactTooltip } from "react-tooltip"
 
-export const SchoolHistory = () => {
+export const SchoolHistory = memo(() => {
   const t = useTranslations()
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="overflow-x-auto w-full font-normal">
-        <table className="w-full max-w-4xl table-auto rounded-lg border-collapse whitespace-nowrap shadow-md hover:shadow-lg text-base md:text-lg">
-          <thead>
-            <tr className="bg-teal-700 text-white">
-              <th className="py-2 px-4 rounded-tl-lg">
+    <VStack>
+      <Box overflowX="auto">
+        <Box
+          as="table"
+          tableLayout="auto"
+          maxW="4xl"
+          whiteSpace="nowrap"
+          rounded="lg"
+          borderCollapse="collapse"
+        >
+          <Box as="thead">
+            <Box as="tr" className="bg-teal-700 text-white">
+              <Box as="th" className="py-2 px-4 rounded-tl-lg">
                 {t("education.headings.period")}
-              </th>
-              <th className="py-2 px-4">
+              </Box>
+              <Box as="th" className="py-2 px-4">
                 {t("education.headings.schoolName")}
-              </th>
-              <th className="py-2 px-4 rounded-tr-lg">
+              </Box>
+              <Box as="th" className="py-2 px-4 rounded-tr-lg">
                 {t("education.headings.location")}
-              </th>
-            </tr>
-          </thead>
-          <tbody>
+              </Box>
+            </Box>
+          </Box>
+          <Box as="tbody">
             {Array.from(Array(11).keys()).map((index) => (
-              <tr
+              <Box
+                as="tr"
                 key={index}
                 className={
                   index % 2 === 0
@@ -33,7 +42,8 @@ export const SchoolHistory = () => {
                 }
                 style={{ transition: "background-color 0.3s" }}
               >
-                <td
+                <Box
+                  as="td"
                   className={`py-2 px-4 cursor-pointer ${
                     index === 10 ? "rounded-bl-lg" : ""
                   }`}
@@ -44,12 +54,13 @@ export const SchoolHistory = () => {
                     id={`tooltip-${index}-duration`}
                     place="top-start"
                   >
-                    <span>{`${t(`education.schools.${index}.start`)} - ${t(
+                    <Text as="span">{`${t(`education.schools.${index}.start`)} - ${t(
                       `education.schools.${index}.end`,
-                    )}`}</span>
+                    )}`}</Text>
                   </ReactTooltip>
-                </td>
-                <td
+                </Box>
+                <Box
+                  as="td"
                   className={`py-2 px-4 flex items-center ${
                     index === 7 ? "" : "cursor-pointer"
                   }`}
@@ -57,10 +68,13 @@ export const SchoolHistory = () => {
                 >
                   <Text>{t(`education.schools.${index}.name`)}</Text>
                   <ReactTooltip id={`tooltip-${index}-name`} place="top-start">
-                    <span>{t(`education.schools.${index}.grade`)}</span>
+                    <Text as="span">
+                      {t(`education.schools.${index}.grade`)}
+                    </Text>
                   </ReactTooltip>
-                </td>
-                <td
+                </Box>
+                <Box
+                  as="td"
                   className={`py-2 px-4 cursor-pointer ${
                     index === 10 ? "rounded-br-lg" : ""
                   }`}
@@ -73,16 +87,18 @@ export const SchoolHistory = () => {
                     id={`tooltip-${index}-location`}
                     place="top-start"
                   >
-                    <span>
+                    <Text as="span">
                       {t(`education.schools.${index}.location.region`)}
-                    </span>
+                    </Text>
                   </ReactTooltip>
-                </td>
-              </tr>
+                </Box>
+              </Box>
             ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
+          </Box>
+        </Box>
+      </Box>
+    </VStack>
   )
-}
+})
+
+SchoolHistory.displayName = "SchoolHistory"

@@ -13,17 +13,18 @@ import {
 import type { StaticImageData } from "next/image"
 import Image from "next/image"
 import { useLocale } from "next-intl"
+import { memo } from "react"
 import { FaGithub } from "react-icons/fa"
-import appPyImage from "../assets/projects/app_py.webp"
-import chatImage from "../assets/projects/chat.webp"
-import connect4Image from "../assets/projects/connect-4.webp"
-import hideTwitterBotsImage from "../assets/projects/hide-twitter-bots.webp"
-import portfolioImage from "../assets/projects/portfolio.webp"
-import reversiImage from "../assets/projects/reversi.webp"
-import saveTwitterLinksImage from "../assets/projects/save-twitter-links.webp"
-import typingGameImage from "../assets/projects/typing-game.webp"
+import appPyImage from "../../assets/projects/app_py.webp"
+import chatImage from "../../assets/projects/chat.webp"
+import connect4Image from "../../assets/projects/connect-4.webp"
+import hideTwitterBotsImage from "../../assets/projects/hide-twitter-bots.webp"
+import portfolioImage from "../../assets/projects/portfolio.webp"
+import reversiImage from "../../assets/projects/reversi.webp"
+import saveTwitterLinksImage from "../../assets/projects/save-twitter-links.webp"
+import typingGameImage from "../../assets/projects/typing-game.webp"
 
-interface Project {
+export interface Project {
   title: string
   description: string
   thumbnail: string | StaticImageData
@@ -34,7 +35,7 @@ interface Project {
   githubLink: string
 }
 
-export const ProjectsCard: React.FC = () => {
+export const ProjectsCard = memo(() => {
   const locale = useLocale()
   const projects = [
     {
@@ -276,4 +277,6 @@ export const ProjectsCard: React.FC = () => {
       ))}
     </Wrap>
   )
-}
+})
+
+ProjectsCard.displayName = "ProjectsCard"
