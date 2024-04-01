@@ -16,7 +16,6 @@ export const Socials = memo(() => {
         _hover={{ bg: "transparent", color: "blue.400" }}
         borderRadius="md"
         transitionDuration="300ms"
-        as={Center}
         gap={2}
       >
         <FaTwitter />
@@ -32,7 +31,6 @@ export const Socials = memo(() => {
         _hover={{ bg: "transparent", color: "pink.500" }}
         borderRadius="md"
         transitionDuration="300ms"
-        as={Center}
         gap={2}
       >
         <FaInstagram />
@@ -48,7 +46,6 @@ export const Socials = memo(() => {
         _hover={{ bg: "transparent", color: "blue.600" }}
         borderRadius="md"
         transitionDuration="300ms"
-        as={Center}
         gap={2}
       >
         <FaFacebook />
@@ -64,7 +61,6 @@ export const Socials = memo(() => {
         _hover={{ bg: "transparent", color: "blue.700" }}
         borderRadius="md"
         transitionDuration="300ms"
-        as={Center}
         gap={2}
       >
         <FaLinkedin />
