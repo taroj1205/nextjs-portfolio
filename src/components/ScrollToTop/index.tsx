@@ -1,5 +1,4 @@
 "use client"
-
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
 import { Button, Text } from "@yamada-ui/react"
@@ -15,6 +14,7 @@ export const ScrollToTop = memo(() => {
         py="1"
         px="2"
         fontSize="sm"
+        fontWeight="normal"
         color={["gray.600", "gray.400"]}
         _hover={{ color: ["black", "white"] }}
         transitionDuration="300ms"

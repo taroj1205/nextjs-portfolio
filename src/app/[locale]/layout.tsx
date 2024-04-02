@@ -1,4 +1,4 @@
-import { Box, ColorModeScript, VStack } from "@yamada-ui/react"
+import { Box, ColorModeScript, Spacer, VStack } from "@yamada-ui/react"
 import "./globals.css"
 import { notFound } from "next/navigation"
 import Script from "next/script"
@@ -45,11 +45,12 @@ export default async function RootLayout({
               nonce="testing"
               initialColorMode="system"
             />
-            <VStack overflowX="hidden">
+            <VStack overflowX="hidden" minH="100svh">
               <Navbar />
               <Box as="main" p="6">
                 {children}
               </Box>
+              <Spacer />
               <Footer />
             </VStack>
           </Providers>

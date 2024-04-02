@@ -1,3 +1,4 @@
+"use client"
 import { faDisplay, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
 import type { MenuOptionItemProps } from "@yamada-ui/react"

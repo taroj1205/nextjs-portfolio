@@ -1,3 +1,5 @@
+import { faGithub } from "@fortawesome/free-brands-svg-icons"
+import { Icon } from "@yamada-ui/fontawesome"
 import {
   Card,
   CardBody,
@@ -6,15 +8,15 @@ import {
   Text,
   Divider,
   IconButton,
-  Spacer,
   Link as YamadaLink,
   Wrap,
+  HStack,
+  Spacer,
 } from "@yamada-ui/react"
 import type { StaticImageData } from "next/image"
 import Image from "next/image"
 import { useLocale } from "next-intl"
 import { memo } from "react"
-import { FaGithub } from "react-icons/fa"
 import appPyImage from "../../assets/projects/app_py.webp"
 import chatImage from "../../assets/projects/chat.webp"
 import connect4Image from "../../assets/projects/connect-4.webp"
@@ -23,6 +25,7 @@ import portfolioImage from "../../assets/projects/portfolio.webp"
 import reversiImage from "../../assets/projects/reversi.webp"
 import saveTwitterLinksImage from "../../assets/projects/save-twitter-links.webp"
 import typingGameImage from "../../assets/projects/typing-game.webp"
+import unityTypingGameImage from "../../assets/projects/unity-typing.webp"
 
 export interface Project {
   title: string
@@ -113,8 +116,8 @@ export const ProjectsCard = memo(() => {
         locale === "en"
           ? "A 2D typing game built with Unity."
           : "Unityで作られた2Dタイピングゲームです。",
-      thumbnail: "/videos/unity-typing-game.webm",
-      video: true,
+      thumbnail: unityTypingGameImage,
+      video: false,
       lang: "C#",
       framework: "Unity",
       link: "https://github.com/taroj1205/Typing-Game",
@@ -130,7 +133,7 @@ export const ProjectsCard = memo(() => {
       thumbnail: appPyImage,
       video: false,
       lang: "JavaScript",
-      framework: "Flask/SQLite3 (Server)",
+      framework: "Flask/SQLite3",
       link: "https://taroj1205.github.io/typing/",
       githubLink:
         "https://github.com/taroj1205/taroj1205.github.io/tree/main/typing",
@@ -148,47 +151,6 @@ export const ProjectsCard = memo(() => {
       link: "https://nextjs-reversi.vercel.app/",
       githubLink: "https://github.com/taroj1205/nextjs-reversi",
     },
-    // {
-    // 	title: locale === "en" ? "UoA Links" : "UoAのリンクなど",
-    // 	description:
-    // 		locale === "en" ? "Useful links for UoA" : "UoAの便利なリンクです",
-    // 	thumbnail: uoALinksImage,
-    // 	video: false,
-    // 	lang: "JavaScript/TypeScript",
-    // 	framework: "Next.js",
-    // 	link: "/uoa",
-    // 	githubLink: "https://github.com/taroj1205/nextjs-portfolio/",
-    // },
-    // {
-    // 	title:
-    // 		locale === "en"
-    // 			? "Typing Game (Node.js)"
-    // 			: "タイピングゲーム (Node.js)",
-    // 	description:
-    // 		locale === "en"
-    // 			? "Learn English with this typing game."
-    // 			: "英語を習得するためのタイピングゲームです。",
-    // 	thumbnail: "/images/index_js.webp",
-    // 	video: false,
-    // 	lang: "JavaScript",
-    // 	framework: "Node.js (Server)",
-    // 	link: "https://github.com/taroj1205/Typing-Game-Node/",
-    // 	githubLink: "https://github.com/taroj1205/Typing-Game-Node/",
-    // },
-    // {
-    // 	title:
-    // 		locale === "en" ? "Typing Game (Pygame)" : "タイピングゲーム (Pygame)",
-    // 	description:
-    // 		locale === "en"
-    // 			? "Learn English with this typing game."
-    // 			: "英語を習得するためのタイピングゲームです。",
-    // 	thumbnail: "/images/typing-game.webp",
-    // 	video: false,
-    // 	lang: "Python",
-    // 	framework: "Pygame",
-    // 	link: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
-    // 	githubLink: "https://github.com/taroj1205/Learn-Vocabs-Through-Typing",
-    // },
     {
       title: locale === "en" ? "Chat App" : "チャットアプリ",
       description:
@@ -202,30 +164,17 @@ export const ProjectsCard = memo(() => {
       link: "https://chat-taroj.vercel.app/",
       githubLink: "https://github.com/taroj1205/chat",
     },
-    // {
-    // 	title: locale === "en" ? "Old Portfolio" : "昔のポートフォリオ",
-    // 	description:
-    // 		locale === "en"
-    // 			? "This is my old portfolio site."
-    // 			: "これは僕の古いサイトです。",
-    // 	thumbnail: "/images/taroj-poyo-jp.webp",
-    // 	video: false,
-    // 	lang: "JavaScript/TypeScript",
-    // 	framework: "Next.js",
-    // 	link: "https://taroj.poyo.jp/",
-    // 	githubLink: "https://github.com/taroj1205/taroj.poyo.jp",
-    // },
   ]
 
   return (
     <Wrap gap={4}>
-      {projects.map((project: Project, index: number) => (
+      {projects.map((project: Project) => (
         <Card
-          key={index}
+          key={project.githubLink}
           bg={["#f0f4f8", "#171a1c"]}
           variant="outline"
           w="320px"
-          h="276px"
+          h="350px"
         >
           <CardHeader maxH={318} roundedTop="md" overflow="hidden" p={0}>
             {project.video ? (
@@ -235,29 +184,29 @@ export const ProjectsCard = memo(() => {
                 loop
                 muted
                 playsInline
-                className="max-h-[318px]"
+                style={{ maxHeight: "350px" }}
               />
             ) : (
               <Image
                 src={project.thumbnail}
                 alt={project.description}
                 width={350}
-                className="w-full"
-                height={318}
+                style={{ width: "100%", objectFit: "cover" }}
+                height={400}
               />
             )}
           </CardHeader>
           <CardBody bg={["#fbfcfe", "#0b0d0e"]}>
-            <YamadaLink href={project.link} isExternal fontSize="md">
+            <YamadaLink href={project.link} isExternal fontSize="lg">
               {project.title}
             </YamadaLink>
-            <Text fontSize="sm">{project.description}</Text>
+            <Text fontSize="md">{project.description}</Text>
           </CardBody>
           <Divider orientation="horizontal" />
-          <CardFooter pl="md" pr="xs" py="xs">
-            <Text fontSize="xs">{project.lang}</Text>
+          <CardFooter as={HStack} pl="md" pr="xs" py="xs">
+            <Text fontSize="sm">{project.lang}</Text>
             <Divider orientation="vertical" h="50%" />
-            <Text fontSize="xs">{project.framework}</Text>
+            <Text fontSize="sm">{project.framework}</Text>
             <Spacer />
             <IconButton
               as={YamadaLink}
@@ -267,11 +216,9 @@ export const ProjectsCard = memo(() => {
               h="36px"
               w="36px"
               href={project.githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub />
-            </IconButton>
+              isExternal
+              icon={<Icon icon={faGithub} />}
+            />
           </CardFooter>
         </Card>
       ))}

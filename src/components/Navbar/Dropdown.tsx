@@ -1,3 +1,4 @@
+"use client"
 import { faDropbox } from "@fortawesome/free-brands-svg-icons"
 import { faBlog, faCubes } from "@fortawesome/free-solid-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
@@ -16,7 +17,6 @@ import {
 import { useTranslations } from "next-intl"
 import { memo } from "react"
 import { nested } from "./useNested"
-import { usePathname } from "@/lib/next-intl"
 
 export type DropdownProps = {
   items: {
@@ -28,7 +28,6 @@ export type DropdownProps = {
 }
 
 export const Dropdown = memo(({ name }: { name: string }) => {
-  const pathname = usePathname()
   const t = useTranslations("header")
 
   const items = nested(name) as DropdownProps["items"]
@@ -46,45 +45,31 @@ export const Dropdown = memo(({ name }: { name: string }) => {
       <MenuButton
         as={Button}
         onClick={onOpen}
-        data-active={pathname.startsWith(items[0].href.toString())}
-        w="fit"
-        variant="unstyled"
-      >
-        <HStack gap={1.5} flexWrap="nowrap">
-          {name === "blog" ? (
-            <>
-              <Icon icon={faBlog} />
-              <Text as="span" fontWeight="normal">
-                {t("blog")}
-              </Text>
-            </>
+        variant="ghost"
+        color={["black", "white"]}
+        fontWeight="normal"
+        leftIcon={
+          name === "blog" ? (
+            <Icon icon={faBlog} />
           ) : name === "apps" ? (
-            <>
-              <Icon icon={faCubes} />
-              <Text as="span" fontWeight="normal">
-                {t("apps")}
-              </Text>
-            </>
+            <Icon icon={faCubes} />
           ) : (
-            <>
-              <Icon icon={faDropbox} />
-              <Text as="span" fontWeight="normal">
-                {t("social")}
-              </Text>
-            </>
-          )}
+            <Icon icon={faDropbox} />
+          )
+        }
+        rightIcon={
           <Box
-            p="5px"
-            pt="6px"
+            h="2"
+            w="2"
             transform="rotate(90deg) scale(0.7)"
+            className="white-bg-on-dark-before-after"
             _before={{
               content: "''",
               position: "absolute",
               right: 0,
               width: "10px",
               height: "2px",
-              transition: "all 0.3s ease-in-out",
-              backgroundColor: ["white", "black"],
+              transition: "transform 0.3s ease-in-out",
               transform: isOpen
                 ? "translateY(3px) rotate(45deg)"
                 : "translateY(-3px) rotate(45deg)",
@@ -95,14 +80,19 @@ export const Dropdown = memo(({ name }: { name: string }) => {
               right: 0,
               width: "10px",
               height: "2px",
-              transition: "all 0.3s ease-in-out",
-              backgroundColor: ["white", "black"],
+              transition: "transform 0.3s ease-in-out",
               transform: isOpen
                 ? "translateY(-3px) rotate(-45deg)"
                 : "translateY(3px) rotate(-45deg)",
             }}
           />
-        </HStack>
+        }
+      >
+        {name === "blog"
+          ? t("blog")
+          : name === "apps"
+            ? t("apps")
+            : t("social")}
       </MenuButton>
       <MenuList className="absolute w-fit z-10 left-0 min-w-[10rem] rounded-md ring-1 ring-black ring-opacity-5">
         {items.map((item) => (
