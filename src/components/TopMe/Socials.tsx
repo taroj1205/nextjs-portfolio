@@ -1,11 +1,18 @@
-import { Center, Link, Wrap } from "@yamada-ui/react"
+import {
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons"
+import { Icon } from "@yamada-ui/fontawesome"
+import { Center, IconButton, Link, Wrap } from "@yamada-ui/react"
 import { memo } from "react"
-import { FaTwitter, FaInstagram, FaFacebook, FaLinkedin } from "react-icons/fa"
 
 export const Socials = memo(() => {
   return (
     <Wrap as={Center} gap={2}>
-      <Link
+      <IconButton
+        as={Link}
         href="https://twitter.com/taroj1205"
         isExternal
         p={2}
@@ -17,10 +24,10 @@ export const Socials = memo(() => {
         borderRadius="md"
         transitionDuration="300ms"
         gap={2}
-      >
-        <FaTwitter />
-      </Link>
-      <Link
+        icon={<Icon size="xl" icon={faTwitter} />}
+      />
+      <IconButton
+        as={Link}
         href="https://instagram.com/taroj1205"
         isExternal
         p={2}
@@ -32,10 +39,10 @@ export const Socials = memo(() => {
         borderRadius="md"
         transitionDuration="300ms"
         gap={2}
-      >
-        <FaInstagram />
-      </Link>
-      <Link
+        icon={<Icon size="xl" icon={faInstagram} />}
+      />
+      <IconButton
+        as={Link}
         href="https://www.facebook.com/taroj1205"
         isExternal
         p={2}
@@ -47,10 +54,10 @@ export const Socials = memo(() => {
         borderRadius="md"
         transitionDuration="300ms"
         gap={2}
-      >
-        <FaFacebook />
-      </Link>
-      <Link
+        icon={<Icon size="xl" icon={faFacebook} />}
+      />
+      <IconButton
+        as={Link}
         href="https://www.linkedin.com/in/taroj/"
         isExternal
         p={2}
@@ -62,9 +69,8 @@ export const Socials = memo(() => {
         borderRadius="md"
         transitionDuration="300ms"
         gap={2}
-      >
-        <FaLinkedin />
-      </Link>
+        icon={<Icon size="xl" icon={faLinkedin} />}
+      />
     </Wrap>
   )
 })

@@ -83,11 +83,11 @@ export default function Home() {
             variant="outline"
             _hover={{ bg: ["gray.100", "gray.800"] }}
           >
-            <CardHeader justifyContent="center">
+            <CardHeader p="0" justifyContent="center">
               <Image
                 src={link.thumbnail}
                 alt={link.description}
-                w="xs"
+                w="full"
                 rounded="md"
               />
             </CardHeader>
