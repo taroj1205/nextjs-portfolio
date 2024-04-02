@@ -4,24 +4,29 @@ import {
   CarouselSlide,
   CarouselIndicators,
 } from "@yamada-ui/carousel"
-import { Center, Image, Box } from "@yamada-ui/react"
+import { Center, Box } from "@yamada-ui/react"
+import Image from "next/image"
 import { memo } from "react"
+import jugglingImg from "../../assets/carousel/juggling.webp"
+import pfpImg from "../../assets/carousel/pfp.webp"
+import profileImg from "../../assets/carousel/profile.webp"
+import westlakeImg from "../../assets/carousel/westlake_me.webp"
 
 const images = [
   {
-    src: "/carousel/juggling.webp",
+    src: jugglingImg,
     alt: "Me juggling",
   },
   {
-    src: "/carousel/profile.webp",
+    src: profileImg,
     alt: "Me with Kendama",
   },
   {
-    src: "/carousel/pfp.webp",
+    src: pfpImg,
     alt: "My profile picture",
   },
   {
-    src: "/carousel/westlake_me.webp",
+    src: westlakeImg,
     alt: "Westlake Boys High School",
   },
 ]
@@ -40,7 +45,10 @@ export const CarouselComponent = memo(() => {
         {images.map((image, index) => (
           <CarouselSlide key={index} as={Center}>
             <Image
-              className="rounded-md aspect-square"
+              style={{
+                borderRadius: "calc(1rem - 2px)",
+                aspectRatio: "1/1",
+              }}
               src={image.src}
               alt={image.alt}
             />
