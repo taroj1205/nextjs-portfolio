@@ -6,6 +6,7 @@ import {
   Image,
   Heading,
   Text,
+  VStack,
 } from "@yamada-ui/react"
 import type { Metadata } from "next"
 import Link from "next/link"
@@ -63,24 +64,24 @@ interface Link {
 export default function Home() {
   const t = useTranslations()
   return (
-    <div className="max-w-5xl mx-auto flex flex-col space-y-2">
+    <VStack maxW="5xl" mx="auto">
       <Heading as="h2" size="2xl">
         {t("header.uoa.name")}
       </Heading>
       <Text>{t("header.uoa.description")}</Text>
       <Wrap gap="md">
-        {links.map((link: Link, index: number) => (
+        {links.map((link: Link) => (
           <Card
             as={Link}
             href={link.link}
             target="_blank"
             rel="noopener noreferrer"
-            key={index}
+            key={link.link}
             maxW="90vw"
             w="260px"
-            h="350px"
+            h="400px"
             variant="outline"
-            className="hover:bg-foreground/10 transition-colors duration-300 ease-in-out"
+            _hover={{ bg: ["gray.100", "gray.800"] }}
           >
             <CardHeader justifyContent="center">
               <Image
@@ -98,6 +99,6 @@ export default function Home() {
           </Card>
         ))}
       </Wrap>
-    </div>
+    </VStack>
   )
 }

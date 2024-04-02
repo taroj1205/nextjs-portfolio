@@ -1,3 +1,4 @@
+"use client"
 import { IconButton, Link } from "@yamada-ui/react"
 import Image from "next/image"
 import { useLocale } from "next-intl"

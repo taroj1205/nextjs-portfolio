@@ -18,14 +18,14 @@ export const SchoolHistory = memo(() => {
           borderCollapse="collapse"
         >
           <Box as="thead">
-            <Box as="tr" className="bg-teal-700 text-white">
-              <Box as="th" className="py-2 px-4 rounded-tl-lg">
+            <Box as="tr" bg="teal.700">
+              <Box as="th" px="4" py="2" roundedTopLeft="lg" color="white">
                 {t("education.headings.period")}
               </Box>
-              <Box as="th" className="py-2 px-4">
+              <Box as="th" px="4" py="2" color="white">
                 {t("education.headings.schoolName")}
               </Box>
-              <Box as="th" className="py-2 px-4 rounded-tr-lg">
+              <Box as="th" px="4" py="2" roundedTopRight="lg" color="white">
                 {t("education.headings.location")}
               </Box>
             </Box>
@@ -35,18 +35,20 @@ export const SchoolHistory = memo(() => {
               <Box
                 as="tr"
                 key={index}
-                className={
+                transitionDuration="300ms"
+                transitionProperty="background"
+                bg={
                   index % 2 === 0
-                    ? "bg-gray-100 first-table-row"
-                    : "bg-gray-200 second-table-row"
+                    ? ["gray.100", "gray.900"]
+                    : ["gray.200", "gray.950"]
                 }
-                style={{ transition: "background-color 0.3s" }}
               >
                 <Box
                   as="td"
-                  className={`py-2 px-4 cursor-pointer ${
-                    index === 10 ? "rounded-bl-lg" : ""
-                  }`}
+                  px="4"
+                  py="2"
+                  cursor="pointer"
+                  roundedBottomLeft={index === 0 ? "lg" : undefined}
                   data-tooltip-id={`tooltip-${index}-duration`}
                 >
                   <Text>{t(`education.schools.${index}.duration`)}</Text>
@@ -61,9 +63,9 @@ export const SchoolHistory = memo(() => {
                 </Box>
                 <Box
                   as="td"
-                  className={`py-2 px-4 flex items-center ${
-                    index === 7 ? "" : "cursor-pointer"
-                  }`}
+                  px="4"
+                  py="2"
+                  cursor="pointer"
                   data-tooltip-id={`tooltip-${index}-name`}
                 >
                   <Text>{t(`education.schools.${index}.name`)}</Text>
@@ -75,9 +77,10 @@ export const SchoolHistory = memo(() => {
                 </Box>
                 <Box
                   as="td"
-                  className={`py-2 px-4 cursor-pointer ${
-                    index === 10 ? "rounded-br-lg" : ""
-                  }`}
+                  px="4"
+                  py="2"
+                  cursor="pointer"
+                  roundedBottomRight={index === 10 ? "lg" : undefined}
                   data-tooltip-id={`tooltip-${index}-location`}
                 >
                   <Text>
