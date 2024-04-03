@@ -1,4 +1,4 @@
-import { Box, HStack, Spacer, VStack } from "@yamada-ui/react"
+import { Box, ButtonGroup, HStack, Spacer, VStack } from "@yamada-ui/react"
 import { memo } from "react"
 import { Dropdown } from "./Dropdown"
 import { LinkHome } from "./LinkHome"
@@ -40,16 +40,16 @@ export const Navbar = memo(() => {
           <LinkHome />
           <Spacer />
           {/* Desktop menu */}
-          <Box display={{ base: "none", md: "flex" }} gap="4">
+          <ButtonGroup display={{ base: "none", md: "flex" }} gap="4">
             <Dropdown name="social" />
             <Dropdown name="blog" />
             <Dropdown name="apps" />
-          </Box>
+          </ButtonGroup>
           <Spacer />
-          <Box display={{ base: "none", md: "flex" }} gap="1">
+          <ButtonGroup display={{ base: "none", md: "flex" }} gap="1">
             <LangToggle />
             <ThemeSwitcher />
-          </Box>
+          </ButtonGroup>
         </HStack>
         <SectionDivider />
       </VStack>

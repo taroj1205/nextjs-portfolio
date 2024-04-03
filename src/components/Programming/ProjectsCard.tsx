@@ -174,7 +174,7 @@ export const ProjectsCard = memo(() => {
           bg={["#f0f4f8", "#171a1c"]}
           variant="outline"
           w="320px"
-          h="350px"
+          h="400px"
         >
           <CardHeader maxH={318} roundedTop="md" overflow="hidden" p={0}>
             {project.video ? (
@@ -190,9 +190,8 @@ export const ProjectsCard = memo(() => {
               <Image
                 src={project.thumbnail}
                 alt={project.description}
-                width={350}
-                style={{ width: "100%", objectFit: "cover" }}
-                height={400}
+                  height={350}
+                  loading="lazy"
               />
             )}
           </CardHeader>

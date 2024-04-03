@@ -5,12 +5,12 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
-import { Center, IconButton, Link, Wrap } from "@yamada-ui/react"
+import { ButtonGroup, IconButton, Link, Wrap } from "@yamada-ui/react"
 import { memo } from "react"
 
 export const Socials = memo(() => {
   return (
-    <Wrap as={Center} gap={2}>
+    <ButtonGroup as={Wrap} mx="auto" gap={2}>
       <IconButton
         as={Link}
         href="https://twitter.com/taroj1205"
@@ -71,7 +71,7 @@ export const Socials = memo(() => {
         gap={2}
         icon={<Icon size="xl" icon={faLinkedin} />}
       />
-    </Wrap>
+    </ButtonGroup>
   )
 })
 
