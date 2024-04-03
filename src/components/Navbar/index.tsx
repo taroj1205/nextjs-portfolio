@@ -18,9 +18,7 @@ export const Navbar = memo(() => {
       <VStack
         as="header"
         z="40"
-        w="100vw"
-        pr={{ base: "4", md: 10 }}
-        pl={{ base: 0, md: 10 }}
+        w="100svw"
         position="fixed"
         top="0"
         left="0"
@@ -28,15 +26,15 @@ export const Navbar = memo(() => {
         backdropFilter="blur(15px)"
         gap="0"
       >
-        <MobileMenu />
         <HStack
           as="nav"
-          maxW="5xl"
+          maxW={{ base: "95vw", xl: "5xl" }}
           w="full"
           mx="auto"
-          display={{ base: "none", md: "flex" }}
-          h="3rem"
+          h={{ base: "4rem", md: "3rem" }}
+          px="1"
         >
+          <MobileMenu />
           <LinkHome />
           <Spacer />
           {/* Desktop menu */}
@@ -46,7 +44,7 @@ export const Navbar = memo(() => {
             <Dropdown name="apps" />
           </ButtonGroup>
           <Spacer />
-          <ButtonGroup display={{ base: "none", md: "flex" }} gap="1">
+          <ButtonGroup gap="1">
             <LangToggle />
             <ThemeSwitcher />
           </ButtonGroup>

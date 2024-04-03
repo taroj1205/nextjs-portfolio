@@ -1,6 +1,6 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
-import { Box, Center, HStack, Link, Spacer, Text } from "@yamada-ui/react"
+import { Box, HStack, Link, Spacer, Text } from "@yamada-ui/react"
 import { memo } from "react"
 import { SectionDivider } from "../Dividers"
 import { NextLanguage } from "@/components/Language"
@@ -13,9 +13,7 @@ export const Footer = memo(() => {
       <HStack mx="auto" px="4" py="2" maxW="4xl">
         <NextLanguage />
         <Spacer />
-        <Center>
-          <ScrollToTop />
-        </Center>
+        <ScrollToTop />
         <Spacer />
         <Link
           as={HStack}
@@ -28,8 +26,9 @@ export const Footer = memo(() => {
           color={["gray.600", "gray.400"]}
           transitionDuration="300ms"
           gap={2}
+          justifyContent="center"
         >
-          <Icon icon={faGithub} />
+          <Icon icon={faGithub} size="2xl" />
           <Text>GitHub</Text>
         </Link>
       </HStack>

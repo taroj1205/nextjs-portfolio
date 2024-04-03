@@ -20,7 +20,7 @@ import {
   faUniversity,
 } from "@fortawesome/free-solid-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
-import Image from "next/image"
+import { Image } from "@yamada-ui/react"
 
 export const icons = {
   list: <Icon icon={faListAlt} color="yellow.600" size={30} />,
@@ -43,7 +43,7 @@ export const icons = {
   hatena: (
     <Image
       alt="hatenablog icon"
-      className="hide-on-dark"
+      display={["block", "none"]}
       height={30}
       width={30}
       src="/svg/blog/hatenablog.svg"
@@ -52,7 +52,7 @@ export const icons = {
   hatena_dark: (
     <Image
       alt="hatenablog icon"
-      className="hide-on-light"
+      display={["none", "block"]}
       height={30}
       width={30}
       src="/svg/blog/hatenablog_white.svg"
@@ -61,7 +61,7 @@ export const icons = {
   note: (
     <Image
       alt="note icon"
-      className="hide-on-dark"
+      display={["block", "none"]}
       height={30}
       width={30}
       src="/svg/blog/note.svg"
@@ -70,7 +70,7 @@ export const icons = {
   note_dark: (
     <Image
       alt="hatenablog icon"
-      className="hide-on-light"
+      display={["none", "block"]}
       height={30}
       width={30}
       src="/svg/blog/note_white.svg"

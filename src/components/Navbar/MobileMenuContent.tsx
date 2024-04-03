@@ -20,7 +20,6 @@ const MenuItemComponent = memo(
       variant="ghost"
       leftIcon={icon}
       justifyContent="flex-start"
-      pl="0"
       size="md"
       fontWeight="normal"
     >
@@ -39,17 +38,17 @@ export const MobileMenuContent = memo(() => {
 
   return (
     <VStack>
-      <Text>{t("social")}</Text>
+      <Text textAlign="center">{t("social")}</Text>
       <ButtonGroup direction="column" gap="sm">
         {renderMenuItems(nested("social"))}
       </ButtonGroup>
       <Divider />
-      <Text>{t("blog")}</Text>
+      <Text textAlign="center">{t("blog")}</Text>
       <ButtonGroup direction="column" gap="sm">
         {renderMenuItems(nested("blog"))}
       </ButtonGroup>
       <Divider />
-      <Text>{t("apps")}</Text>
+      <Text textAlign="center">{t("apps")}</Text>
       <ButtonGroup direction="column" gap="sm">
         {renderMenuItems(nested("apps"))}
       </ButtonGroup>
