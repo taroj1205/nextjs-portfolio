@@ -190,8 +190,8 @@ export const ProjectsCard = memo(() => {
               <Image
                 src={project.thumbnail}
                 alt={project.description}
-                  height={350}
-                  loading="lazy"
+                height={350}
+                loading="lazy"
               />
             )}
           </CardHeader>

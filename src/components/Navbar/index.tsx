@@ -19,8 +19,8 @@ export const Navbar = memo(() => {
         as="header"
         z="40"
         w="100vw"
-        pr={{base: "4", md: 10}}
-        pl={{base: 0, md: 10}}
+        pr={{ base: "4", md: 10 }}
+        pl={{ base: 0, md: 10 }}
         position="fixed"
         top="0"
         left="0"

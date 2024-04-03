@@ -1,11 +1,6 @@
-import {
-  DiscList,
-  ListItem,
-  Heading,
-  VStack,
-} from "@yamada-ui/react"
+import { DiscList, ListItem, Heading, VStack } from "@yamada-ui/react"
 import { useLocale, useTranslations } from "next-intl"
-import type { ReactNode} from "react";
+import type { ReactNode } from "react"
 import { memo } from "react"
 import { DrawerComponent } from "./DrawerComponent"
 import { SchoolHistory } from "./SchoolHistory"

@@ -2,7 +2,6 @@ html {
   font-family: system-ui, sans-serif;
 }
 
-
 :is(:where([data-mode="dark"]) .sun) {
   display: none;
 }
