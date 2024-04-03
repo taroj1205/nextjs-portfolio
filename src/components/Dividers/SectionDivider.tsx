@@ -6,7 +6,10 @@ export const SectionDivider = memo(() => {
     <Divider
       border="none"
       py="1px"
-      bgGradient={["linear(to-r, transparent, gray.200, transparent)", "linear(to-r, transparent, gray.800, transparent)"]}
+      bgGradient={[
+        "linear(to-r, transparent, gray.200, transparent)",
+        "linear(to-r, transparent, gray.800, transparent)",
+      ]}
     />
   )
 })

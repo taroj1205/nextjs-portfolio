@@ -49,7 +49,7 @@ export const CarouselComponent = memo(() => {
                 borderRadius: "calc(1rem - 2px)",
                 aspectRatio: "1/1",
                 objectFit: "cover",
-                width: "100%"
+                width: "100%",
               }}
               src={image.src}
               alt={image.alt}
