@@ -13,12 +13,12 @@ export const ScrollToTop = memo(() => {
         variant="ghost"
         py="1"
         px="2"
-        fontSize="sm"
         fontWeight="normal"
         color={["gray.600", "gray.400"]}
         _hover={{ color: ["black", "white"] }}
         transitionDuration="300ms"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        title={locale === "en" ? "Scroll to Top" : "トップへスクロール"}
       >
         <Text display={{ base: "none", md: "block" }}>
           {locale === "en" ? "Scroll to Top" : "トップへスクロール"}
@@ -28,6 +28,7 @@ export const ScrollToTop = memo(() => {
           icon={faArrowUp}
           w="40px"
           mx="auto"
+          size="lg"
         />
       </Button>
     </>

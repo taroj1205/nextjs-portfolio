@@ -1,9 +1,5 @@
 "use client"
-import {
-  Carousel,
-  CarouselSlide,
-  CarouselIndicators,
-} from "@yamada-ui/carousel"
+import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
 import { Center, Box } from "@yamada-ui/react"
 import Image from "next/image"
 import { memo } from "react"
@@ -58,7 +54,6 @@ export const CarouselComponent = memo(() => {
             />
           </CarouselSlide>
         ))}
-        <CarouselIndicators display="hidden" />
       </Carousel>
     </Box>
   )

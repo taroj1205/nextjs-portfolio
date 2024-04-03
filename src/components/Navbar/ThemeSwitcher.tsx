@@ -49,13 +49,13 @@ export const ThemeSwitcher = memo(() => {
             <>
               <Icon
                 icon={faMoon}
-                className="hide-on-light"
+                display={["none", "block"]}
                 color="indigo.500"
                 size="xl"
               />
               <Icon
                 icon={faSun}
-                className="hide-on-dark"
+                display={["block", "none"]}
                 color="yellow.500"
                 size="xl"
               />
