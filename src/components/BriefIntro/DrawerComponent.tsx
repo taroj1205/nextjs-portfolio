@@ -45,6 +45,7 @@ export const DrawerComponent: FC<DrawerComponentProps> = memo(
           maxH="95%"
           onClose={onClose}
           closeOnDrag
+          withCloseButton={false}
         >
           <DrawerHeader w="full" maxW="4xl" mx="auto">
             <Heading mx="auto">{title}</Heading>
