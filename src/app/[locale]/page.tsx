@@ -8,11 +8,11 @@ import {
   Link as YamadaLink,
 } from "@yamada-ui/react"
 import { useTranslations } from "next-intl"
-import { BriefIntro } from "@/components/BriefIntro"
-import { CarouselComponent } from "@/components/Carousel"
-import { ContentDivider } from "@/components/Dividers"
-import { Languages, ProjectsCard } from "@/components/Programming"
-import { TopMe } from "@/components/TopMe"
+import { BriefIntro } from "components/brief-intro"
+import { CarouselComponent } from "components/carousel"
+import { ContentDivider } from "components/dividers"
+import { Languages, ProjectsCard } from "components/programming"
+import { TopMe } from "components/top-me"
 
 export default function Home() {
   const t = useTranslations()
