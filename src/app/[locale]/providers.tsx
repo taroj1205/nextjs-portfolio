@@ -10,7 +10,6 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
 
   const customConfig = extendConfig({
     initialColorMode: "system",
-    breakpoint: "up",
   })
 
   return (

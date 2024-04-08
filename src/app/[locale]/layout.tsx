@@ -5,8 +5,8 @@ import Script from "next/script"
 import { NextIntlClientProvider } from "next-intl"
 import { getTranslations } from "next-intl/server"
 import { Providers } from "./providers"
-import { Footer } from "@/components/Footer"
-import { Navbar } from "@/components/Navbar"
+import { Footer } from "components/footer"
+import { Navbar } from "components/navbar"
 
 export async function generateMetadata({
   params: { locale },
