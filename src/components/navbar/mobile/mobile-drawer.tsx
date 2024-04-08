@@ -6,8 +6,8 @@ import { MobileMenuContent } from "./mobile-menu-content"
 export const MobileDrawer: FC<{ isOpen: boolean; onClose: () => void }> = memo(
   ({ isOpen, onClose }) => {
     return (
-      <Drawer isOpen={isOpen} onClose={onClose} placement="right" size="xs">
-        <DrawerBody>
+      <Drawer isOpen={isOpen} onClose={onClose} size="xs">
+        <DrawerBody w="xs">
           <MobileMenuContent />
         </DrawerBody>
         <DrawerCloseButton z="40" />
