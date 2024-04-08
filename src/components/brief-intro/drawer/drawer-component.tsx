@@ -40,7 +40,11 @@ export const DrawerComponent: FC<DrawerComponentProps> = memo(
 
         <DrawerBody mt="xs" mb="sm" w="full" maxW="4xl" mx="auto" gap="1">
           {description ? (
-            <Text fontSize="lg" mx="auto">
+            <Text
+              fontSize="lg"
+              mx="auto"
+              display={{ base: "block", md: "none" }}
+            >
               {description}
             </Text>
           ) : null}

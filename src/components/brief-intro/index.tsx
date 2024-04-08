@@ -43,7 +43,11 @@ export const BriefIntro = memo(() => {
                 ? "Been to 11 schools in 3 countries by the end of 2023."
                 : "2023年までに3カ国11校経験しました。"
             }
-            description=""
+            description={
+              locale === "en"
+                ? "Japan, New Zealand and The Philippines"
+                : "日本、ニュージーランドとフィリピン"
+            }
             imageRef={images.school}
           />
         </ListItem>
