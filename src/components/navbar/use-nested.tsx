@@ -76,7 +76,7 @@ function useNested({ name, locale }: { name: string; locale: string }) {
         icon: <UniversityIcon />,
       },
       {
-        href: "https://analytics.eu.umami.is/share/nU5pqI425dwMvrAA/taroj1205.netlify.app",
+        href: "https://analytics.eu.umami.is/share/nU5pqI425dwMvrAA/taroj1205.poyo.jp",
         text: locale === "ja" ? "分析" : "Analytics",
         icon: <AnalyticsIcon />,
       },
