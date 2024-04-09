@@ -7,6 +7,7 @@ export const MenuItemComponent = memo(
       as={Link}
       href={href}
       isExternal
+      _hover={{ textDecoration: "none" }}
       variant="ghost"
       leftIcon={icon}
       justifyContent="flex-start"
