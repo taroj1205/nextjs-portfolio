@@ -1,7 +1,8 @@
 "use client"
-import { Text, HStack, Image, Button } from "@yamada-ui/react"
+import { Text, HStack, Button } from "@yamada-ui/react"
 import { useRouter } from "next/navigation"
 import { memo } from "react"
+import { JPIcon, NZIcon } from "components/icons"
 
 export const NextLanguage = memo(({ locale }: { locale: string }) => {
   const router = useRouter()
@@ -21,28 +22,7 @@ export const NextLanguage = memo(({ locale }: { locale: string }) => {
       fontWeight="normal"
       gap={2}
     >
-      {locale === "en" ? (
-        <Image
-          src="/svg/flag/jp.svg"
-          alt="日本語 Icon"
-          width={24}
-          height={24}
-          brightness="90"
-          // TODO group hover
-          w="24px"
-          h="24px"
-        />
-      ) : (
-        <Image
-          src="/svg/flag/nz.svg"
-          alt="English Icon"
-          width={24}
-          height={24}
-          brightness="90"
-          w="24px"
-          h="24px"
-        />
-      )}
+      {locale === "ja" ? <NZIcon size="2xl" /> : <JPIcon size="2xl" />}
       <Text>{locale === "en" ? "日本語" : "English"}</Text>
     </HStack>
   )

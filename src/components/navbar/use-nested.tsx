@@ -2,15 +2,13 @@ import {
   AnalyticsIcon,
   ChatIcon,
   Connect4Icon,
-  DarkHatenaIcon,
-  DarkNoteIcon,
   FacebookIcon,
   GitHubIcon,
+  HatenaIcon,
   InstagramIcon,
   KeyboardIcon,
-  LightHatenaIcon,
-  LightNoteIcon,
   LinkedInIcon,
+  NoteIcon,
   SearchIcon,
   TwitterIcon,
   UniversityIcon,
@@ -31,22 +29,12 @@ function useNested({ name, locale }: { name: string; locale: string }) {
       {
         href: "https://taroj1205.hatenablog.com",
         text: locale === "ja" ? "はてなブログ" : "Hatena Blog",
-        icon: (
-          <>
-            <DarkHatenaIcon />
-            <LightHatenaIcon />
-          </>
-        ),
+        icon: <HatenaIcon size="4xl" />,
       },
       {
         href: "https://note.com/taroj1205",
         text: "note",
-        icon: (
-          <>
-            <DarkNoteIcon />
-            <LightNoteIcon />
-          </>
-        ),
+        icon: <NoteIcon size="4xl" />,
       },
     ],
     apps: [

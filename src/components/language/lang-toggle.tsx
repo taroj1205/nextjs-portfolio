@@ -1,8 +1,8 @@
 "use client"
 import { IconButton } from "@yamada-ui/react"
-import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { memo } from "react"
+import { JPIcon, NZIcon } from "components/icons"
 
 export const LangToggle = memo(({ locale }: { locale: string }) => {
   const router = useRouter()
@@ -19,24 +19,7 @@ export const LangToggle = memo(({ locale }: { locale: string }) => {
       }}
       variant="ghost"
       transitionDuration="300ms"
-      icon={
-        <>
-          <Image
-            src="/svg/flag/jp.svg"
-            alt="Theme"
-            width={24}
-            height={24}
-            className="toENG"
-          />
-          <Image
-            src="/svg/flag/nz.svg"
-            alt="Theme"
-            width={24}
-            height={24}
-            className="toJPN"
-          />
-        </>
-      }
+      icon={locale === "ja" ? <JPIcon size="2xl" /> : <NZIcon size="2xl" />}
     />
   )
 })
