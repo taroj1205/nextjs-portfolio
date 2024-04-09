@@ -3,8 +3,10 @@ import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
 import { Button, HStack, Text } from "@yamada-ui/react"
 import { memo } from "react"
+import { getDictionary } from "lib/dictionaries"
 
 export const ScrollToTop = memo(({ locale }: { locale: string }) => {
+  const { footer } = getDictionary(locale)
   return (
     <>
       <HStack
@@ -16,10 +18,11 @@ export const ScrollToTop = memo(({ locale }: { locale: string }) => {
         _hover={{ color: ["black", "white"] }}
         transitionDuration="300ms"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        title={locale === "en" ? "Scroll to Top" : "トップに戻る"}
+        title={footer.scrollToTop}
+        fontWeight="normal"
       >
         <Text display={{ base: "block", md: "none" }}>
-          {locale === "en" ? "Scroll to Top" : "トップに戻る"}
+          {footer.scrollToTop}
         </Text>
         <Icon
           display={{ base: "none", md: "block" }}

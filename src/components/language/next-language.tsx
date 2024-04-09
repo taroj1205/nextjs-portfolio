@@ -18,6 +18,7 @@ export const NextLanguage = memo(({ locale }: { locale: string }) => {
       w={{ base: "auto", md: "6rem" }}
       color={["gray.600", "gray.400"]}
       transitionDuration="300ms"
+      fontWeight="normal"
       gap={2}
     >
       {locale === "en" ? (

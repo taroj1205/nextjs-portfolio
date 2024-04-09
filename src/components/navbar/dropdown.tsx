@@ -16,6 +16,7 @@ import {
 } from "@yamada-ui/react"
 import { memo } from "react"
 import { nested } from "./use-nested"
+import { getDictionary } from "lib/dictionaries"
 
 export type DropdownProps = {
   items: {
@@ -27,6 +28,7 @@ export type DropdownProps = {
 
 export const Dropdown = memo(
   ({ name, locale }: { name: string; locale: string }) => {
+    const { header } = getDictionary(locale)
     const items = nested({ name, locale }) as DropdownProps["items"]
 
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -88,16 +90,10 @@ export const Dropdown = memo(
           }
         >
           {name === "blog"
-            ? locale === "ja"
-              ? "ブログ"
-              : "Blog"
+            ? header.blog
             : name === "apps"
-              ? locale === "ja"
-                ? "アプリ"
-                : "Apps"
-              : locale === "ja"
-                ? "SNS"
-                : "Social"}
+              ? header.apps
+              : header.social}
         </MenuButton>
         <MenuList>
           {items.map((item) => (

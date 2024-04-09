@@ -347,4 +347,8 @@ export const translations = {
     title: "taroj1205 - ポートフォリオ",
     description: "taroj1205のNext.jsで作ったサイト",
   },
+  notFound: {
+    title: "ページが見つかりません",
+    goBack: "ホームに戻る",
+  },
 }

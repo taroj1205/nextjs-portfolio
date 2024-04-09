@@ -31,7 +31,7 @@ export const Navbar = memo(({ locale }: { locale: string }) => {
           px="1"
         >
           <MobileMenu locale={locale} />
-          <LinkHome />
+          <LinkHome locale={locale} />
           <Spacer />
           {/* Desktop menu */}
           <ButtonGroup display={{ base: "flex", md: "none" }} gap="4">

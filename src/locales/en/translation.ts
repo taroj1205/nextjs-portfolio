@@ -344,6 +344,10 @@ export const translations = {
     title: "taroj1205 - Portfolio",
     description: "taroj1205's website created with Next.js",
   },
+  notFound: {
+    title: "Page not found",
+    goBack: "Go back to Home",
+  },
 }
 
 export type Translation = typeof translations
