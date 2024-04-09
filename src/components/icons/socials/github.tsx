@@ -1,5 +1,4 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
-
 import { Icon } from "@yamada-ui/fontawesome"
 import { memo } from "react"
 
