@@ -48,7 +48,7 @@ export const BriefIntro = memo(({ locale }: { locale: string }) => {
             video="9Y-NWFB--f8"
           />
           {locale === "en" ? (
-            <Text>{briefIntro.drawer.kendama.description}</Text>
+            <Text>({briefIntro.drawer.kendama.description})</Text>
           ) : null}
         </ListItem>
         <ListItem>

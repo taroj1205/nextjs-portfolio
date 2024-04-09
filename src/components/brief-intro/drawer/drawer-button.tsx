@@ -26,7 +26,7 @@ export const DrawerButton: FC<DrawerComponentProps> = memo(
           textDecoration="underline"
           _hover={{ textDecoration: "none" }}
           onClick={onOpen}
-          textWrap="balance"
+          textWrap="pretty"
         >
           {title}
         </Button>
