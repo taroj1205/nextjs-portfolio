@@ -8,6 +8,7 @@ export const metadata: Metadata = {
     title: "404 Not Found",
     description: "404 Not Found",
   },
+  metadataBase: new URL("https://taroj1205.poyo.jp"),
 }
 
 export default function NotFound({

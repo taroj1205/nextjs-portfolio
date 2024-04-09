@@ -15,6 +15,7 @@ import { getDictionary } from "lib/dictionaries"
 export const metadata: Metadata = {
   title: "UoA Links",
   description: "Useful links for UoA",
+  metadataBase: new URL("https://taroj1205.poyo.jp"),
 }
 
 const links = [

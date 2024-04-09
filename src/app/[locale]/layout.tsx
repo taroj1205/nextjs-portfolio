@@ -1,5 +1,6 @@
 import { Box, ColorModeScript, Spacer, VStack } from "@yamada-ui/react"
 import "./globals.css"
+import type { Metadata } from "next"
 import Script from "next/script"
 import type { ReactNode } from "react"
 import { Providers } from "./providers"
@@ -15,10 +16,11 @@ export async function generateMetadata({
   params: { locale },
 }: {
   params: { locale: string }
-}) {
+}): Promise<Metadata> {
   const dict = getDictionary(locale).metadata
 
   return {
+    metadataBase: new URL("https://taroj1205.poyo.jp"),
     title: dict.title,
     description: dict.description,
   }
