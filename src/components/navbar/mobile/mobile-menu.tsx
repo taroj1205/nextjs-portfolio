@@ -3,7 +3,7 @@ import { Box, IconButton, useDisclosure } from "@yamada-ui/react"
 import { memo } from "react"
 import { MobileDrawer } from "./mobile-drawer"
 
-export const MobileMenu = memo(() => {
+export const MobileMenu = memo(({ locale }: { locale: string }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
@@ -40,7 +40,7 @@ export const MobileMenu = memo(() => {
         }
       />
       {/* Mobile drawer */}
-      <MobileDrawer isOpen={isOpen} onClose={onClose} />
+      <MobileDrawer isOpen={isOpen} onClose={onClose} locale={locale} />
     </>
   )
 })

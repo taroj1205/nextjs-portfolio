@@ -12,7 +12,7 @@ export default function Home({
 }) {
   return (
     <VStack maxW="6xl" mx="auto">
-      <TopMe />
+      <TopMe locale={locale} />
       <Box maxW="90vw" as={Center}>
         <CarouselComponent />
       </Box>

@@ -30,7 +30,7 @@ export const Navbar = memo(({ locale }: { locale: string }) => {
           h={{ base: "3rem", md: "4rem" }}
           px="1"
         >
-          <MobileMenu />
+          <MobileMenu locale={locale} />
           <LinkHome />
           <Spacer />
           {/* Desktop menu */}
