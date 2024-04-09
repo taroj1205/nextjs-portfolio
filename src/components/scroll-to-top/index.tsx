@@ -1,7 +1,6 @@
 "use client"
-import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
-import { Icon } from "@yamada-ui/fontawesome"
 import { Button, HStack, Text } from "@yamada-ui/react"
+import { ArrowUpIcon } from "components/icons"
 import { getDictionary } from "lib/dictionaries"
 
 export const ScrollToTop = ({ locale }: { locale: string }) => {
@@ -23,9 +22,8 @@ export const ScrollToTop = ({ locale }: { locale: string }) => {
         <Text display={{ base: "block", md: "none" }}>
           {footer.scrollToTop}
         </Text>
-        <Icon
+        <ArrowUpIcon
           display={{ base: "none", md: "block" }}
-          icon={faArrowUp}
           w="40px"
           mx="auto"
           size="lg"

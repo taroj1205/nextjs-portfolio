@@ -1,6 +1,4 @@
 "use client"
-import { faDisplay, faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
-import { Icon } from "@yamada-ui/fontawesome"
 import type { MenuOptionItemProps } from "@yamada-ui/react"
 import {
   Menu,
@@ -13,7 +11,9 @@ import {
   Box,
   IconButton,
   HStack,
+  Text,
 } from "@yamada-ui/react"
+import { DisplayIcon, MoonIcon, SunIcon } from "components/icons"
 
 export const ThemeSwitcher = () => {
   const { changeColorMode, internalColorMode } = useColorMode()
@@ -48,14 +48,12 @@ export const ThemeSwitcher = () => {
           transitionDuration="300ms"
           icon={
             <>
-              <Icon
-                icon={faMoon}
+              <MoonIcon
                 display={["none", "block"]}
                 color="indigo.500"
                 size="2xl"
               />
-              <Icon
-                icon={faSun}
+              <SunIcon
                 display={["block", "none"]}
                 color="yellow.500"
                 size="2xl"
@@ -74,20 +72,20 @@ export const ThemeSwitcher = () => {
           >
             <MenuOptionItem {...menuOptionItemProps} value="dark">
               <HStack as="span" gap="2">
-                <Icon icon={faMoon} />
-                <div>Dark</div>
+                <MoonIcon />
+                <Text>Dark</Text>
               </HStack>
             </MenuOptionItem>
             <MenuOptionItem {...menuOptionItemProps} value="light">
               <HStack as="span" gap="2">
-                <Icon icon={faSun} />
-                <div>Light</div>
+                <SunIcon />
+                <Text>Light</Text>
               </HStack>
             </MenuOptionItem>
             <MenuOptionItem {...menuOptionItemProps} value="system">
               <HStack as="span" gap="2">
-                <Icon icon={faDisplay} />
-                <div>System</div>
+                <DisplayIcon />
+                <Text>System</Text>
               </HStack>
             </MenuOptionItem>
           </MenuOptionGroup>

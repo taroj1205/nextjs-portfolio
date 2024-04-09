@@ -85,7 +85,7 @@ function useNested({ name, locale }: { name: string; locale: string }) {
       {
         href: "https://twitter.com/taroj1205",
         text: "Twitter",
-        icon: <TwitterIcon />,
+        icon: <TwitterIcon color="blue.400" />,
       },
       {
         href: "https://github.com/taroj1205",
@@ -95,7 +95,7 @@ function useNested({ name, locale }: { name: string; locale: string }) {
       {
         href: "https://instagram.com/taroj1205",
         text: "Instagram",
-        icon: <InstagramIcon />,
+        icon: <InstagramIcon color="pink.600" />,
       },
       {
         href: "https://youtube.com/@taroj1205",
@@ -105,12 +105,12 @@ function useNested({ name, locale }: { name: string; locale: string }) {
       {
         href: "https://linkedin.com/in/taroj",
         text: "LinkedIn",
-        icon: <LinkedInIcon />,
+        icon: <LinkedInIcon color="blue.700" />,
       },
       {
         href: "https://facebook.com/taroj1205",
         text: "Facebook",
-        icon: <FacebookIcon />,
+        icon: <FacebookIcon color="blue.600" />,
       },
     ],
   }
