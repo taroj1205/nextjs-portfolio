@@ -19,7 +19,11 @@ export const Programming = memo(({ locale }: { locale: string }) => {
             {dict["open source"]["yamada"].title}
             <DiscList>
               <ListItem>
-                <Link href="https://yamada-ui.com/community/team" isExternal>
+                <Link
+                  href="https://yamada-ui.com/community/team"
+                  color={["blue.600", "link"]}
+                  isExternal
+                >
                   https://yamada-ui.com/community/team
                 </Link>
               </ListItem>

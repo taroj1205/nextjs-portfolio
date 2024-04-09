@@ -13,9 +13,17 @@ export {
   GitHubIcon,
   LinkedInIcon,
   InstagramIcon,
+  DropboxIcon,
 } from "./socials"
 export { Connect4Icon } from "./connect4"
 export { KeyboardIcon } from "./keyboard"
 export { UniversityIcon } from "./university"
 export { LightHatenaIcon, DarkHatenaIcon } from "./hatena"
 export { LightNoteIcon, DarkNoteIcon } from "./note"
+export { BlogIcon } from "./blog"
+export { CubesIcon } from "./cubes"
+export { MoonIcon } from "./moon"
+export { SunIcon } from "./sun"
+export { DisplayIcon } from "./display"
+export { MailIcon } from "./mail"
+export { ArrowUpIcon } from "./arrows"

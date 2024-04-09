@@ -2,7 +2,6 @@ import { Box, ColorModeScript, Spacer, VStack } from "@yamada-ui/react"
 import "./globals.css"
 import type { Metadata } from "next"
 import Script from "next/script"
-import type { ReactNode } from "react"
 import { Providers } from "./providers"
 import { Footer } from "components/footer"
 import { Navbar } from "components/navbar"
@@ -30,7 +29,7 @@ export default async function RootLayout({
   children,
   params: { locale },
 }: {
-  children: ReactNode
+  children: React.ReactNode
   params: { locale: string }
 }) {
   return (
