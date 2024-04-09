@@ -1,5 +1,3 @@
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
-import { Icon } from "@yamada-ui/fontawesome"
 import {
   Card,
   CardBody,
@@ -24,6 +22,7 @@ import reversiImage from "../../assets/projects/reversi.webp"
 import saveTwitterLinksImage from "../../assets/projects/save-twitter-links.webp"
 import typingGameImage from "../../assets/projects/typing-game.webp"
 import unityTypingGameImage from "../../assets/projects/unity-typing.webp"
+import { GitHubIcon } from "components/icons"
 import { getDictionary } from "lib/dictionaries"
 
 export interface Project {
@@ -132,18 +131,25 @@ export const ProjectsCard = ({ locale }: { locale: string }) => {
           bg={["#f0f4f8", "#171a1c"]}
           variant="outline"
           w="320px"
-          h="400px"
+          h="350px"
         >
           <CardHeader maxH={318} roundedTop="md" overflow="hidden" p={0}>
             <Image
               src={project.thumbnail}
               alt={project.description}
               height={350}
+              style={{ height: "auto", width: "100%" }}
+              sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
               loading="lazy"
             />
           </CardHeader>
           <CardBody bg={["#fbfcfe", "#0b0d0e"]}>
-            <Link href={project.link} isExternal fontSize="lg">
+            <Link
+              href={project.link}
+              isExternal
+              fontSize="lg"
+              color={["blue.600", "link"]}
+            >
               {project.title}
             </Link>
             <Text fontSize="md">{project.description}</Text>
@@ -163,7 +169,8 @@ export const ProjectsCard = ({ locale }: { locale: string }) => {
               w="36px"
               href={project.githubLink}
               isExternal
-              icon={<Icon icon={faGithub} />}
+              icon={<GitHubIcon />}
+              aria-label="GitHub"
             />
           </CardFooter>
         </Card>

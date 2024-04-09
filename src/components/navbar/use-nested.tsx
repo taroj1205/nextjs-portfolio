@@ -90,7 +90,7 @@ function useNested({ name, locale }: { name: string; locale: string }) {
       {
         href: "https://github.com/taroj1205",
         text: "GitHub",
-        icon: <GitHubIcon />,
+        icon: <GitHubIcon size={30} />,
       },
       {
         href: "https://instagram.com/taroj1205",

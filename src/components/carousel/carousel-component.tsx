@@ -48,8 +48,10 @@ export const CarouselComponent = () => {
               }}
               src={image.src}
               alt={image.alt}
+              sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
               height={384}
               width={384}
+              priority
             />
           </CarouselSlide>
         ))}

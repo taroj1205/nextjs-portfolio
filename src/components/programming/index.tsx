@@ -18,7 +18,11 @@ export const Programming = ({ locale }: { locale: string }) => {
             {dict["open source"]["yamada"].title}
             <DiscList>
               <ListItem>
-                <Link href="https://yamada-ui.com/community/team" isExternal>
+                <Link
+                  href="https://yamada-ui.com/community/team"
+                  isExternal
+                  color={["blue.600", "link"]}
+                >
                   https://yamada-ui.com/community/team
                 </Link>
               </ListItem>

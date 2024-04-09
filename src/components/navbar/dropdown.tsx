@@ -1,7 +1,4 @@
 "use client"
-import { faDropbox } from "@fortawesome/free-brands-svg-icons"
-import { faBlog, faCubes } from "@fortawesome/free-solid-svg-icons"
-import { Icon } from "@yamada-ui/fontawesome"
 import {
   Menu,
   useDisclosure,
@@ -15,6 +12,7 @@ import {
   Link,
 } from "@yamada-ui/react"
 import { nested } from "./use-nested"
+import { BlogIcon, CubesIcon, DropboxIcon } from "components/icons"
 import { getDictionary } from "lib/dictionaries"
 
 export type DropdownProps = {
@@ -55,11 +53,11 @@ export const Dropdown = ({
         fontWeight="normal"
         leftIcon={
           name === "blog" ? (
-            <Icon icon={faBlog} />
+            <BlogIcon color={["black", "white"]} />
           ) : name === "apps" ? (
-            <Icon icon={faCubes} />
+            <CubesIcon color={["black", "white"]} />
           ) : (
-            <Icon icon={faDropbox} />
+            <DropboxIcon color={["black", "white"]} />
           )
         }
         rightIcon={
