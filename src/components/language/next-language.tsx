@@ -1,9 +1,8 @@
 "use client"
 import { Text, HStack, Image, Button } from "@yamada-ui/react"
 import { useRouter } from "next/navigation"
-import { memo } from "react"
 
-export const NextLanguage = memo(({ locale }: { locale: string }) => {
+export const NextLanguage = ({ locale }: { locale: string }) => {
   const router = useRouter()
   return (
     <HStack
@@ -46,6 +45,4 @@ export const NextLanguage = memo(({ locale }: { locale: string }) => {
       <Text>{locale === "en" ? "日本語" : "English"}</Text>
     </HStack>
   )
-})
-
-NextLanguage.displayName = "NextLanguage"
+}

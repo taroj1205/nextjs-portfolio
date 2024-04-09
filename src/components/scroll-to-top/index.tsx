@@ -2,10 +2,9 @@
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
 import { Button, HStack, Text } from "@yamada-ui/react"
-import { memo } from "react"
 import { getDictionary } from "lib/dictionaries"
 
-export const ScrollToTop = memo(({ locale }: { locale: string }) => {
+export const ScrollToTop = ({ locale }: { locale: string }) => {
   const { footer } = getDictionary(locale)
   return (
     <>
@@ -34,6 +33,4 @@ export const ScrollToTop = memo(({ locale }: { locale: string }) => {
       </HStack>
     </>
   )
-})
-
-ScrollToTop.displayName = "ScrollToTop"
+}

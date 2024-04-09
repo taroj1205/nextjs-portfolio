@@ -2,10 +2,9 @@
 import { IconButton } from "@yamada-ui/react"
 import Image from "next/image"
 import Link from "next/link"
-import { memo } from "react"
 import pfpImg from "../../assets/pfp.webp"
 
-export const LinkHome = memo(({ locale }: { locale: string }) => {
+export const LinkHome = ({ locale }: { locale: string }) => {
   return (
     <IconButton
       as={Link}
@@ -28,6 +27,4 @@ export const LinkHome = memo(({ locale }: { locale: string }) => {
       }
     />
   )
-})
-
-LinkHome.displayName = "LinkHome"
+}

@@ -1,7 +1,6 @@
 import { Divider } from "@yamada-ui/react"
-import { memo } from "react"
 
-export const SectionDivider = memo(() => {
+export const SectionDivider = () => {
   return (
     <Divider
       border="none"
@@ -12,6 +11,4 @@ export const SectionDivider = memo(() => {
       ]}
     />
   )
-})
-
-SectionDivider.displayName = "SectionDivider"
+}

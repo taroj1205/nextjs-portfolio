@@ -1,8 +1,7 @@
 import { Button, Link, Text } from "@yamada-ui/react"
-import { memo } from "react"
 import { GitHubIcon } from "components/icons"
 
-export const GitHubLink = memo(() => {
+export const GitHubLink = () => {
   return (
     <Button
       variant="ghost"
@@ -23,6 +22,4 @@ export const GitHubLink = memo(() => {
       <Text>GitHub</Text>
     </Button>
   )
-})
-
-GitHubLink.displayName = "GitHubLink"
+}

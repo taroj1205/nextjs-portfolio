@@ -15,7 +15,6 @@ import {
 } from "@yamada-ui/react"
 import type { StaticImageData } from "next/image"
 import Image from "next/image"
-import { memo } from "react"
 import appPyImage from "../../assets/projects/app_py.webp"
 import chatImage from "../../assets/projects/chat.webp"
 import connect4Image from "../../assets/projects/connect-4.webp"
@@ -37,7 +36,7 @@ export interface Project {
   githubLink: string
 }
 
-export const ProjectsCard = memo(({ locale }: { locale: string }) => {
+export const ProjectsCard = ({ locale }: { locale: string }) => {
   const { projects } = getDictionary(locale)
 
   const projectsArray = [
@@ -171,6 +170,4 @@ export const ProjectsCard = memo(({ locale }: { locale: string }) => {
       ))}
     </Wrap>
   )
-})
-
-ProjectsCard.displayName = "ProjectsCard"
+}

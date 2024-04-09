@@ -1,7 +1,6 @@
 import { Divider } from "@yamada-ui/react"
-import { memo } from "react"
 
-export const ContentDivider = memo(() => {
+export const ContentDivider = () => {
   return (
     <Divider
       w="full"
@@ -11,6 +10,4 @@ export const ContentDivider = memo(() => {
       bgGradient="linear(to-r, transparent, gray.500, transparent)"
     />
   )
-})
-
-ContentDivider.displayName = "ContentDivider"
+}

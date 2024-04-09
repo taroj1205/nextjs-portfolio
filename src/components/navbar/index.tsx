@@ -1,5 +1,4 @@
 import { Box, ButtonGroup, HStack, Spacer, VStack } from "@yamada-ui/react"
-import { memo } from "react"
 import { Dropdown } from "./dropdown"
 import { LinkHome } from "./link-home"
 import { MobileMenu } from "./mobile"
@@ -7,7 +6,7 @@ import { ThemeSwitcher } from "./theme-switcher"
 import { SectionDivider } from "components/dividers"
 import { LangToggle } from "components/language"
 
-export const Navbar = memo(({ locale }: { locale: string }) => {
+export const Navbar = ({ locale }: { locale: string }) => {
   return (
     <>
       <Box h={{ base: "3rem", md: "4rem" }} w="full" />
@@ -49,6 +48,4 @@ export const Navbar = memo(({ locale }: { locale: string }) => {
       </VStack>
     </>
   )
-})
-
-Navbar.displayName = "Navbar"
+}

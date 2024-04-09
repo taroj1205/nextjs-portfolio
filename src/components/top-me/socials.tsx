@@ -7,9 +7,8 @@ import {
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
 import { ButtonGroup, IconButton, Link, Wrap } from "@yamada-ui/react"
-import { memo } from "react"
 
-export const Socials = memo(() => {
+export const Socials = () => {
   return (
     <ButtonGroup as={Wrap} mx="auto" gap={2}>
       <IconButton
@@ -89,6 +88,4 @@ export const Socials = memo(() => {
       />
     </ButtonGroup>
   )
-})
-
-Socials.displayName = "Socials"
+}

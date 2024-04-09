@@ -1,10 +1,9 @@
 import { DiscList, ListItem, Heading, VStack, Text } from "@yamada-ui/react"
-import { memo } from "react"
 import { Drawer } from "./drawer"
 import { SchoolHistory } from "./school-history"
 import { getDictionary } from "lib/dictionaries"
 
-export const BriefIntro = memo(({ locale }: { locale: string }) => {
+export const BriefIntro = ({ locale }: { locale: string }) => {
   const { briefIntro } = getDictionary(locale)
   return (
     <VStack>
@@ -77,6 +76,4 @@ export const BriefIntro = memo(({ locale }: { locale: string }) => {
       </DiscList>
     </VStack>
   )
-})
-
-BriefIntro.displayName = "BriefIntro"
+}

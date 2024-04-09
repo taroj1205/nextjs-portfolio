@@ -14,9 +14,8 @@ import {
   IconButton,
   HStack,
 } from "@yamada-ui/react"
-import { memo } from "react"
 
-export const ThemeSwitcher = memo(() => {
+export const ThemeSwitcher = () => {
   const { changeColorMode, internalColorMode } = useColorMode()
   const menuOptionItemProps: MenuOptionItemProps = {
     flexDirection: "row-reverse",
@@ -96,6 +95,4 @@ export const ThemeSwitcher = memo(() => {
       </Menu>
     </Box>
   )
-})
-
-ThemeSwitcher.displayName = "ThemeSwitcher"
+}
