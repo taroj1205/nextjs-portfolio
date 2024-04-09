@@ -1,6 +1,9 @@
 import { redirect } from "next/navigation"
-import { useLocale } from "next-intl"
 
-export default function Page() {
-  redirect("/" + useLocale())
+export default function Page({
+  params: { locale },
+}: {
+  params: { locale: string }
+}) {
+  redirect("/" + locale)
 }

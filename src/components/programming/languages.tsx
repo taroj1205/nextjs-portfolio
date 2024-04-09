@@ -1,26 +1,27 @@
 import { Heading, Text, VStack } from "@yamada-ui/react"
-import { useTranslations } from "next-intl"
+import { memo } from "react"
+import { getDictionary } from "lib/dictionaries"
 
-export const Languages = () => {
-  const t = useTranslations("languages")
+export const Languages = memo(({ locale }: { locale: string }) => {
+  const { languages } = getDictionary(locale)
   return (
     <VStack>
       <Heading as="h3" fontSize="2xl">
-        {t("heading")}
+        {languages.heading}
       </Heading>
       <Text fontSize="lg">
         JavaScript, TypeScript, HTML, CSS, Markdown, Python
       </Text>
 
       <Heading as="h3" fontSize="2xl">
-        {t("framework")}
+        {languages.framework}
       </Heading>
       <Text fontSize="lg">
         Next.js, Express, React.js, Node.js, Flask, Tailwind CSS
       </Text>
 
       <Heading as="h3" fontSize="2xl">
-        UI {t("library")}
+        UI {languages.library}
       </Heading>
       <Text fontSize="lg">
         Next UI, Chakra UI, Material UI, Joy UI, Yamada UI
@@ -32,9 +33,11 @@ export const Languages = () => {
       <Text fontSize="lg">MySQL, SQLite, PostgreSQL</Text>
 
       <Heading as="h3" fontSize="2xl">
-        {t("third party")}
+        {languages["third party"]}
       </Heading>
       <Text fontSize="lg">Supabase, Vercel, Netlify, GitHub, Auth0, Clerk</Text>
     </VStack>
   )
-}
+})
+
+Languages.displayName = "Languages"

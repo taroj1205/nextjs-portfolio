@@ -1,11 +1,10 @@
-"use client"
 import { Box, Text, VStack } from "@yamada-ui/react"
-import { useTranslations } from "next-intl"
 import { memo } from "react"
-import { Tooltip as ReactTooltip } from "react-tooltip"
+import { DetailTooltip } from "./detail-tooltip"
+import { getDictionary } from "lib/dictionaries"
 
-export const SchoolHistory = memo(() => {
-  const t = useTranslations()
+export const SchoolHistory = memo(({ locale }: { locale: string }) => {
+  const { education } = getDictionary(locale)
   return (
     <VStack overflowX="auto">
       <Box
@@ -26,7 +25,7 @@ export const SchoolHistory = memo(() => {
               color="white"
               fontSize={{ base: "md", md: "sm" }}
             >
-              {t("education.headings.period")}
+              {education.headings.period}
             </Box>
             <Box
               as="th"
@@ -35,7 +34,7 @@ export const SchoolHistory = memo(() => {
               color="white"
               fontSize={{ base: "md", md: "sm" }}
             >
-              {t("education.headings.schoolName")}
+              {education.headings.schoolName}
             </Box>
             <Box
               as="th"
@@ -45,7 +44,7 @@ export const SchoolHistory = memo(() => {
               color="white"
               fontSize={{ base: "md", md: "sm" }}
             >
-              {t("education.headings.location")}
+              {education.headings.location}
             </Box>
           </Box>
         </Box>
@@ -72,17 +71,12 @@ export const SchoolHistory = memo(() => {
                 verticalAlign="middle"
               >
                 <Text fontSize={{ base: "md", md: "sm" }}>
-                  {t(`education.schools.${index}.duration`)}
+                  {education.schools[index].duration}
                 </Text>
-                <Box
-                  as={ReactTooltip}
-                  id={`tooltip-${index}-duration`}
-                  place="top-start"
-                >
-                  <Text as="span">{`${t(`education.schools.${index}.start`)} - ${t(
-                    `education.schools.${index}.end`,
-                  )}`}</Text>
-                </Box>
+                <DetailTooltip
+                  index={index}
+                  text={`${education.schools[index].start} - ${education.schools[index].end}`}
+                />
               </Box>
               <Box
                 as="td"
@@ -93,15 +87,12 @@ export const SchoolHistory = memo(() => {
                 verticalAlign="middle"
               >
                 <Text fontSize={{ base: "md", md: "sm" }}>
-                  {t(`education.schools.${index}.name`)}
+                  {education.schools[index].name}
                 </Text>
-                <Box
-                  as={ReactTooltip}
-                  id={`tooltip-${index}-name`}
-                  place="top-start"
-                >
-                  <Text as="span">{t(`education.schools.${index}.grade`)}</Text>
-                </Box>
+                <DetailTooltip
+                  index={index}
+                  text={education.schools[index].grade}
+                />
               </Box>
               <Box
                 as="td"
@@ -112,17 +103,12 @@ export const SchoolHistory = memo(() => {
                 data-tooltip-id={`tooltip-${index}-location`}
               >
                 <Text fontSize={{ base: "md", md: "sm" }}>
-                  {t(`education.schools.${index}.location.country`)}
+                  {education.schools[index].location.country}
                 </Text>
-                <Box
-                  as={ReactTooltip}
-                  id={`tooltip-${index}-location`}
-                  place="top-start"
-                >
-                  <Text as="span">
-                    {t(`education.schools.${index}.location.region`)}
-                  </Text>
-                </Box>
+                <DetailTooltip
+                  index={index}
+                  text={education.schools[index].location.region}
+                />
               </Box>
             </Box>
           ))}

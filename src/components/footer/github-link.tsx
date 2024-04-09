@@ -1,15 +1,15 @@
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
-import { Icon } from "@yamada-ui/fontawesome"
-import { HStack, Link, Text } from "@yamada-ui/react"
+import { Button, Link, Text } from "@yamada-ui/react"
 import { memo } from "react"
+import { GitHubIcon } from "components/icons"
 
 export const GitHubLink = memo(() => {
   return (
-    <HStack
+    <Button
+      variant="ghost"
       as={Link}
       href="https://github.com/taroj1205"
       isExternal
-      _hover={{ color: ["black", "white"], textDecoration: "none" }}
+      _nativeHover={{ color: ["black", "white"], textDecoration: "none" }}
       py={1}
       px={2}
       w={{ base: "auto", md: "6rem" }}
@@ -17,10 +17,11 @@ export const GitHubLink = memo(() => {
       transitionDuration="300ms"
       gap={2}
       justifyContent="center"
+      fontWeight="normal"
     >
-      <Icon icon={faGithub} size="2xl" />
+      <GitHubIcon size="2xl" />
       <Text>GitHub</Text>
-    </HStack>
+    </Button>
   )
 })
 

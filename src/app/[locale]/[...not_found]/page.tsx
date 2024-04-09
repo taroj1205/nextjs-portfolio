@@ -1,6 +1,6 @@
 import { Heading, Link, Text, VStack } from "@yamada-ui/react"
 import type { Metadata } from "next"
-import { headers } from "next/headers"
+import { getDictionary } from "lib/dictionaries"
 
 export const metadata: Metadata = {
   title: "404 Not Found",
@@ -9,11 +9,15 @@ export const metadata: Metadata = {
     title: "404 Not Found",
     description: "404 Not Found",
   },
+  metadataBase: new URL("https://taroj1205.poyo.jp"),
 }
 
-export default function NotFound() {
-  const headerList = headers()
-  const locale = headerList.get("x-current-locale") || "en"
+export default function NotFound({
+  params: { locale },
+}: {
+  params: { locale: string }
+}) {
+  const { notFound } = getDictionary(locale)
 
   return (
     <VStack gap="2">
@@ -21,10 +25,10 @@ export default function NotFound() {
         404
       </Heading>
       <Text textAlign="center" fontSize="xl">
-        {locale === "ja" ? "ページが見つかりません" : "Page not found"}
+        {notFound.title}
       </Text>
       <Link href={"/" + locale} fontSize="xl" textAlign="center">
-        {locale === "ja" ? "ホームに戻る" : "Go back to Home"}
+        {notFound.goBack}
       </Link>
     </VStack>
   )

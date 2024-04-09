@@ -1,23 +1,28 @@
 import { Box, ColorModeScript, Spacer, VStack } from "@yamada-ui/react"
 import "./globals.css"
-import { notFound } from "next/navigation"
+import type { Metadata } from "next"
 import Script from "next/script"
-import { NextIntlClientProvider } from "next-intl"
-import { getTranslations } from "next-intl/server"
+import type { ReactNode } from "react"
 import { Providers } from "./providers"
 import { Footer } from "components/footer"
 import { Navbar } from "components/navbar"
+import { getDictionary } from "lib/dictionaries"
+
+export async function generateStaticParams() {
+  return [{ lang: "en" }, { lang: "ja" }]
+}
 
 export async function generateMetadata({
   params: { locale },
 }: {
   params: { locale: string }
-}) {
-  const t = await getTranslations({ locale, namespace: "metadata" })
+}): Promise<Metadata> {
+  const dict = getDictionary(locale).metadata
 
   return {
-    title: t("title"),
-    description: t("description"),
+    metadataBase: new URL("https://taroj1205.poyo.jp"),
+    title: dict.title,
+    description: dict.description,
   }
 }
 
@@ -25,36 +30,27 @@ export default async function RootLayout({
   children,
   params: { locale },
 }: {
-  children: React.ReactNode
+  children: ReactNode
   params: { locale: string }
 }) {
-  let messages
-  try {
-    messages = (await import(`../../locales/${locale}/translation.json`))
-      .default
-  } catch (error) {
-    notFound()
-  }
   return (
     <html lang={locale} data-mode="dark" style={{ colorScheme: "dark" }}>
       <body className="ui-dark">
-        <NextIntlClientProvider locale={locale} messages={messages}>
-          <Providers>
-            <ColorModeScript
-              type="cookie"
-              nonce="testing"
-              initialColorMode="system"
-            />
-            <VStack overflowX="hidden" minH="100svh">
-              <Navbar />
-              <Box as="main" p="6">
-                {children}
-              </Box>
-              <Spacer />
-              <Footer />
-            </VStack>
-          </Providers>
-        </NextIntlClientProvider>
+        <Providers>
+          <ColorModeScript
+            type="cookie"
+            nonce="testing"
+            initialColorMode="system"
+          />
+          <VStack overflowX="hidden" minH="100svh">
+            <Navbar locale={locale} />
+            <Box as="main" p="6">
+              {children}
+            </Box>
+            <Spacer />
+            <Footer locale={locale} />
+          </VStack>
+        </Providers>
         <Script
           id="umami-script"
           strategy="afterInteractive"

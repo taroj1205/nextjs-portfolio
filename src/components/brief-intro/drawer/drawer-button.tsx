@@ -1,8 +1,5 @@
 "use client"
-import {
-  Button,
-  useDisclosure,
-} from "@yamada-ui/react"
+import { Button, useDisclosure } from "@yamada-ui/react"
 import { memo } from "react"
 import type { FC, ReactNode } from "react"
 import { DrawerComponent } from "./drawer-component"
@@ -10,11 +7,12 @@ import { DrawerComponent } from "./drawer-component"
 type DrawerComponentProps = {
   title: string
   description?: string
-  imageRef: { component?: ReactNode; image?: string; video?: string }
+  component?: ReactNode
+  video?: string
 }
 
 export const DrawerButton: FC<DrawerComponentProps> = memo(
-  ({ title, description, imageRef }) => {
+  ({ title, description, component, video }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
@@ -32,7 +30,14 @@ export const DrawerButton: FC<DrawerComponentProps> = memo(
         >
           {title}
         </Button>
-        <DrawerComponent title={title} description={description} imageRef={imageRef} isOpen={isOpen} onClose={onClose} />
+        <DrawerComponent
+          title={title}
+          description={description}
+          component={component}
+          video={video}
+          isOpen={isOpen}
+          onClose={onClose}
+        />
       </>
     )
   },

@@ -10,11 +10,12 @@ import {
 } from "@yamada-ui/react"
 import type { Metadata } from "next"
 import Link from "next/link"
-import { useTranslations } from "next-intl"
+import { getDictionary } from "lib/dictionaries"
 
 export const metadata: Metadata = {
   title: "UoA Links",
   description: "Useful links for UoA",
+  metadataBase: new URL("https://taroj1205.poyo.jp"),
 }
 
 const links = [
@@ -61,14 +62,18 @@ interface Link {
   logo: string
 }
 
-export default function Home() {
-  const t = useTranslations()
+export default function Home({
+  params: { locale },
+}: {
+  params: { locale: string }
+}) {
+  const { header } = getDictionary(locale)
   return (
     <VStack maxW="5xl" mx="auto">
       <Heading as="h2" size="2xl">
-        {t("header.uoa.name")}
+        {header.uoa.name}
       </Heading>
-      <Text>{t("header.uoa.description")}</Text>
+      <Text>{header.uoa.description}</Text>
       <Wrap gap="md">
         {links.map((link: Link) => (
           <Card

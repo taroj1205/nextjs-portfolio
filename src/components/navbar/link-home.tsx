@@ -1,15 +1,15 @@
 "use client"
 import { IconButton } from "@yamada-ui/react"
 import Image from "next/image"
+import Link from "next/link"
 import { memo } from "react"
 import pfpImg from "../../assets/pfp.webp"
-import { Link } from "lib/next-intl"
 
-export const LinkHome = memo(() => {
+export const LinkHome = memo(({ locale }: { locale: string }) => {
   return (
     <IconButton
       as={Link}
-      href="/"
+      href={`/${locale}`}
       display={{ base: "flex", md: "none" }}
       variant="ghost"
       rounded="full"

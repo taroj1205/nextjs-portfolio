@@ -1,17 +1,16 @@
 "use client"
-import { IconButton, Link } from "@yamada-ui/react"
+import { IconButton } from "@yamada-ui/react"
 import Image from "next/image"
-import { useLocale } from "next-intl"
+import { useRouter } from "next/navigation"
 import { memo } from "react"
-import { usePathname } from "lib/next-intl"
 
-export const LangToggle = memo(() => {
-  const pathname = usePathname()
-  const locale = useLocale()
+export const LangToggle = memo(({ locale }: { locale: string }) => {
+  const router = useRouter()
   return (
     <IconButton
-      as={Link}
-      href={`/${locale === "en" ? "ja" : "en"}${pathname}`}
+      onClick={() => {
+        router.push("/" + (locale === "en" ? "ja" : "en"))
+      }}
       rounded="full"
       title="Switch language"
       _focus={{
