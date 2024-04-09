@@ -1,7 +1,8 @@
 import { Heading, Text, VStack } from "@yamada-ui/react"
+import { memo } from "react"
 import { getDictionary } from "lib/dictionaries"
 
-export const Languages = ({ locale }: { locale: string }) => {
+export const Languages = memo(({ locale }: { locale: string }) => {
   const { languages } = getDictionary(locale)
   return (
     <VStack>
@@ -37,4 +38,6 @@ export const Languages = ({ locale }: { locale: string }) => {
       <Text fontSize="lg">Supabase, Vercel, Netlify, GitHub, Auth0, Clerk</Text>
     </VStack>
   )
-}
+})
+
+Languages.displayName = "Languages"

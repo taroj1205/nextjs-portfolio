@@ -1,9 +1,10 @@
 "use client"
 import { Button, HStack, Text } from "@yamada-ui/react"
+import { memo } from "react"
 import { ArrowUpIcon } from "components/icons"
 import { getDictionary } from "lib/dictionaries"
 
-export const ScrollToTop = ({ locale }: { locale: string }) => {
+export const ScrollToTop = memo(({ locale }: { locale: string }) => {
   const { footer } = getDictionary(locale)
   return (
     <>
@@ -31,4 +32,6 @@ export const ScrollToTop = ({ locale }: { locale: string }) => {
       </HStack>
     </>
   )
-}
+})
+
+ScrollToTop.displayName = "ScrollToTop"

@@ -2,8 +2,9 @@
 import { IconButton } from "@yamada-ui/react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
+import { memo } from "react"
 
-export const LangToggle = ({ locale }: { locale: string }) => {
+export const LangToggle = memo(({ locale }: { locale: string }) => {
   const router = useRouter()
   return (
     <IconButton
@@ -38,4 +39,6 @@ export const LangToggle = ({ locale }: { locale: string }) => {
       }
     />
   )
-}
+})
+
+LangToggle.displayName = "LangToggle"

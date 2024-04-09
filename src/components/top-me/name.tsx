@@ -1,6 +1,7 @@
 import { Heading, Text } from "@yamada-ui/react"
+import { memo } from "react"
 
-export const Name = ({ locale }: { locale: string }) => {
+export const Name = memo(({ locale }: { locale: string }) => {
   return (
     <Heading
       textAlign="center"
@@ -36,4 +37,6 @@ export const Name = ({ locale }: { locale: string }) => {
       )}
     </Heading>
   )
-}
+})
+
+Name.displayName = "Name"

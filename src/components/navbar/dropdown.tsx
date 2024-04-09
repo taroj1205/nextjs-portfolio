@@ -11,6 +11,7 @@ import {
   Text,
   Link,
 } from "@yamada-ui/react"
+import { memo } from "react"
 import { nested } from "./use-nested"
 import { BlogIcon, CubesIcon, DropboxIcon } from "components/icons"
 import { getDictionary } from "lib/dictionaries"
@@ -23,7 +24,7 @@ export type DropdownProps = {
   }[]
 }
 
-export const Dropdown = ({
+export const Dropdown = memo(({
   name,
   locale,
 }: {
@@ -118,4 +119,6 @@ export const Dropdown = ({
       </MenuList>
     </Menu>
   )
-}
+})
+
+Dropdown.displayName = "Dropdown"

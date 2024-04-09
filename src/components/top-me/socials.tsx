@@ -1,4 +1,5 @@
 import { ButtonGroup, IconButton, Link, Wrap } from "@yamada-ui/react"
+import { memo } from "react"
 import {
   FacebookIcon,
   InstagramIcon,
@@ -7,7 +8,7 @@ import {
   TwitterIcon,
 } from "components/icons"
 
-export const Socials = () => {
+export const Socials = memo(() => {
   return (
     <ButtonGroup as={Wrap} mx="auto" gap={2}>
       <IconButton
@@ -87,4 +88,6 @@ export const Socials = () => {
       />
     </ButtonGroup>
   )
-}
+})
+
+Socials.displayName = "Socials"

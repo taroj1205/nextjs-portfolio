@@ -2,6 +2,7 @@
 import { Carousel, CarouselSlide } from "@yamada-ui/carousel"
 import { Center, Box } from "@yamada-ui/react"
 import Image from "next/image"
+import { memo } from "react"
 import jugglingImg from "../../assets/carousel/juggling.webp"
 import pfpImg from "../../assets/carousel/pfp.webp"
 import profileImg from "../../assets/carousel/profile.webp"
@@ -26,7 +27,7 @@ const images = [
   },
 ]
 
-export const CarouselComponent = () => {
+export const CarouselComponent = memo(() => {
   return (
     <Box maxW="90vw" w="24rem" h="24rem" aspectRatio="1/1">
       <Carousel
@@ -51,11 +52,13 @@ export const CarouselComponent = () => {
               sizes="(max-width: 600px) 284px, (max-width: 900px) 384px, 784px"
               height={384}
               width={384}
-              priority
+              priority={index === 0}
             />
           </CarouselSlide>
         ))}
       </Carousel>
     </Box>
   )
-}
+})
+
+CarouselComponent.displayName = "CarouselComponent"

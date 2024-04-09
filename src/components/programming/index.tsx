@@ -1,10 +1,11 @@
 import { DiscList, Heading, Link, ListItem, VStack } from "@yamada-ui/react"
+import { memo } from "react"
 import { Languages } from "./languages"
 import { ProjectsCard } from "./projects-card"
 import { ContentDivider } from "components/dividers"
 import { getDictionary } from "lib/dictionaries"
 
-export const Programming = ({ locale }: { locale: string }) => {
+export const Programming = memo(({ locale }: { locale: string }) => {
   const dict = getDictionary(locale)
   return (
     <>
@@ -36,4 +37,6 @@ export const Programming = ({ locale }: { locale: string }) => {
       <ProjectsCard locale={locale} />
     </>
   )
-}
+})
+
+Programming.displayName = "Programming"

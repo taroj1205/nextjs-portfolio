@@ -1,14 +1,11 @@
 import { ButtonGroup, Divider, Heading, VStack } from "@yamada-ui/react"
-import { MenuItemComponent } from "./mobile-item-component"
-import type { DropdownProps } from "components/navbar/dropdown"
+import { memo } from "react"
+import { renderMenuItems } from "./render-menu-items"
 import { nested } from "components/navbar/use-nested"
 import { getDictionary } from "lib/dictionaries"
 
-export const MobileMenuContent = ({ locale }: { locale: string }) => {
+export const MobileMenuContent = memo(({ locale }: { locale: string }) => {
   const { header } = getDictionary(locale)
-
-  const renderMenuItems = (items: DropdownProps["items"]) =>
-    items.map((item) => <MenuItemComponent key={item.href} {...item} />)
 
   return (
     <VStack>
@@ -34,4 +31,6 @@ export const MobileMenuContent = ({ locale }: { locale: string }) => {
       </ButtonGroup>
     </VStack>
   )
-}
+})
+
+MobileMenuContent.displayName = "MobileMenuContent"

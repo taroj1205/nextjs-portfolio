@@ -1,8 +1,9 @@
 import { Box, Text, VStack } from "@yamada-ui/react"
+import { memo } from "react"
 import { DetailTooltip } from "./detail-tooltip"
 import { getDictionary } from "lib/dictionaries"
 
-export const SchoolHistory = ({ locale }: { locale: string }) => {
+export const SchoolHistory = memo(({ locale }: { locale: string }) => {
   const { education } = getDictionary(locale)
   return (
     <VStack overflowX="auto">
@@ -115,4 +116,6 @@ export const SchoolHistory = ({ locale }: { locale: string }) => {
       </Box>
     </VStack>
   )
-}
+})
+
+SchoolHistory.displayName = "SchoolHistory"
