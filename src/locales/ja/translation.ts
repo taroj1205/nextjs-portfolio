@@ -337,6 +337,7 @@ export const translations = {
   heading: {
     programming: "プログラミング",
     "open source": "オープンソース",
+    projects: "プロジェクト",
   },
   "open source": {
     yamada: {
