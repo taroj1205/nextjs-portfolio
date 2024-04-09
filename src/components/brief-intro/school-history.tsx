@@ -75,6 +75,7 @@ export const SchoolHistory = memo(({ locale }: { locale: string }) => {
                 </Text>
                 <DetailTooltip
                   index={index}
+                  prefix="duration"
                   text={`${education.schools[index].start} - ${education.schools[index].end}`}
                 />
               </Box>
@@ -91,6 +92,7 @@ export const SchoolHistory = memo(({ locale }: { locale: string }) => {
                 </Text>
                 <DetailTooltip
                   index={index}
+                  prefix="name"
                   text={education.schools[index].grade}
                 />
               </Box>
@@ -107,6 +109,7 @@ export const SchoolHistory = memo(({ locale }: { locale: string }) => {
                 </Text>
                 <DetailTooltip
                   index={index}
+                  prefix="location"
                   text={education.schools[index].location.region}
                 />
               </Box>
