@@ -4,9 +4,17 @@ import { memo } from "react"
 import { Tooltip } from "react-tooltip"
 
 export const DetailTooltip = memo(
-  ({ index, text }: { index: number; text: string }) => {
+  ({
+    index,
+    text,
+    prefix,
+  }: {
+    index: number
+    text: string
+    prefix: string
+  }) => {
     return (
-      <Box as={Tooltip} id={`tooltip-${index}-location`} place="top-start">
+      <Box as={Tooltip} id={`tooltip-${index}-${prefix}`} place="top-start">
         <Text as="span">{text}</Text>
       </Box>
     )
