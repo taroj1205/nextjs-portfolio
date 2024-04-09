@@ -1,13 +1,12 @@
-import {
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons"
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
-import { Icon } from "@yamada-ui/fontawesome"
 import { ButtonGroup, IconButton, Link, Wrap } from "@yamada-ui/react"
 import { memo } from "react"
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  MailIcon,
+  TwitterIcon,
+} from "components/icons"
 
 export const Socials = memo(() => {
   return (
@@ -25,7 +24,7 @@ export const Socials = memo(() => {
         borderRadius="md"
         transitionDuration="300ms"
         gap={2}
-        icon={<Icon size="xl" icon={faTwitter} />}
+        icon={<TwitterIcon size="xl" />}
       />
       <IconButton
         as={Link}
@@ -40,7 +39,7 @@ export const Socials = memo(() => {
         borderRadius="md"
         transitionDuration="300ms"
         gap={2}
-        icon={<Icon size="xl" icon={faInstagram} />}
+        icon={<InstagramIcon size="xl" />}
       />
       <IconButton
         as={Link}
@@ -55,7 +54,7 @@ export const Socials = memo(() => {
         borderRadius="md"
         transitionDuration="300ms"
         gap={2}
-        icon={<Icon size="xl" icon={faFacebook} />}
+        icon={<FacebookIcon size="xl" />}
       />
       <IconButton
         as={Link}
@@ -70,7 +69,7 @@ export const Socials = memo(() => {
         borderRadius="md"
         transitionDuration="300ms"
         gap={2}
-        icon={<Icon size="xl" icon={faLinkedin} />}
+        icon={<LinkedInIcon size="xl" />}
       />
       <IconButton
         as={Link}
@@ -85,7 +84,7 @@ export const Socials = memo(() => {
         borderRadius="md"
         transitionDuration="300ms"
         gap={2}
-        icon={<Icon size="xl" icon={faEnvelope} />}
+        icon={<MailIcon size="xl" />}
       />
     </ButtonGroup>
   )

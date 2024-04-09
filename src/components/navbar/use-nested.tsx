@@ -76,7 +76,7 @@ function useNested({ name, locale }: { name: string; locale: string }) {
         icon: <UniversityIcon />,
       },
       {
-        href: "https://analytics.eu.umami.is/share/nU5pqI425dwMvrAA/taroj1205.netlify.app",
+        href: "https://analytics.eu.umami.is/share/nU5pqI425dwMvrAA/taroj1205.poyo.jp",
         text: locale === "ja" ? "分析" : "Analytics",
         icon: <AnalyticsIcon />,
       },
@@ -85,17 +85,17 @@ function useNested({ name, locale }: { name: string; locale: string }) {
       {
         href: "https://twitter.com/taroj1205",
         text: "Twitter",
-        icon: <TwitterIcon />,
+        icon: <TwitterIcon color="blue.400" />,
       },
       {
         href: "https://github.com/taroj1205",
         text: "GitHub",
-        icon: <GitHubIcon />,
+        icon: <GitHubIcon size={30} />,
       },
       {
         href: "https://instagram.com/taroj1205",
         text: "Instagram",
-        icon: <InstagramIcon />,
+        icon: <InstagramIcon color="pink.600" />,
       },
       {
         href: "https://youtube.com/@taroj1205",
@@ -105,12 +105,12 @@ function useNested({ name, locale }: { name: string; locale: string }) {
       {
         href: "https://linkedin.com/in/taroj",
         text: "LinkedIn",
-        icon: <LinkedInIcon />,
+        icon: <LinkedInIcon color="blue.700" />,
       },
       {
         href: "https://facebook.com/taroj1205",
         text: "Facebook",
-        icon: <FacebookIcon />,
+        icon: <FacebookIcon color="blue.600" />,
       },
     ],
   }

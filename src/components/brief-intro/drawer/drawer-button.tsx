@@ -1,17 +1,16 @@
 "use client"
 import { Button, useDisclosure } from "@yamada-ui/react"
 import { memo } from "react"
-import type { FC, ReactNode } from "react"
 import { DrawerComponent } from "./drawer-component"
 
 type DrawerComponentProps = {
   title: string
   description?: string
-  component?: ReactNode
+  component?: React.ReactNode
   video?: string
 }
 
-export const DrawerButton: FC<DrawerComponentProps> = memo(
+export const DrawerButton: React.FC<DrawerComponentProps> = memo(
   ({ title, description, component, video }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
 

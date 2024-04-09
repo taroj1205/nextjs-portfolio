@@ -7,19 +7,18 @@ import {
   Text,
   Heading,
 } from "@yamada-ui/react"
-import type { FC, ReactNode } from "react"
 import { memo } from "react"
 
 type DrawerComponentProps = {
   title: string
   description?: string
-  component?: ReactNode
+  component?: React.ReactNode
   video?: string
   isOpen: boolean
   onClose: () => void
 }
 
-export const DrawerComponent: FC<DrawerComponentProps> = memo(
+export const DrawerComponent: React.FC<DrawerComponentProps> = memo(
   ({ title, description, component, video, isOpen, onClose }) => {
     return (
       <Drawer

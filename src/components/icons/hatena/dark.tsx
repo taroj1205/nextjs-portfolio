@@ -1,7 +1,6 @@
 import { Image } from "@yamada-ui/react"
-import { memo } from "react"
 
-export const DarkHatenaIcon = memo(({ ...props }) => (
+export const DarkHatenaIcon = ({ ...props }) => (
   <Image
     alt="hatenablog icon"
     display={["none", "block"]}
@@ -10,6 +9,4 @@ export const DarkHatenaIcon = memo(({ ...props }) => (
     src="/svg/blog/hatenablog_white.svg"
     {...props}
   />
-))
-
-DarkHatenaIcon.displayName = "DarkHatenaIcon"
+)

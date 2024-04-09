@@ -1,7 +1,6 @@
 import { Image } from "@yamada-ui/react"
-import { memo } from "react"
 
-export const DarkNoteIcon = memo(({ ...props }) => (
+export const DarkNoteIcon = ({ ...props }) => (
   <Image
     alt="note icon"
     display={["none", "block"]}
@@ -10,6 +9,4 @@ export const DarkNoteIcon = memo(({ ...props }) => (
     src="/svg/blog/note_white.svg"
     {...props}
   />
-))
-
-DarkNoteIcon.displayName = "DarkNoteIcon"
+)
