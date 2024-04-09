@@ -29,9 +29,7 @@ export const Programming = memo(({ locale }: { locale: string }) => {
         <Languages locale={locale} />
       </VStack>
       <ContentDivider />
-      <Heading as="h3" fontSize="2xl">
-        {dict.heading.projects}
-      </Heading>
+      <Heading as="h2">{dict.heading.projects}</Heading>
       <ProjectsCard locale={locale} />
     </>
   )
