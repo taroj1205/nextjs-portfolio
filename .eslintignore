@@ -5,3 +5,4 @@ node_modules
 build
 pnpm-lock.yaml
 *.temp
+next.config.js

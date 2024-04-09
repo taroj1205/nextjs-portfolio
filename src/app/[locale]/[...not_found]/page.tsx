@@ -1,6 +1,5 @@
 import { Heading, Link, Text, VStack } from "@yamada-ui/react"
 import type { Metadata } from "next"
-import { headers } from "next/headers"
 
 export const metadata: Metadata = {
   title: "404 Not Found",
@@ -11,10 +10,11 @@ export const metadata: Metadata = {
   },
 }
 
-export default function NotFound() {
-  const headerList = headers()
-  const locale = headerList.get("x-current-locale") || "en"
-
+export default function NotFound({
+  params: { locale },
+}: {
+  params: { locale: string }
+}) {
   return (
     <VStack gap="2">
       <Heading textAlign="center" as="h2" fontWeight="bold" fontSize="8xl">

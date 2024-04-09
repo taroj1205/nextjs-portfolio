@@ -1,11 +1,12 @@
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
-import { HStack, Link, Text } from "@yamada-ui/react"
+import { Button, Link, Text } from "@yamada-ui/react"
 import { memo } from "react"
 
 export const GitHubLink = memo(() => {
   return (
-    <HStack
+    <Button
+      variant="ghost"
       as={Link}
       href="https://github.com/taroj1205"
       isExternal
@@ -20,7 +21,7 @@ export const GitHubLink = memo(() => {
     >
       <Icon icon={faGithub} size="2xl" />
       <Text>GitHub</Text>
-    </HStack>
+    </Button>
   )
 })
 

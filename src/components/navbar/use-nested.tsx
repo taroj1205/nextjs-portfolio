@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl"
 import {
   AnalyticsIcon,
   ChatIcon,
@@ -23,24 +22,21 @@ type NestedType = {
     href: string
     text: string
     icon: JSX.Element
-    description: string
   }[]
 }
 
-function useNested(name: string) {
-  const t = useTranslations("header")
+function useNested({ name, locale }: { name: string; locale: string }) {
   const nested: NestedType = {
     blog: [
       {
         href: "https://taroj1205.hatenablog.com",
-        text: t("posts.hatenablog.name"),
+        text: locale === "ja" ? "はてなブログ" : "Hatena Blog",
         icon: (
           <>
             <DarkHatenaIcon />
             <LightHatenaIcon />
           </>
         ),
-        description: "",
       },
       {
         href: "https://note.com/taroj1205",
@@ -51,45 +47,38 @@ function useNested(name: string) {
             <LightNoteIcon />
           </>
         ),
-        description: "",
       },
     ],
     apps: [
       {
         href: "https://chat-taroj.vercel.app/",
-        text: t("chat.name"),
+        text: locale === "ja" ? "チャットアプリ" : "Chat App",
         icon: <ChatIcon />,
-        description: t("chat.description"),
       },
       {
         href: "https://connect4-taroj.vercel.app/",
-        text: t("connect4.name"),
+        text: "Connect 4",
         icon: <Connect4Icon />,
-        description: t("connect4.description"),
       },
       {
         href: "https://typing-game-nextjs.vercel.app/",
-        text: t("typing.name"),
+        text: locale === "ja" ? "タイピングゲーム" : "Typing Game",
         icon: <KeyboardIcon />,
-        description: t("typing.description"),
       },
       {
         href: "https://taroj.vercel.app/apps/search",
-        text: t("search.name"),
+        text: locale === "ja" ? "検索アプリ" : "Search App",
         icon: <SearchIcon />,
-        description: t("search.description"),
       },
       {
         href: "/uoa",
-        text: t("uoa.name"),
+        text: locale === "ja" ? "UoAのリンク等" : "UoA Links",
         icon: <UniversityIcon />,
-        description: t("uoa.description"),
       },
       {
         href: "https://analytics.eu.umami.is/share/nU5pqI425dwMvrAA/taroj1205.netlify.app",
-        text: t("analytics.name"),
+        text: locale === "ja" ? "分析" : "Analytics",
         icon: <AnalyticsIcon />,
-        description: t("analytics.description"),
       },
     ],
     social: [
@@ -97,37 +86,31 @@ function useNested(name: string) {
         href: "https://twitter.com/taroj1205",
         text: "Twitter",
         icon: <TwitterIcon />,
-        description: "",
       },
       {
         href: "https://github.com/taroj1205",
         text: "GitHub",
         icon: <GitHubIcon />,
-        description: "",
       },
       {
         href: "https://instagram.com/taroj1205",
         text: "Instagram",
         icon: <InstagramIcon />,
-        description: "",
       },
       {
         href: "https://youtube.com/@taroj1205",
         text: "YouTube",
         icon: <YouTubeIcon />,
-        description: "",
       },
       {
         href: "https://linkedin.com/in/taroj",
         text: "LinkedIn",
         icon: <LinkedInIcon />,
-        description: "",
       },
       {
         href: "https://facebook.com/taroj1205",
         text: "Facebook",
         icon: <FacebookIcon />,
-        description: "",
       },
     ],
   }

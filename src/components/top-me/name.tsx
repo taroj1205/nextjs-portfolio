@@ -1,10 +1,7 @@
 import { Heading, Text } from "@yamada-ui/react"
-import { useLocale } from "next-intl"
 import { memo } from "react"
 
-export const Name = memo(() => {
-  const locale = useLocale()
-
+export const Name = memo(({ locale }: { locale: string }) => {
   return (
     <Heading
       textAlign="center"

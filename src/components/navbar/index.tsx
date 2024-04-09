@@ -7,7 +7,7 @@ import { ThemeSwitcher } from "./theme-switcher"
 import { SectionDivider } from "components/dividers"
 import { LangToggle } from "components/language"
 
-export const Navbar = memo(() => {
+export const Navbar = memo(({ locale }: { locale: string }) => {
   return (
     <>
       <Box h={{ base: "3rem", md: "4rem" }} w="full" />
@@ -35,13 +35,13 @@ export const Navbar = memo(() => {
           <Spacer />
           {/* Desktop menu */}
           <ButtonGroup display={{ base: "flex", md: "none" }} gap="4">
-            <Dropdown name="social" />
-            <Dropdown name="blog" />
-            <Dropdown name="apps" />
+            <Dropdown name="social" locale={locale} />
+            <Dropdown name="blog" locale={locale} />
+            <Dropdown name="apps" locale={locale} />
           </ButtonGroup>
           <Spacer />
           <ButtonGroup gap="1">
-            <LangToggle />
+            <LangToggle locale={locale} />
             <ThemeSwitcher />
           </ButtonGroup>
         </HStack>

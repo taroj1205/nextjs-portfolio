@@ -1,26 +1,26 @@
 "use client"
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons"
 import { Icon } from "@yamada-ui/fontawesome"
-import { Button, Text } from "@yamada-ui/react"
-import { useTranslations } from "next-intl"
+import { Button, HStack, Text } from "@yamada-ui/react"
 import { memo } from "react"
 
-export const ScrollToTop = memo(() => {
-  const t = useTranslations("footer")
+export const ScrollToTop = memo(({ locale }: { locale: string }) => {
   return (
     <>
-      <Button
+      <HStack
+        as={Button}
         variant="ghost"
         py="1"
         px="2"
-        fontWeight="normal"
         color={["gray.600", "gray.400"]}
         _hover={{ color: ["black", "white"] }}
         transitionDuration="300ms"
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        title={t("scrollToTop")}
+        title={locale === "en" ? "Scroll to Top" : "トップに戻る"}
       >
-        <Text display={{ base: "block", md: "none" }}>{t("scrollToTop")}</Text>
+        <Text display={{ base: "block", md: "none" }}>
+          {locale === "en" ? "Scroll to Top" : "トップに戻る"}
+        </Text>
         <Icon
           display={{ base: "none", md: "block" }}
           icon={faArrowUp}
@@ -28,7 +28,7 @@ export const ScrollToTop = memo(() => {
           mx="auto"
           size="lg"
         />
-      </Button>
+      </HStack>
     </>
   )
 })

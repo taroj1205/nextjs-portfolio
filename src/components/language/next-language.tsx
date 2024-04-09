@@ -1,18 +1,18 @@
 "use client"
-import { Text, HStack, Image } from "@yamada-ui/react"
-import Link from "next/link"
-import { useLocale } from "next-intl"
+import { Text, HStack, Image, Button } from "@yamada-ui/react"
+import { useRouter } from "next/navigation"
 import { memo } from "react"
-import { usePathname } from "lib/next-intl"
 
-export const NextLanguage = memo(() => {
-  const locale = useLocale()
-  const pathname = usePathname()
+export const NextLanguage = memo(({ locale }: { locale: string }) => {
+  const router = useRouter()
   return (
     <HStack
-      as={Link}
-      href={`/${locale === "en" ? "ja" : "en"}${pathname}`}
-      _hover={{ color: ["black", "white"], textDecoration: "none" }}
+      as={Button}
+      variant="ghost"
+      onClick={() => {
+        router.push("/" + (locale === "en" ? "ja" : "en"))
+      }}
+      _hover={{ color: ["black", "white"] }}
       py={1}
       px={2}
       w={{ base: "auto", md: "6rem" }}

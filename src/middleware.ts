@@ -1,45 +1,41 @@
-import type { NextRequest } from "next/server"
-import createIntlMiddleware from "next-intl/middleware"
+import { NextResponse, type NextRequest } from "next/server"
+
+const locales = ["en", "ja"]
+
+function getLocale(request: NextRequest) {
+  const headerList = request.headers
+  const acceptLanguage = headerList.get("Accept-Language")
+  const locale = acceptLanguage?.split(",")[0] || "en"
+  if (locales.includes(locale)) return locale
+  return "en"
+}
 
 export default async function middleware(request: NextRequest) {
-  // Step 1: Use the incoming request
-  const defaultLocale = request.headers.get("x-default-locale") || "en"
-  const pathname = request.nextUrl.pathname
-  const locale = pathname.split("/")[1]
-
-  // Step 2: Create and call the next-intl middleware
-  const handleI18nRouting = createIntlMiddleware({
-    // A list of all locales that are supported
-    locales: ["en", "ja"],
-
-    defaultLocale,
-    localePrefix: "always",
-    localeDetection: true,
+  const { pathname } = request.nextUrl
+  let newPathname = pathname
+  const pathnameHasLocale = locales.some((locale) => {
+    if (pathname.startsWith(`/${locale}/`)) {
+      newPathname = pathname.replace(`/${locale}`, "")
+      return true
+    }
+    if (pathname === `/${locale}`) {
+      newPathname = "/"
+      return true
+    }
+    return false
   })
 
-  const response = handleI18nRouting(request)
-
-  // Step 3: Alter the response
-  response.headers.set("x-default-locale", defaultLocale)
-
-  let currentLocale = "en"
-  if (locale && locale.includes("ja")) {
-    currentLocale = "ja"
+  if (pathnameHasLocale) {
+    request.headers.set("x-locale", newPathname)
+    request.headers.set("x-pathname", newPathname)
+    return NextResponse.next()
   }
 
-  response.headers.set("x-current-locale", currentLocale)
-  // remove /locale from pathname
-  const path = pathname.replace(`/${currentLocale}`, "")
-  response.headers.set("x-slug", path)
-  const pathWithoutFirstSlash = path.substring(1)
-  response.headers.set("slug", pathWithoutFirstSlash)
-  response.headers.set("x-full-path", request.nextUrl.href)
-
-  return response
+  const locale = getLocale(request)
+  request.nextUrl.pathname = `/${locale}${newPathname}`
+  return NextResponse.redirect(request.nextUrl)
 }
 
 export const config = {
-  // Skip all paths that should not be internationalized. This example skips the
-  // folders "api", "_next" and all files with an extension (e.g. favicon.ico)
   matcher: ["/((?!api|_next|.*\\..*).*)"],
 }

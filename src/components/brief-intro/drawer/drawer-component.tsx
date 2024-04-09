@@ -4,7 +4,6 @@ import {
   DrawerBody,
   DrawerFooter,
   Button,
-  Image,
   Text,
   Heading,
 } from "@yamada-ui/react"
@@ -14,13 +13,14 @@ import { memo } from "react"
 type DrawerComponentProps = {
   title: string
   description?: string
-  imageRef: { component?: ReactNode; image?: string; video?: string }
+  component?: ReactNode
+  video?: string
   isOpen: boolean
   onClose: () => void
 }
 
 export const DrawerComponent: FC<DrawerComponentProps> = memo(
-  ({ title, description, imageRef, isOpen, onClose }) => {
+  ({ title, description, component, video, isOpen, onClose }) => {
     return (
       <Drawer
         placement="bottom"
@@ -48,7 +48,7 @@ export const DrawerComponent: FC<DrawerComponentProps> = memo(
               {description}
             </Text>
           ) : null}
-          {imageRef.video ? (
+          {video ? (
             <iframe
               width="315"
               height="560"
@@ -57,15 +57,13 @@ export const DrawerComponent: FC<DrawerComponentProps> = memo(
                 marginLeft: "auto",
                 marginRight: "auto",
               }}
-              src={`https://www.youtube.com/embed/${imageRef.video}`}
+              src={`https://www.youtube.com/embed/${video}`}
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
-          ) : imageRef.image ? (
-            <Image className="max-h-[300px]" src={imageRef.image} alt={title} />
-          ) : imageRef.component ? (
-            imageRef.component
+          ) : component ? (
+            component
           ) : null}
         </DrawerBody>
 
