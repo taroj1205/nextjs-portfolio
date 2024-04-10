@@ -73,9 +73,9 @@ export const ProjectsCard = memo(({ locale }: { locale: string }) => {
               h="36px"
               w="36px"
               href={project.githubLink}
+              title="GitHub"
               isExternal
               icon={<GitHubIcon />}
-              aria-label="GitHub"
             />
           </CardFooter>
         </Card>

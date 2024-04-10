@@ -5,13 +5,13 @@ import {
   MenuButton,
   Button,
   HStack,
-  Box,
   MenuList,
   MenuItem,
   Text,
   Link,
 } from "@yamada-ui/react"
 import { memo } from "react"
+import { AnimatedTriangle } from "./animated-triangle"
 import { nested } from "./use-nested"
 import { BlogIcon, CubesIcon, DropboxIcon } from "components/icons"
 import { getDictionary } from "lib/dictionaries"
@@ -47,6 +47,7 @@ export const Dropdown = memo(
           variant="ghost"
           color={["black", "white"]}
           fontWeight="normal"
+          title={header[name as keyof typeof header] as string}
           leftIcon={
             name === "blog" ? (
               <BlogIcon color={["black", "white"]} />
@@ -56,36 +57,7 @@ export const Dropdown = memo(
               <DropboxIcon color={["black", "white"]} />
             )
           }
-          rightIcon={
-            <Box
-              h="2"
-              w="2"
-              transform="rotate(90deg) scale(0.7)"
-              className="white-bg-on-dark-before-after"
-              _before={{
-                content: "''",
-                position: "absolute",
-                right: 0,
-                width: "10px",
-                height: "2px",
-                transition: "transform 0.3s ease-in-out",
-                transform: isOpen
-                  ? "translateY(3px) rotate(45deg)"
-                  : "translateY(-3px) rotate(45deg)",
-              }}
-              _after={{
-                content: "''",
-                position: "absolute",
-                right: 0,
-                width: "10px",
-                height: "2px",
-                transition: "transform 0.3s ease-in-out",
-                transform: isOpen
-                  ? "translateY(-3px) rotate(-45deg)"
-                  : "translateY(3px) rotate(-45deg)",
-              }}
-            />
-          }
+          rightIcon={<AnimatedTriangle isOpen={isOpen} />}
         >
           {name === "blog"
             ? header.blog
@@ -95,7 +67,7 @@ export const Dropdown = memo(
         </MenuButton>
         <MenuList>
           {items.map((item) => (
-            <MenuItem key={item.href}>
+            <MenuItem key={item.href} title={item.text}>
               <HStack
                 as={Link}
                 href={item.href}

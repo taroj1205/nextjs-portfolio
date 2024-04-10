@@ -12,6 +12,7 @@ export const GitHubLink = memo(() => {
       _nativeHover={{ color: ["black", "white"], textDecoration: "none" }}
       py={1}
       px={2}
+      title="GitHub"
       w={{ base: "auto", md: "6rem" }}
       color={["gray.600", "gray.400"]}
       transitionDuration="300ms"
