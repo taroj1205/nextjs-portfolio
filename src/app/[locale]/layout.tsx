@@ -1,5 +1,4 @@
 import { Box, ColorModeScript, Spacer, VStack } from "@yamada-ui/react"
-import "./globals.css"
 import type { Metadata } from "next"
 import Script from "next/script"
 import { Providers } from "./providers"

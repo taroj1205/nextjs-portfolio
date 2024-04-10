@@ -1,0 +1,8 @@
+div::before,
+div::after {
+  background-color: var(--ui-colors-black);
+}
+[data-mode="dark"] div::before,
+[data-mode="dark"] div::after {
+  background-color: var(--ui-colors-white);
+}

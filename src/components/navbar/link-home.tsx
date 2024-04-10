@@ -11,6 +11,7 @@ export const LinkHome = memo(({ locale }: { locale: string }) => {
       as={Link}
       href={`/${locale}`}
       display={{ base: "flex", md: "none" }}
+      title={locale === "ja" ? "ホームページへ戻る" : "Back to Home"}
       variant="ghost"
       rounded="full"
       _focus={{

@@ -1,18 +1,16 @@
 "use client"
 import { IconButton } from "@yamada-ui/react"
-import { useRouter } from "next/navigation"
+import Link from "next/link"
 import { memo } from "react"
 import { JPIcon, NZIcon } from "components/icons"
 
 export const LangToggle = memo(({ locale }: { locale: string }) => {
-  const router = useRouter()
   return (
     <IconButton
-      onClick={() => {
-        router.push("/" + (locale === "en" ? "ja" : "en"))
-      }}
+      as={Link}
+      href={"/" + (locale === "en" ? "ja" : "en")}
       rounded="full"
-      title="Switch language"
+      title={locale === "ja" ? "To English" : "日本語へ"}
       _focus={{
         outline: "3px solid",
         outlineColor: "rgba(191, 219, 254, 0.5)",

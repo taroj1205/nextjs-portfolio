@@ -42,7 +42,7 @@ export const Navbar = memo(({ locale }: { locale: string }) => {
           <Spacer />
           <ButtonGroup gap="1">
             <LangToggle locale={locale} />
-            <ThemeSwitcher />
+            <ThemeSwitcher locale={locale} />
           </ButtonGroup>
         </HStack>
         <SectionDivider />

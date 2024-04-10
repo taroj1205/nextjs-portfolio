@@ -16,7 +16,7 @@ import {
 import { memo } from "react"
 import { DisplayIcon, MoonIcon, SunIcon } from "components/icons"
 
-export const ThemeSwitcher = memo(() => {
+export const ThemeSwitcher = memo(({ locale }: { locale: string }) => {
   const { changeColorMode, internalColorMode } = useColorMode()
   const menuOptionItemProps: MenuOptionItemProps = {
     flexDirection: "row-reverse",
@@ -40,7 +40,7 @@ export const ThemeSwitcher = memo(() => {
         <MenuButton
           as={IconButton}
           type="button"
-          title="Switch theme"
+          title={locale === "ja" ? "テーマを変える" : "Switch Theme"}
           data-open={isOpen}
           rounded="full"
           outline={isOpen ? "3px solid" : "none"}
