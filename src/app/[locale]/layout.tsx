@@ -7,7 +7,7 @@ import { Navbar } from "components/navbar"
 import { getDictionary } from "lib/dictionaries"
 
 export async function generateStaticParams() {
-  return [{ lang: "en" }, { lang: "ja" }]
+  return [{ locale: "en" }, { locale: "ja" }]
 }
 
 export async function generateMetadata({
@@ -27,10 +27,10 @@ export async function generateMetadata({
 export default async function RootLayout({
   children,
   params: { locale },
-}: {
+}: Readonly<{
   children: React.ReactNode
   params: { locale: string }
-}) {
+}>) {
   return (
     <html lang={locale} data-mode="dark" style={{ colorScheme: "dark" }}>
       <body className="ui-dark">
