@@ -11,7 +11,6 @@
     "prepare": "husky"
   },
   "dependencies": {
-    "@commitlint/config-conventional": "^19.1.0",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
     "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@yamada-ui/carousel": "^1.0.23",
@@ -24,6 +23,7 @@
     "sharp": "^0.33.3"
   },
   "devDependencies": {
+    "@commitlint/config-conventional": "^19.1.0",
     "@commitlint/cli": "^19.2.1",
     "@types/node": "^20.12.3",
     "@types/react": "^18.2.74",
