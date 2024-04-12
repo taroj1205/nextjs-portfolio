@@ -37,7 +37,7 @@ export default async function RootLayout({
         <Providers>
           <VStack overflowX="hidden" minH="100svh">
             <Navbar locale={locale} />
-            <Box as="main" p="6">
+            <Box as="main" p="6" pt={{ base: "6", md: "3" }}>
               {children}
             </Box>
             <Spacer />

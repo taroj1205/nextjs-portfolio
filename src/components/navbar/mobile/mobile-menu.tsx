@@ -22,7 +22,7 @@ export const MobileMenu = memo(({ locale }: { locale: string }) => {
               position="absolute"
               width="24px"
               height="1px"
-              transform={isOpen ? "rotate(45deg)" : "translateY(-5px)"}
+              transform={isOpen ? "rotate(45deg)" : "translateY(-8px)"}
               bg={["black", "white"]}
               transitionDuration="300ms"
               transitionProperty="all"
@@ -31,7 +31,17 @@ export const MobileMenu = memo(({ locale }: { locale: string }) => {
               position="absolute"
               width="24px"
               height="1px"
-              transform={isOpen ? "rotate(-45deg)" : "translateY(5px)"}
+              transform={isOpen ? "translateX(20px)" : undefined}
+              opacity={isOpen ? 0 : 1}
+              bg={["black", "white"]}
+              transitionDuration="400ms"
+              transitionProperty="all"
+            />
+            <Box
+              position="absolute"
+              width="24px"
+              height="1px"
+              transform={isOpen ? "rotate(-45deg)" : "translateY(8px)"}
               bg={["black", "white"]}
               transitionDuration="300ms"
               transitionProperty="all"
