@@ -1,19 +1,16 @@
 "use client"
-import {
-  UIProvider,
-  createColorModeManager,
-  extendConfig,
-} from "@yamada-ui/react"
+import { UIProvider, colorModeManager, extendConfig } from "@yamada-ui/react"
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
-  const colorModeManager = createColorModeManager("cookie")
-
   const customConfig = extendConfig({
-    initialColorMode: "system",
+    initialColorMode: "dark",
   })
 
   return (
-    <UIProvider config={customConfig} colorModeManager={colorModeManager}>
+    <UIProvider
+      config={customConfig}
+      colorModeManager={{ ...colorModeManager }.cookieStorage}
+    >
       {children}
     </UIProvider>
   )

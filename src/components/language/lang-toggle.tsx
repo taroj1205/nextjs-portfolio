@@ -13,7 +13,7 @@ export const LangToggle = memo(({ locale }: { locale: string }) => {
       title={locale === "ja" ? "To English" : "日本語へ"}
       _focus={{
         outline: "3px solid",
-        outlineColor: "rgba(191, 219, 254, 0.5)",
+        outlineColor: "hsla(210, 50%, 85%, 0.5)",
       }}
       variant="ghost"
       transitionDuration="300ms"

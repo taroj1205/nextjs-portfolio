@@ -1,26 +1,23 @@
-import { Box, ColorModeScript, Spacer, VStack } from "@yamada-ui/react"
+import { Box, Spacer, VStack } from "@yamada-ui/react"
 import type { Metadata } from "next"
+import { cookies } from "next/headers"
 import Script from "next/script"
 import { Providers } from "./providers"
 import { Footer } from "components/footer"
 import { Navbar } from "components/navbar"
 import { getDictionary } from "lib/dictionaries"
 
-export async function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "ja" }]
-}
-
 export async function generateMetadata({
   params: { locale },
 }: {
   params: { locale: string }
 }): Promise<Metadata> {
-  const dict = getDictionary(locale).metadata
+  const { metadata } = getDictionary(locale)
 
   return {
     metadataBase: new URL("https://taroj1205.poyo.jp"),
-    title: dict.title,
-    description: dict.description,
+    title: metadata.title,
+    description: metadata.description,
   }
 }
 
@@ -31,15 +28,13 @@ export default async function RootLayout({
   children: React.ReactNode
   params: { locale: string }
 }>) {
+  const mode =
+    cookies().get("ui-color-mode")?.value === "light" ? "light" : "dark"
+
   return (
-    <html lang={locale} data-mode="dark" style={{ colorScheme: "dark" }}>
-      <body className="ui-dark">
+    <html lang={locale} data-mode={mode} style={{ colorScheme: mode }}>
+      <body className={`ui-${mode}`}>
         <Providers>
-          <ColorModeScript
-            type="cookie"
-            nonce="testing"
-            initialColorMode="system"
-          />
           <VStack overflowX="hidden" minH="100svh">
             <Navbar locale={locale} />
             <Box as="main" p="6">
