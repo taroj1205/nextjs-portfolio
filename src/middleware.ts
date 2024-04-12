@@ -11,6 +11,7 @@ function getLocale(request: NextRequest) {
 }
 
 export default async function middleware(request: NextRequest) {
+  const theme = request.cookies.get("ui-color-mode")?.value || "dark"
   const { pathname } = request.nextUrl
   let newPathname = pathname
   const pathnameHasLocale = locales.some((locale) => {
@@ -24,6 +25,10 @@ export default async function middleware(request: NextRequest) {
     }
     return false
   })
+
+  if (theme !== "dark" && theme !== "light") {
+    request.headers.set("ui-color-mode", "dark")
+  }
 
   if (pathnameHasLocale) {
     request.headers.set("x-locale", newPathname)
