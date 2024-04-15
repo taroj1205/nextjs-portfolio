@@ -1,6 +1,6 @@
 import { Button, Link, Text } from "@yamada-ui/react"
 import { memo } from "react"
-import { GitHubIcon } from "components/icons"
+import { GitHubIcon } from "components/icons/socials/github"
 
 export const GitHubLink = memo(() => {
   return (

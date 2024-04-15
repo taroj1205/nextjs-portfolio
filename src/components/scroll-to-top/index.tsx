@@ -1,7 +1,7 @@
 "use client"
 import { Button, HStack, Text } from "@yamada-ui/react"
 import { memo } from "react"
-import { ArrowUpIcon } from "components/icons"
+import { ArrowUpIcon } from "components/icons/arrows/up"
 import { getDictionary } from "lib/dictionaries"
 
 export const ScrollToTop = memo(({ locale }: { locale: string }) => {

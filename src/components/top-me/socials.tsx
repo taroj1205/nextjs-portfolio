@@ -1,12 +1,10 @@
 import { ButtonGroup, IconButton, Link, Wrap } from "@yamada-ui/react"
 import { memo } from "react"
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  MailIcon,
-  TwitterIcon,
-} from "components/icons"
+import { MailIcon } from "components/icons/mail"
+import { FacebookIcon } from "components/icons/socials/facebook"
+import { InstagramIcon } from "components/icons/socials/instagram"
+import { LinkedInIcon } from "components/icons/socials/linkedin"
+import { TwitterIcon } from "components/icons/socials/twitter"
 
 export const Socials = memo(() => {
   return (

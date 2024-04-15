@@ -15,7 +15,7 @@ import type { StaticImageData } from "next/image"
 import Image from "next/image"
 import { memo } from "react"
 import { projectsArray } from "./projects-array"
-import { GitHubIcon } from "components/icons"
+import { GitHubIcon } from "components/icons/socials/github"
 
 export interface Project {
   title: string
