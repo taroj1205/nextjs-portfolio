@@ -1,19 +1,17 @@
-import {
-  AnalyticsIcon,
-  ChatIcon,
-  Connect4Icon,
-  FacebookIcon,
-  GitHubIcon,
-  HatenaIcon,
-  InstagramIcon,
-  KeyboardIcon,
-  LinkedInIcon,
-  NoteIcon,
-  SearchIcon,
-  TwitterIcon,
-  UniversityIcon,
-  YouTubeIcon,
-} from "components/icons"
+import { AnalyticsIcon } from "components/icons/analytics"
+import { ChatIcon } from "components/icons/chat"
+import { Connect4Icon } from "components/icons/connect4"
+import { HatenaIcon } from "components/icons/hatena"
+import { KeyboardIcon } from "components/icons/keyboard"
+import { NoteIcon } from "components/icons/note"
+import { SearchIcon } from "components/icons/search"
+import { FacebookIcon } from "components/icons/socials/facebook"
+import { GitHubIcon } from "components/icons/socials/github"
+import { InstagramIcon } from "components/icons/socials/instagram"
+import { LinkedInIcon } from "components/icons/socials/linkedin"
+import { TwitterIcon } from "components/icons/socials/twitter"
+import { YouTubeIcon } from "components/icons/socials/youtube"
+import { UniversityIcon } from "components/icons/university"
 
 type NestedType = {
   [key: string]: {

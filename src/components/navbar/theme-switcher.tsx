@@ -1,7 +1,8 @@
 "use client"
 import { useColorMode, Box, IconButton } from "@yamada-ui/react"
 import { memo } from "react"
-import { MoonIcon, SunIcon } from "components/icons"
+import { MoonIcon } from "components/icons/moon"
+import { SunIcon } from "components/icons/sun"
 
 export const ThemeSwitcher = memo(({ locale }: { locale: string }) => {
   const { toggleColorMode } = useColorMode()

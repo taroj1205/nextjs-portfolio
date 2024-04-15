@@ -2,7 +2,8 @@
 import { Text, Button, HStack } from "@yamada-ui/react"
 import Link from "next/link"
 import { memo } from "react"
-import { JPIcon, NZIcon } from "components/icons"
+import { JPIcon } from "components/icons/locales/jp"
+import { NZIcon } from "components/icons/locales/nz"
 
 export const NextLanguage = memo(({ locale }: { locale: string }) => {
   return (

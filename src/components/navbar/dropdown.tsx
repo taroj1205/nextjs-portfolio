@@ -13,7 +13,9 @@ import {
 import { memo } from "react"
 import { AnimatedTriangle } from "./animated-triangle"
 import { nested } from "./use-nested"
-import { BlogIcon, CubesIcon, DropboxIcon } from "components/icons"
+import { BlogIcon } from "components/icons/blog"
+import { CubesIcon } from "components/icons/cubes"
+import { DropboxIcon } from "components/icons/socials/dropbox"
 import { getDictionary } from "lib/dictionaries"
 
 export type DropdownProps = {

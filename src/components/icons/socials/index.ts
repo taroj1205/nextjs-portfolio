@@ -1,7 +1,0 @@
-export { FacebookIcon } from "./facebook"
-export { GitHubIcon } from "./github"
-export { LinkedInIcon } from "./linkedin"
-export { TwitterIcon } from "./twitter"
-export { InstagramIcon } from "./instagram"
-export { YouTubeIcon } from "./youtube"
-export { DropboxIcon } from "./dropbox"

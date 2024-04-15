@@ -1,12 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server"
 
-const locales = ["en", "ja"]
+const locales = new Set(["en", "ja"])
 
 function getLocale(request: NextRequest) {
   const headerList = request.headers
   const acceptLanguage = headerList.get("Accept-Language")
   const locale = acceptLanguage?.split(",")[0] || "en"
-  if (locales.includes(locale)) return locale
+  if (locales.has(locale)) return locale
   return "en"
 }
 
@@ -14,7 +14,7 @@ export default async function middleware(request: NextRequest) {
   const theme = request.cookies.get("ui-color-mode")?.value || "dark"
   const { pathname } = request.nextUrl
   let newPathname = pathname
-  const pathnameHasLocale = locales.some((locale) => {
+  const pathnameHasLocale = Array.from(locales).some((locale) => {
     if (pathname.startsWith(`/${locale}/`)) {
       newPathname = pathname.replace(`/${locale}`, "")
       return true
@@ -42,5 +42,5 @@ export default async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next|.*\\..*).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
 }
