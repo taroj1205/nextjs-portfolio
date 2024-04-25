@@ -10,12 +10,12 @@ import westlakeImg from "../../assets/carousel/westlake_me.webp"
 
 const images = [
   {
-    src: jugglingImg,
-    alt: "Me juggling",
-  },
-  {
     src: profileImg,
     alt: "Me with Kendama",
+  },
+  {
+    src: jugglingImg,
+    alt: "Me juggling",
   },
   {
     src: pfpImg,
@@ -30,16 +30,9 @@ const images = [
 export const CarouselComponent = memo(() => {
   return (
     <Box maxW="90vw" w="24rem" h="24rem" aspectRatio="1/1">
-      <Carousel
-        speed={5}
-        animationDuration="slow"
-        delay={4000}
-        autoplay
-        stopMouseEnterAutoplay={true}
-        slideSize="full"
-      >
+      <Carousel slideSize="full">
         {images.map((image, index) => (
-          <CarouselSlide key={index} as={Center}>
+          <CarouselSlide key={image.alt} as={Center}>
             <Image
               style={{
                 borderRadius: "calc(1rem - 2px)",
